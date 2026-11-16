@@ -1,0 +1,186 @@
+{
+  "roi": [
+    0,
+    0,
+    1200,
+    900
+  ],
+  "absolute_roi": [
+    0,
+    0,
+    1200,
+    900
+  ],
+  "analysis_scale": 1.0,
+  "scale": 0.5,
+  "method": "frequency_notch",
+  "harmonics": [
+    1,
+    2
+  ],
+  "include_lattice_lines": true,
+  "radius_cyc_per_px": null,
+  "apodization": 0.35,
+  "strength": 1.0,
+  "taps": null,
+  "pad": null,
+  "feather": null,
+  "peaks": [],
+  "accepted_peaks": [],
+  "rejected_peaks": [],
+  "manual_peaks": [],
+  "lattice_explained": [],
+  "notch_specs": [],
+  "notch_notes": [],
+  "processing_audit": {
+    "method": "frequency_notch",
+    "notches": [],
+    "note": "no peaks accepted; image passed through unchanged"
+  },
+  "resample_audit": {
+    "method": "area_average",
+    "requested_scale": 0.5,
+    "output_shape": [
+      450,
+      600
+    ],
+    "prefilter": "exact fractional area box (per channel identical)",
+    "note": "Area averaging is applied after screen suppression; it also prevents any leftover high frequency from aliasing into new moire."
+  },
+  "resample_plan": {
+    "scale": 0.5,
+    "order": "suppress_then_resize",
+    "reason": "Suppression first removes the scanned screen; area resampling then prevents residual high frequency from aliasing into a new lower-frequency moire."
+  },
+  "metrics": {
+    "peak_suppression": {
+      "peaks": [],
+      "note": "no peaks were accepted"
+    },
+    "content_preservation": {
+      "metrics": {
+        "edge_sharpness": {
+          "before": 0.57485431432724,
+          "after": 0.57485431432724,
+          "retained_fraction": 1.0
+        },
+        "edge_contrast": {
+          "before": 0.04144458472728729,
+          "after": 0.04144458472728729,
+          "retained_fraction": 1.0
+        },
+        "hairline_contrast": {
+          "before": 0.11261266469955444,
+          "after": 0.11261266469955444,
+          "retained_fraction": 1.0
+        },
+        "detail_energy": {
+          "before": 0.03475124388933182,
+          "after": 0.03475124388933182,
+          "retained_fraction": 1.0
+        }
+      },
+      "worst_retained_fraction": 1.0,
+      "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+    },
+    "moire_vs_area_reference": {
+      "reference_energy": 0.05687706544995308,
+      "output_energy": 0.05687706544995308,
+      "ratio": 1.0,
+      "added_moire_risk": false,
+      "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+    },
+    "seam": {
+      "border_wrap_step_p95": 0.2311398684978485,
+      "interior_step_p95": 0.134409561753273,
+      "border_over_interior": 1.7196683441475473,
+      "input_border_wrap_step_p95": 0.2311398684978485,
+      "border_step_change": 1.0,
+      "wrap_seam_suspected": false,
+      "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+    },
+    "color_registration": {
+      "input": {
+        "note": "single-channel image"
+      },
+      "output": {
+        "note": "single-channel image"
+      },
+      "suppressed_output": {
+        "note": "single-channel image"
+      }
+    },
+    "resample_scale": 0.5,
+    "note": "Edge/hairline/detail metrics are measured on the suppressed image before resampling, so the resampling low-pass is not misreported as descreen smoothing."
+  },
+  "warnings": [
+    "No narrowband screen found. Do not apply a global blur; enlarge the ROI or add a known frequency manually."
+  ],
+  "flat_tile_assist_used": false,
+  "flat_tiles": [
+    [
+      800,
+      480,
+      320,
+      320
+    ],
+    [
+      480,
+      160,
+      320,
+      320
+    ],
+    [
+      480,
+      320,
+      320,
+      320
+    ],
+    [
+      0,
+      320,
+      320,
+      320
+    ],
+    [
+      0,
+      480,
+      320,
+      320
+    ],
+    [
+      160,
+      0,
+      320,
+      320
+    ],
+    [
+      480,
+      0,
+      320,
+      320
+    ],
+    [
+      800,
+      320,
+      320,
+      320
+    ]
+  ],
+  "manual_review_required": false,
+  "elapsed_s": 0.6737935543060303,
+  "inputs": {
+    "input_shape": [
+      900,
+      1200
+    ],
+    "suppressed_shape": [
+      900,
+      1200
+    ],
+    "output_shape": [
+      450,
+      600
+    ]
+  }
+}

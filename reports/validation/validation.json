@@ -1,0 +1,2355 @@
+{
+  "summary": {
+    "cases": 10,
+    "known_screen_cases": 7,
+    "clean_cases": 3,
+    "screen_found": "9/9",
+    "screen_detection_recall": 1.0,
+    "false_positive_screens": 0,
+    "clean_cases_with_false_screen": 0,
+    "screen_cases_all_peaks_reduced": "7/7",
+    "screen_cases_all_peaks_reduced_spatial_fir": "7/7",
+    "worst_edge_sharpness_retained_vs_input": 0.6548130523862389,
+    "worst_hairline_contrast_retained_vs_input": 0.8768650197444047,
+    "worst_edge_slope_retention_vs_clean": 0.7363918180988209,
+    "worst_edge_acutance_retention_vs_clean": 0.7403604828107866,
+    "worst_edge_slope_retention_vs_screened_input": 0.9315761998325608,
+    "worst_edge_acutance_retention_vs_screened_input": 0.8125781654274981,
+    "max_seam_ratio": 1.0,
+    "moire_risk_flags": 0
+  },
+  "cases": [
+    {
+      "name": "known_6px_33deg",
+      "meta": {
+        "kind": "known_screen",
+        "screen": {
+          "period_px": 6.0,
+          "angle_deg": 33.0,
+          "amplitude": 0.18
+        },
+        "note": "flat tone + known screen; used for period/angle scoring"
+      },
+      "analysis_seconds": 2.407,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 6.0,
+            "angle_deg": 33.0
+          }
+        ],
+        "should_select": true
+      },
+      "detected_all": [
+        {
+          "period_px": 6.000233694735222,
+          "angle_deg": 32.99984387278782,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 6.000233694735222,
+          "angle_deg": 32.99984387278782,
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 6.0,
+          "expected_angle_deg": 33.0,
+          "matched": true,
+          "detected_period_px": 6.000233694735222,
+          "detected_angle_deg": 32.99984387278782,
+          "period_error_pct": 0.00389491225369909,
+          "angle_error_deg": 0.000156127212179058,
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 1,
+      "suppression": {
+        "mean_reduction_db": 88.64512302777783,
+        "min_reduction_db": 88.64512302777783,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 6.000233694735222,
+            "angle_deg": 32.99984387278782,
+            "amplitude_before": 0.03468067675933484,
+            "amplitude_after": 1.281832894608445e-06,
+            "local_floor_before": 3.5502611995843673e-06,
+            "local_floor_after": 3.0618902090545305e-06,
+            "snr_before_db": 79.79654515202606,
+            "snr_after_db": -7.5631640341990245,
+            "lobe_max_before": 8.59221076965332,
+            "lobe_max_after": -0.3929583430290222,
+            "reduction_db": 88.64512302777783,
+            "reduction_ratio": 0.9999630389884401,
+            "amplitude_after_conjugate": 1.281832894608445e-06
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 75.86063181711228,
+        "min_reduction_db": 75.86063181711228,
+        "all_reduced": true
+      },
+      "content": null,
+      "content_vs_clean_truth": null,
+      "content_vs_clean_baseline": null,
+      "moire": {
+        "reference_energy": 0.06536002457141876,
+        "output_energy": 0.016729122027754784,
+        "ratio": 0.25595342317344,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.18168224394321442,
+        "interior_step_p95": 0.08865413069725037,
+        "border_over_interior": 2.0493376057529753,
+        "input_border_wrap_step_p95": 0.18168224394321442,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Detail retention fell to 0.21; the notch may be too wide for this image. Reduce the radius or the harmonic set."
+      ],
+      "output_shape": [
+        512,
+        640
+      ]
+    },
+    {
+      "name": "known_9p5px_12deg",
+      "meta": {
+        "kind": "known_screen",
+        "screen": {
+          "period_px": 9.5,
+          "angle_deg": 12.0,
+          "amplitude": 0.18
+        },
+        "note": "flat tone + known screen; used for period/angle scoring"
+      },
+      "analysis_seconds": 2.802,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 9.5,
+            "angle_deg": 12.0
+          }
+        ],
+        "should_select": true
+      },
+      "detected_all": [
+        {
+          "period_px": 9.500773780014395,
+          "angle_deg": 12.007068531120446,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 9.500773780014395,
+          "angle_deg": 12.007068531120446,
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 9.5,
+          "expected_angle_deg": 12.0,
+          "matched": true,
+          "detected_period_px": 9.500773780014395,
+          "detected_angle_deg": 12.007068531120446,
+          "period_error_pct": 0.008145052783105126,
+          "angle_error_deg": 0.007068531120445698,
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 1,
+      "suppression": {
+        "mean_reduction_db": 74.70584005608868,
+        "min_reduction_db": 74.70584005608868,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 9.500773780014395,
+            "angle_deg": 12.007068531120446,
+            "amplitude_before": 0.03467844148117413,
+            "amplitude_after": 6.379219830495637e-06,
+            "local_floor_before": 4.2645466656850326e-06,
+            "local_floor_after": 4.18275362680606e-06,
+            "snr_before_db": 78.2037340009369,
+            "snr_after_db": 3.666105678357265,
+            "lobe_max_before": 8.460674285888672,
+            "lobe_max_after": 0.15293210744857788,
+            "reduction_db": 74.70584005608868,
+            "reduction_ratio": 0.999816046524641,
+            "amplitude_after_conjugate": 6.379219830495637e-06
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 63.84117908357078,
+        "min_reduction_db": 63.84117908357078,
+        "all_reduced": true
+      },
+      "content": null,
+      "content_vs_clean_truth": null,
+      "content_vs_clean_baseline": null,
+      "moire": {
+        "reference_energy": 0.07315512746572495,
+        "output_energy": 0.018523044884204865,
+        "ratio": 0.2532022774874309,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.1843336522579193,
+        "interior_step_p95": 0.10350620746612549,
+        "border_over_interior": 1.7808946610109955,
+        "input_border_wrap_step_p95": 0.1843336522579193,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Detail retention fell to 0.19; the notch may be too wide for this image. Reduce the radius or the harmonic set."
+      ],
+      "output_shape": [
+        512,
+        640
+      ]
+    },
+    {
+      "name": "known_12px_75deg",
+      "meta": {
+        "kind": "known_screen",
+        "screen": {
+          "period_px": 12.0,
+          "angle_deg": 75.0,
+          "amplitude": 0.18
+        },
+        "note": "flat tone + known screen; used for period/angle scoring"
+      },
+      "analysis_seconds": 2.282,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 12.0,
+            "angle_deg": 75.0
+          }
+        ],
+        "should_select": true
+      },
+      "detected_all": [
+        {
+          "period_px": 11.999461280069829,
+          "angle_deg": 164.99596626694446,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 11.999461280069829,
+          "angle_deg": 164.99596626694446,
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 12.0,
+          "expected_angle_deg": 75.0,
+          "matched": true,
+          "detected_period_px": 11.999461280069829,
+          "detected_angle_deg": 164.99596626694446,
+          "period_error_pct": 0.004489332751426526,
+          "angle_error_deg": 0.004033733055536004,
+          "confidence": 0.8999999999999999
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 1,
+      "suppression": {
+        "mean_reduction_db": 67.50664959286323,
+        "min_reduction_db": 67.50664959286323,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 11.999461280069829,
+            "angle_deg": 164.99596626694446,
+            "amplitude_before": 0.03468418981149744,
+            "amplitude_after": 1.4615008578850478e-05,
+            "local_floor_before": 4.975997570971222e-06,
+            "local_floor_after": 4.975907014676182e-06,
+            "snr_before_db": 76.86502789160923,
+            "snr_after_db": 9.358536371399929,
+            "lobe_max_before": 8.59362506866455,
+            "lobe_max_after": 1.2557733058929443,
+            "reduction_db": 67.50664959286323,
+            "reduction_ratio": 0.9995786262081289,
+            "amplitude_after_conjugate": 1.4615008578850478e-05
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 57.885311305250646,
+        "min_reduction_db": 57.885311305250646,
+        "all_reduced": true
+      },
+      "content": null,
+      "content_vs_clean_truth": null,
+      "content_vs_clean_baseline": null,
+      "moire": {
+        "reference_energy": 0.07591865956783295,
+        "output_energy": 0.022578345611691475,
+        "ratio": 0.2974017947658551,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.1836412250995636,
+        "interior_step_p95": 0.10847117006778717,
+        "border_over_interior": 1.6929957055390867,
+        "input_border_wrap_step_p95": 0.1836412250995636,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Detail retention fell to 0.24; the notch may be too wide for this image. Reduce the radius or the harmonic set."
+      ],
+      "output_shape": [
+        512,
+        640
+      ]
+    },
+    {
+      "name": "text_clean",
+      "meta": {
+        "kind": "text",
+        "screen": null,
+        "note": "sharp text, 1 px hairlines, diagonal hairlines, tone patches"
+      },
+      "analysis_seconds": 0.958,
+      "expected": {
+        "screens": [],
+        "should_select": false
+      },
+      "detected_all": [],
+      "selected": [],
+      "screen_matches": [],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 0,
+      "suppression": {
+        "mean_reduction_db": null,
+        "min_reduction_db": null,
+        "all_reduced": null,
+        "per_peak": []
+      },
+      "suppression_spatial_fir": null,
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 1.0,
+          "before": 1.1220966577529907,
+          "after": 1.1220966577529907
+        },
+        "edge_contrast": {
+          "retained_fraction": 1.0,
+          "before": 0.25470906496047974,
+          "after": 0.25470906496047974
+        },
+        "hairline_contrast": {
+          "retained_fraction": 1.0,
+          "before": 0.30216091871261597,
+          "after": 0.30216091871261597
+        },
+        "detail_energy": {
+          "retained_fraction": 1.0,
+          "before": 0.05134310573339462,
+          "after": 0.05134310573339462
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 1.0,
+        "edge_acutance_retention": 1.0,
+        "rmse_vs_clean": 0.0,
+        "psnr_vs_clean_db": 180.0,
+        "edge_pixels_measured": 51402,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 1.0,
+        "edge_acutance_retention_vs_screened_input": 1.0
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 1.0,
+        "edge_acutance_retention": 1.0,
+        "rmse_vs_clean": 0.0,
+        "psnr_vs_clean_db": 180.0,
+        "edge_pixels_measured": 51402,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.10198193043470383,
+        "output_energy": 0.10198193043470383,
+        "ratio": 1.0,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.010966035537421703,
+        "interior_step_p95": 0.012270989827811718,
+        "border_over_interior": 0.8936553359833788,
+        "input_border_wrap_step_p95": 0.010966035537421703,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "No narrowband screen found. Do not apply a global blur; enlarge the ROI or add a known frequency manually."
+      ],
+      "output_shape": [
+        480,
+        640
+      ]
+    },
+    {
+      "name": "text_screen_7p2px_15deg",
+      "meta": {
+        "kind": "text",
+        "screen": {
+          "period_px": 7.2,
+          "angle_deg": 15.0,
+          "amplitude": 0.11
+        },
+        "note": "sharp text, 1 px hairlines, diagonal hairlines, tone patches"
+      },
+      "analysis_seconds": 2.436,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 7.2,
+            "angle_deg": 15.0
+          }
+        ],
+        "should_select": true
+      },
+      "detected_all": [
+        {
+          "period_px": 7.199561909693849,
+          "angle_deg": 104.99775706231314,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.74
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 7.199561909693849,
+          "angle_deg": 104.99775706231314,
+          "confidence": 0.74
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 7.2,
+          "expected_angle_deg": 15.0,
+          "matched": true,
+          "detected_period_px": 7.199561909693849,
+          "detected_angle_deg": 104.99775706231314,
+          "period_error_pct": 0.006084587585429723,
+          "angle_error_deg": 0.0022429376868586814,
+          "confidence": 0.74
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 1,
+      "suppression": {
+        "mean_reduction_db": 82.50173257879253,
+        "min_reduction_db": 82.50173257879253,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 7.199561909693849,
+            "angle_deg": 104.99775706231314,
+            "amplitude_before": 0.0046806015286090154,
+            "amplitude_after": 3.5092559196274355e-07,
+            "local_floor_before": 7.686936079663065e-05,
+            "local_floor_after": 6.6107527880122e-05,
+            "snr_before_db": 35.69096800777239,
+            "snr_after_db": -45.50071751307611,
+            "lobe_max_before": 5.314966678619385,
+            "lobe_max_after": -1.8217297792434692,
+            "reduction_db": 82.50173257879253,
+            "reduction_ratio": 0.9999250255357527,
+            "amplitude_after_conjugate": 3.5092559196274355e-07
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 56.44312739677745,
+        "min_reduction_db": 56.44312739677745,
+        "all_reduced": true
+      },
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 0.9115995924964007,
+          "before": 1.0324164628982544,
+          "after": 0.941150426864624
+        },
+        "edge_contrast": {
+          "retained_fraction": 1.0094249997788367,
+          "before": 0.19033803045749664,
+          "after": 0.19213196635246277
+        },
+        "hairline_contrast": {
+          "retained_fraction": 0.9931238403107093,
+          "before": 0.23498906195163727,
+          "after": 0.2333732396364212
+        },
+        "detail_energy": {
+          "retained_fraction": 0.9819629563507141,
+          "before": 0.040397316217422485,
+          "after": 0.03966866806149483
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 0.7677188912306737,
+        "edge_acutance_retention": 0.7647521577335552,
+        "rmse_vs_clean": 0.10050368309020996,
+        "psnr_vs_clean_db": 19.956360453139407,
+        "edge_pixels_measured": 51402,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 0.9902083016178466,
+        "edge_acutance_retention_vs_screened_input": 0.9873681350116782
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 0.7753104977774276,
+        "edge_acutance_retention": 0.774535991810704,
+        "rmse_vs_clean": 0.10119745880365372,
+        "psnr_vs_clean_db": 19.896607860874443,
+        "edge_pixels_measured": 51402,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.07991713285446167,
+        "output_energy": 0.07888057827949524,
+        "ratio": 0.9870296325963781,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.07322162389755249,
+        "interior_step_p95": 0.057418473064899445,
+        "border_over_interior": 1.2752276399755689,
+        "input_border_wrap_step_p95": 0.07322162389755249,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Screen at 7.20 px / 105.0\u00b0 has moderate confidence (0.74); inspect the spectrum before applying."
+      ],
+      "output_shape": [
+        480,
+        640
+      ]
+    },
+    {
+      "name": "fabric_clean",
+      "meta": {
+        "kind": "fabric",
+        "screen": null,
+        "real_periods_px": [
+          9.0,
+          12.5
+        ],
+        "real_angles_deg": [
+          8.0,
+          98.0
+        ],
+        "note": "woven fabric with real 9.0/12.5 px repeats; not a screen"
+      },
+      "analysis_seconds": 0.795,
+      "expected": {
+        "screens": [],
+        "should_select": false
+      },
+      "detected_all": [],
+      "selected": [],
+      "screen_matches": [],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 0,
+      "suppression": {
+        "mean_reduction_db": null,
+        "min_reduction_db": null,
+        "all_reduced": null,
+        "per_peak": []
+      },
+      "suppression_spatial_fir": null,
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 1.0,
+          "before": 0.57485431432724,
+          "after": 0.57485431432724
+        },
+        "edge_contrast": {
+          "retained_fraction": 1.0,
+          "before": 0.04144458472728729,
+          "after": 0.04144458472728729
+        },
+        "hairline_contrast": {
+          "retained_fraction": 1.0,
+          "before": 0.11261266469955444,
+          "after": 0.11261266469955444
+        },
+        "detail_energy": {
+          "retained_fraction": 1.0,
+          "before": 0.03475124388933182,
+          "after": 0.03475124388933182
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 1.0,
+        "edge_acutance_retention": 1.0,
+        "rmse_vs_clean": 0.0,
+        "psnr_vs_clean_db": 180.0,
+        "edge_pixels_measured": 54000,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 1.0,
+        "edge_acutance_retention_vs_screened_input": 1.0
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 1.0,
+        "edge_acutance_retention": 1.0,
+        "rmse_vs_clean": 0.0,
+        "psnr_vs_clean_db": 180.0,
+        "edge_pixels_measured": 54000,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.05687706544995308,
+        "output_energy": 0.05687706544995308,
+        "ratio": 1.0,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.2311398684978485,
+        "interior_step_p95": 0.134409561753273,
+        "border_over_interior": 1.7196683441475473,
+        "input_border_wrap_step_p95": 0.2311398684978485,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "No narrowband screen found. Do not apply a global blur; enlarge the ROI or add a known frequency manually."
+      ],
+      "output_shape": [
+        450,
+        600
+      ]
+    },
+    {
+      "name": "fabric_w_real_repeats_plus_screen",
+      "meta": {
+        "kind": "fabric",
+        "screen": {
+          "period_px": 6.4,
+          "angle_deg": 45.0,
+          "amplitude": 0.11
+        },
+        "real_periods_px": [
+          9.0,
+          12.5
+        ],
+        "real_angles_deg": [
+          8.0,
+          98.0
+        ],
+        "note": "woven fabric with real 9.0/12.5 px repeats; not a screen"
+      },
+      "analysis_seconds": 1.623,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 6.4,
+            "angle_deg": 45.0
+          }
+        ],
+        "should_select": true,
+        "must_not_select_periods": [
+          9.0,
+          12.5
+        ]
+      },
+      "detected_all": [
+        {
+          "period_px": 6.399824432179135,
+          "angle_deg": 134.9949162495594,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.6400000000000001
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 6.399824432179135,
+          "angle_deg": 134.9949162495594,
+          "confidence": 0.6400000000000001
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 6.4,
+          "expected_angle_deg": 45.0,
+          "matched": true,
+          "detected_period_px": 6.399824432179135,
+          "detected_angle_deg": 134.9949162495594,
+          "period_error_pct": 0.0027432472010230358,
+          "angle_error_deg": 0.005083750440604717,
+          "confidence": 0.6400000000000001
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 1,
+      "suppression": {
+        "mean_reduction_db": 84.72207115784519,
+        "min_reduction_db": 84.72207115784519,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 6.399824432179135,
+            "angle_deg": 134.9949162495594,
+            "amplitude_before": 0.01597197733057346,
+            "amplitude_after": 9.273744515040523e-07,
+            "local_floor_before": 5.587576987118766e-05,
+            "local_floor_after": 3.6671422825101024e-05,
+            "snr_before_db": 49.1227033022374,
+            "snr_after_db": -31.941452667575586,
+            "lobe_max_before": 5.517748832702637,
+            "lobe_max_after": -2.2494606971740723,
+            "reduction_db": 84.72207115784519,
+            "reduction_ratio": 0.9999419374049744,
+            "amplitude_after_conjugate": 9.273744515040523e-07
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 75.34224722376203,
+        "min_reduction_db": 75.34224722376203,
+        "all_reduced": true
+      },
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 0.7272348545368416,
+          "before": 0.6804599761962891,
+          "after": 0.494854211807251
+        },
+        "edge_contrast": {
+          "retained_fraction": 0.7519142593297989,
+          "before": 0.051236722618341446,
+          "after": 0.038525622338056564
+        },
+        "hairline_contrast": {
+          "retained_fraction": 0.8768650197444047,
+          "before": 0.1144186332821846,
+          "after": 0.1003296971321106
+        },
+        "detail_energy": {
+          "retained_fraction": 0.8022904709042553,
+          "before": 0.03474590927362442,
+          "after": 0.027876311913132668
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 0.7933995495985379,
+        "edge_acutance_retention": 0.8834370198960989,
+        "rmse_vs_clean": 0.061203308403491974,
+        "psnr_vs_clean_db": 24.264502020309237,
+        "edge_pixels_measured": 54000,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 0.931856252366481,
+        "edge_acutance_retention_vs_screened_input": 0.8125781654274981
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 0.8514183894604693,
+        "edge_acutance_retention": 1.0872025086119832,
+        "rmse_vs_clean": 0.07187594473361969,
+        "psnr_vs_clean_db": 22.86832867842151,
+        "edge_pixels_measured": 54000,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.05613758787512779,
+        "output_energy": 0.046003177762031555,
+        "ratio": 0.8194719349958681,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.23968933522701263,
+        "interior_step_p95": 0.11996042728424072,
+        "border_over_interior": 1.9980700357050227,
+        "input_border_wrap_step_p95": 0.23968933522701263,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Screen at 6.40 px / 135.0\u00b0 has moderate confidence (0.64); inspect the spectrum before applying.",
+        "Detail retention fell to 0.73; the notch may be too wide for this image. Reduce the radius or the harmonic set."
+      ],
+      "output_shape": [
+        450,
+        600
+      ]
+    },
+    {
+      "name": "photo_clean",
+      "meta": {
+        "kind": "photo",
+        "screen": null,
+        "note": "continuous tone; no periodic screen was applied"
+      },
+      "analysis_seconds": 0.812,
+      "expected": {
+        "screens": [],
+        "should_select": false
+      },
+      "detected_all": [
+        {
+          "period_px": 29.32386872127493,
+          "angle_deg": 129.63684779902863,
+          "selected": false,
+          "classification": "real_texture",
+          "confidence": 0.06
+        }
+      ],
+      "selected": [],
+      "screen_matches": [],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 0,
+      "suppression": {
+        "mean_reduction_db": null,
+        "min_reduction_db": null,
+        "all_reduced": null,
+        "per_peak": []
+      },
+      "suppression_spatial_fir": null,
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 1.0,
+          "before": 0.2934930622577667,
+          "after": 0.2934930622577667
+        },
+        "edge_contrast": {
+          "retained_fraction": 1.0,
+          "before": 0.0421588234603405,
+          "after": 0.0421588234603405
+        },
+        "hairline_contrast": {
+          "retained_fraction": 1.0,
+          "before": 0.057327382266521454,
+          "after": 0.057327382266521454
+        },
+        "detail_energy": {
+          "retained_fraction": 1.0,
+          "before": 0.013926513493061066,
+          "after": 0.013926513493061066
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 1.0,
+        "edge_acutance_retention": 1.0,
+        "rmse_vs_clean": 0.0,
+        "psnr_vs_clean_db": 180.0,
+        "edge_pixels_measured": 19466,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 1.0,
+        "edge_acutance_retention_vs_screened_input": 1.0
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 1.0,
+        "edge_acutance_retention": 1.0,
+        "rmse_vs_clean": 0.0,
+        "psnr_vs_clean_db": 180.0,
+        "edge_pixels_measured": 19466,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.04106450825929642,
+        "output_energy": 0.04106450825929642,
+        "ratio": 1.0,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.39213743805885315,
+        "interior_step_p95": 0.0509684719145298,
+        "border_over_interior": 7.693725617602141,
+        "input_border_wrap_step_p95": 0.39213743805885315,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Peak at 29.32 px / 129.6\u00b0 looks like real content (no coherent lattice); not selected."
+      ],
+      "output_shape": [
+        450,
+        600
+      ]
+    },
+    {
+      "name": "photo_screen_8px_7deg",
+      "meta": {
+        "kind": "photo",
+        "screen": {
+          "period_px": 8.0,
+          "angle_deg": 7.0,
+          "amplitude": 0.11
+        },
+        "note": "continuous tone; no periodic screen was applied"
+      },
+      "analysis_seconds": 1.7,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 8.0,
+            "angle_deg": 7.0
+          }
+        ],
+        "should_select": true
+      },
+      "detected_all": [
+        {
+          "period_px": 8.001589294865493,
+          "angle_deg": 97.00970921263495,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.6400000000000001
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 8.001589294865493,
+          "angle_deg": 97.00970921263495,
+          "confidence": 0.6400000000000001
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 8.0,
+          "expected_angle_deg": 7.0,
+          "matched": true,
+          "detected_period_px": 8.001589294865493,
+          "detected_angle_deg": 97.00970921263495,
+          "period_error_pct": 0.019866185818662174,
+          "angle_error_deg": 0.009709212634945175,
+          "confidence": 0.6400000000000001
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 1,
+      "suppression": {
+        "mean_reduction_db": 69.52439560046072,
+        "min_reduction_db": 69.52439560046072,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 8.001589294865493,
+            "angle_deg": 97.00970921263495,
+            "amplitude_before": 0.016886549999178276,
+            "amplitude_after": 5.640546063310563e-06,
+            "local_floor_before": 2.0216549670459137e-05,
+            "local_floor_after": 1.736176414000012e-05,
+            "snr_before_db": 58.43667786170321,
+            "snr_after_db": -9.765454035975075,
+            "lobe_max_before": 6.31894588470459,
+            "lobe_max_after": -1.1486760377883911,
+            "reduction_db": 69.52439560046072,
+            "reduction_ratio": 0.9996659740406664,
+            "amplitude_after_conjugate": 5.640546063310563e-06
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 83.05636250319927,
+        "min_reduction_db": 83.05636250319927,
+        "all_reduced": true
+      },
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 0.6548130523862389,
+          "before": 0.5647624135017395,
+          "after": 0.36981379985809326
+        },
+        "edge_contrast": {
+          "retained_fraction": 0.7788975614401918,
+          "before": 0.05937663093209267,
+          "after": 0.046248313039541245
+        },
+        "hairline_contrast": {
+          "retained_fraction": 0.8828030046271258,
+          "before": 0.07749069482088089,
+          "after": 0.0684090182185173
+        },
+        "detail_energy": {
+          "retained_fraction": 0.49916542793281893,
+          "before": 0.028562184423208237,
+          "after": 0.014257255010306835
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 0.7757150694188708,
+        "edge_acutance_retention": 0.7825700072031817,
+        "rmse_vs_clean": 0.05536239594221115,
+        "psnr_vs_clean_db": 25.13570245991149,
+        "edge_pixels_measured": 19466,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 0.9633681607404281,
+        "edge_acutance_retention_vs_screened_input": 0.9647886168923906
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 0.8052114456664933,
+        "edge_acutance_retention": 0.8111310534776625,
+        "rmse_vs_clean": 0.06716344505548477,
+        "psnr_vs_clean_db": 23.457340708626685,
+        "edge_pixels_measured": 19466,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.0494590662419796,
+        "output_energy": 0.03530469536781311,
+        "ratio": 0.7138164557147944,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.35651132464408875,
+        "interior_step_p95": 0.07981789857149124,
+        "border_over_interior": 4.466558641916248,
+        "input_border_wrap_step_p95": 0.35651132464408875,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [],
+      "warnings": [
+        "Screen at 8.00 px / 97.0\u00b0 has moderate confidence (0.64); inspect the spectrum before applying.",
+        "Detail retention fell to 0.50; the notch may be too wide for this image. Reduce the radius or the harmonic set."
+      ],
+      "output_shape": [
+        450,
+        600
+      ]
+    },
+    {
+      "name": "palette_three_rotated",
+      "meta": {
+        "kind": "palette",
+        "screens": [
+          {
+            "channel": 0,
+            "period_px": 7.5,
+            "angle_deg": 15.0
+          },
+          {
+            "channel": 1,
+            "period_px": 7.7250000000000005,
+            "angle_deg": 75.0
+          },
+          {
+            "channel": 2,
+            "period_px": 7.95,
+            "angle_deg": 0.0
+          }
+        ],
+        "note": "three independently rotated screens; hard color edges"
+      },
+      "analysis_seconds": 4.716,
+      "expected": {
+        "screens": [
+          {
+            "period_px": 7.5,
+            "angle_deg": 15.0
+          },
+          {
+            "period_px": 7.725,
+            "angle_deg": 75.0
+          },
+          {
+            "period_px": 7.95,
+            "angle_deg": 0.0
+          }
+        ],
+        "should_select": true
+      },
+      "detected_all": [
+        {
+          "period_px": 7.497483160349353,
+          "angle_deg": 105.00031032042111,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.8999999999999999
+        },
+        {
+          "period_px": 7.957101622501714,
+          "angle_deg": 90.00429616109787,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.8200000000000001
+        },
+        {
+          "period_px": 7.731437125162525,
+          "angle_deg": 74.98546988041666,
+          "selected": true,
+          "classification": "halftone_screen",
+          "confidence": 0.74
+        },
+        {
+          "period_px": 2.6661213400966313,
+          "angle_deg": 179.97177526428598,
+          "selected": false,
+          "classification": "real_texture",
+          "confidence": 0.07999999999999999
+        },
+        {
+          "period_px": 7.860934401141935,
+          "angle_deg": 99.32091401750523,
+          "selected": false,
+          "classification": "real_texture",
+          "confidence": 0.0
+        },
+        {
+          "period_px": 3.6228354634666724,
+          "angle_deg": 8.226992600038953,
+          "selected": false,
+          "classification": "real_texture",
+          "confidence": 0.0
+        },
+        {
+          "period_px": 7.213486745757913,
+          "angle_deg": 114.96067945986,
+          "selected": false,
+          "classification": "real_texture",
+          "confidence": 0.0
+        }
+      ],
+      "selected": [
+        {
+          "period_px": 7.497483160349353,
+          "angle_deg": 105.00031032042111,
+          "confidence": 0.8999999999999999
+        },
+        {
+          "period_px": 7.957101622501714,
+          "angle_deg": 90.00429616109787,
+          "confidence": 0.8200000000000001
+        },
+        {
+          "period_px": 7.731437125162525,
+          "angle_deg": 74.98546988041666,
+          "confidence": 0.74
+        }
+      ],
+      "screen_matches": [
+        {
+          "expected_period_px": 7.5,
+          "expected_angle_deg": 15.0,
+          "matched": true,
+          "detected_period_px": 7.497483160349353,
+          "detected_angle_deg": 105.00031032042111,
+          "period_error_pct": 0.03355786200862335,
+          "angle_error_deg": 0.00031032042110723523,
+          "confidence": 0.8999999999999999
+        },
+        {
+          "expected_period_px": 7.725,
+          "expected_angle_deg": 75.0,
+          "matched": true,
+          "detected_period_px": 7.731437125162525,
+          "detected_angle_deg": 74.98546988041666,
+          "period_error_pct": 0.0833284810682939,
+          "angle_error_deg": 0.014530119583341161,
+          "confidence": 0.74
+        },
+        {
+          "expected_period_px": 7.95,
+          "expected_angle_deg": 0.0,
+          "matched": true,
+          "detected_period_px": 7.957101622501714,
+          "detected_angle_deg": 90.00429616109787,
+          "period_error_pct": 0.08932858492721706,
+          "angle_error_deg": 0.004296161097869344,
+          "confidence": 0.8200000000000001
+        }
+      ],
+      "all_expected_found": true,
+      "false_positives": [],
+      "no_false_positive": true,
+      "selected_count": 3,
+      "suppression": {
+        "mean_reduction_db": 69.77354310169198,
+        "min_reduction_db": 65.58608309751872,
+        "all_reduced": true,
+        "per_peak": [
+          {
+            "period_px": 7.497483160349353,
+            "angle_deg": 105.00031032042111,
+            "amplitude_before": 0.0015523738759362208,
+            "amplitude_after": 6.455059266953478e-07,
+            "local_floor_before": 0.00019964165760698197,
+            "local_floor_after": 5.078034994773963e-05,
+            "snr_before_db": 17.81490317007871,
+            "snr_after_db": -37.91590910722876,
+            "lobe_max_before": 4.293050289154053,
+            "lobe_max_after": -0.8703261613845825,
+            "reduction_db": 67.62192183075376,
+            "reduction_ratio": 0.9995841814032679,
+            "amplitude_after_conjugate": 6.455059266953478e-07
+          },
+          {
+            "period_px": 7.957101622501714,
+            "angle_deg": 90.00429616109787,
+            "amplitude_before": 0.002612239460564499,
+            "amplitude_after": 1.3731210683626366e-06,
+            "local_floor_before": 9.322472777605657e-05,
+            "local_floor_after": 6.993721316610994e-05,
+            "snr_before_db": 28.949637235480765,
+            "snr_after_db": -34.139989838885754,
+            "lobe_max_before": 5.056197643280029,
+            "lobe_max_after": -0.20007061958312988,
+            "reduction_db": 65.58608309751872,
+            "reduction_ratio": 0.9994743509968776,
+            "amplitude_after_conjugate": 1.3731210683626366e-06
+          },
+          {
+            "period_px": 7.731437125162525,
+            "angle_deg": 74.98546988041666,
+            "amplitude_before": 0.007381596889556757,
+            "amplitude_after": 1.1548327877151374e-06,
+            "local_floor_before": 0.00014682084951804034,
+            "local_floor_after": 2.1188130998917783e-05,
+            "snr_before_db": 34.027251839862764,
+            "snr_after_db": -25.27147087208533,
+            "lobe_max_before": 5.879302978515625,
+            "lobe_max_after": -0.9437787532806396,
+            "reduction_db": 76.11262437680347,
+            "reduction_ratio": 0.9998435524446818,
+            "amplitude_after_conjugate": 1.1548327877151374e-06
+          }
+        ]
+      },
+      "suppression_spatial_fir": {
+        "mean_reduction_db": 53.662668240901205,
+        "min_reduction_db": 43.543764672731974,
+        "all_reduced": true
+      },
+      "content": {
+        "edge_sharpness": {
+          "retained_fraction": 0.8065785548497155,
+          "before": 0.5990151166915894,
+          "after": 0.48315274715423584
+        },
+        "edge_contrast": {
+          "retained_fraction": 0.8938164528675079,
+          "before": 0.09793881326913834,
+          "after": 0.08753932267427444
+        },
+        "hairline_contrast": {
+          "retained_fraction": 0.9417277987425283,
+          "before": 0.15383084118366241,
+          "after": 0.14486677944660187
+        },
+        "detail_energy": {
+          "retained_fraction": 0.8807047324806702,
+          "before": 0.02749779261648655,
+          "after": 0.024217436090111732
+        }
+      },
+      "content_vs_clean_truth": {
+        "edge_slope_retention": 0.7363918180988209,
+        "edge_acutance_retention": 0.7403604828107866,
+        "rmse_vs_clean": 0.0721895769238472,
+        "psnr_vs_clean_db": 22.830510068339645,
+        "edge_pixels_measured": 16755,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived.",
+        "edge_slope_retention_vs_screened_input": 0.9315761998325608,
+        "edge_acutance_retention_vs_screened_input": 0.9386002898736447
+      },
+      "content_vs_clean_baseline": {
+        "edge_slope_retention": 0.7904794242609227,
+        "edge_acutance_retention": 0.7887920883877573,
+        "rmse_vs_clean": 0.07369985431432724,
+        "psnr_vs_clean_db": 22.65066741257374,
+        "edge_pixels_measured": 16755,
+        "note": "Retention here is output-vs-clean-truth, so removing the screen does not count as loss. Values near 1.0 mean the edges survived."
+      },
+      "moire": {
+        "reference_energy": 0.06623737514019012,
+        "output_energy": 0.06333506852388382,
+        "ratio": 0.9561832483524049,
+        "added_moire_risk": false,
+        "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+      },
+      "seam_ratio": 1.0,
+      "seam": {
+        "border_wrap_step_p95": 0.07152003049850464,
+        "interior_step_p95": 0.03929436579346657,
+        "border_over_interior": 1.8201090424621689,
+        "input_border_wrap_step_p95": 0.07152003049850464,
+        "border_step_change": 1.0,
+        "wrap_seam_suspected": false,
+        "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+      },
+      "lattice_explained": [
+        {
+          "fx": 0.12568835597485303,
+          "fy": 0.12570574297569692,
+          "period_px": 5.625484308877439,
+          "angle_deg": 45.00396270942443,
+          "magnitude": 188.3016815185547,
+          "snr": 22.188542587783346,
+          "prominence": 4.410712718963623,
+          "isolation": 7.6485067573967145,
+          "coverage": 1.0,
+          "coherence": 1.0,
+          "comb_present": 21,
+          "comb_expected": 16,
+          "collinear2_rel": 0.7985750764157428,
+          "collinear2_offset": 0.6309462310409967,
+          "collinear3_rel": 0.6789277443136523,
+          "collinear3_offset": 0.46801666048332474,
+          "squareness": 0.9993915027365662,
+          "perpendicularity": 0.9993847157857463,
+          "channel": "assist",
+          "channels": [
+            "assist"
+          ],
+          "basis_b": {
+            "fx": 0.12572149145416917,
+            "fy": -0.12582565229386092,
+            "period_px": 5.622061217069998,
+            "angle_deg": 134.976274919783,
+            "magnitude": 187.22705078125
+          },
+          "lattice": [
+            {
+              "m": 1,
+              "n": 0,
+              "fx": 0.12568835597485303,
+              "fy": 0.12570574297569692,
+              "period_px": 5.625484308877438,
+              "angle_deg": 45.00396270942443,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 4.410712540149689,
+              "offset_bins": 0.31547311552049834
+            },
+            {
+              "m": 0,
+              "n": 1,
+              "fx": 0.12572149145416917,
+              "fy": -0.12582565229386092,
+              "period_px": 5.62206121707,
+              "angle_deg": 134.976274919783,
+              "rel_magnitude": 0.9662262342746017,
+              "present": true,
+              "residual": 4.261746168136597,
+              "offset_bins": 0.35087115411330594
+            },
+            {
+              "m": -1,
+              "n": 0,
+              "fx": -0.12568835597485303,
+              "fy": -0.12570574297569692,
+              "period_px": 5.625484308877438,
+              "angle_deg": 45.00396270942443,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 4.410712540149689,
+              "offset_bins": 0.31547311552049834
+            },
+            {
+              "m": 0,
+              "n": -1,
+              "fx": -0.12572149145416917,
+              "fy": 0.12582565229386092,
+              "period_px": 5.622061217069998,
+              "angle_deg": 134.976274919783,
+              "rel_magnitude": 0.9662262342746017,
+              "present": true,
+              "residual": 4.261746168136597,
+              "offset_bins": 0.35087115411330594
+            },
+            {
+              "m": 1,
+              "n": 1,
+              "fx": 0.25140984742902217,
+              "fy": -0.00011990931816399653,
+              "period_px": 3.97756848622583,
+              "angle_deg": 179.97267291872456,
+              "rel_magnitude": 0.4807973710408791,
+              "present": true,
+              "residual": 2.1206589937210083,
+              "offset_bins": 0.5501884790129541
+            },
+            {
+              "m": 1,
+              "n": -1,
+              "fx": -3.313547931613203e-05,
+              "fy": 0.2515313952695578,
+              "period_px": 3.9756468183674767,
+              "angle_deg": 90.00754785741137,
+              "rel_magnitude": 0.4178957102629252,
+              "present": true,
+              "residual": 1.8432178497314453,
+              "offset_bins": 0.49016118756714566
+            },
+            {
+              "m": -1,
+              "n": 1,
+              "fx": 3.313547931613203e-05,
+              "fy": -0.2515313952695578,
+              "period_px": 3.9756468183674767,
+              "angle_deg": 90.00754785741135,
+              "rel_magnitude": 0.41985158895109487,
+              "present": true,
+              "residual": 1.8518446683883667,
+              "offset_bins": 0.49016118756714566
+            },
+            {
+              "m": -1,
+              "n": -1,
+              "fx": -0.25140984742902217,
+              "fy": 0.00011990931816399653,
+              "period_px": 3.97756848622583,
+              "angle_deg": 179.97267291872458,
+              "rel_magnitude": 0.4557935997304413,
+              "present": true,
+              "residual": 2.0103745460510254,
+              "offset_bins": 0.5501884790129541
+            },
+            {
+              "m": 2,
+              "n": 0,
+              "fx": 0.25137671194970607,
+              "fy": 0.25141148595139384,
+              "period_px": 2.812742154438719,
+              "angle_deg": 45.00396270942443,
+              "rel_magnitude": 0.7985750764157428,
+              "present": true,
+              "residual": 3.5222851037979126,
+              "offset_bins": 0.6309462310409967
+            },
+            {
+              "m": 0,
+              "n": 2,
+              "fx": 0.25144298290833833,
+              "fy": -0.25165130458772184,
+              "period_px": 2.811030608534999,
+              "angle_deg": 134.976274919783,
+              "rel_magnitude": 0.7898813798373197,
+              "present": true,
+              "residual": 3.4839397072792053,
+              "offset_bins": 0.7017423082266119
+            },
+            {
+              "m": -2,
+              "n": 0,
+              "fx": -0.25137671194970607,
+              "fy": -0.25141148595139384,
+              "period_px": 2.8127421544387197,
+              "angle_deg": 45.00396270942443,
+              "rel_magnitude": 0.7985750764157428,
+              "present": true,
+              "residual": 3.5222851037979126,
+              "offset_bins": 0.6309462310409967
+            },
+            {
+              "m": 0,
+              "n": -2,
+              "fx": -0.25144298290833833,
+              "fy": 0.25165130458772184,
+              "period_px": 2.811030608534999,
+              "angle_deg": 134.976274919783,
+              "rel_magnitude": 0.7898813798373197,
+              "present": true,
+              "residual": 3.4839397072792053,
+              "offset_bins": 0.7017423082266119
+            },
+            {
+              "m": 2,
+              "n": 1,
+              "fx": 0.37709820340387523,
+              "fy": 0.12558583365753292,
+              "period_px": 2.515973225148906,
+              "angle_deg": 18.41941766321698,
+              "rel_magnitude": 0.6202323024526241,
+              "present": true,
+              "residual": 2.7356663942337036,
+              "offset_bins": 0.697105042636473
+            },
+            {
+              "m": 2,
+              "n": -1,
+              "fx": 0.1256552204955369,
+              "fy": 0.37723713824525473,
+              "period_px": 2.5150003967452172,
+              "angle_deg": 71.57742185069749,
+              "rel_magnitude": 0.6234045140616332,
+              "present": true,
+              "residual": 2.7496581077575684,
+              "offset_bins": 0.839846647865794
+            },
+            {
+              "m": -2,
+              "n": 1,
+              "fx": -0.1256552204955369,
+              "fy": -0.37723713824525473,
+              "period_px": 2.5150003967452172,
+              "angle_deg": 71.57742185069749,
+              "rel_magnitude": 0.6234045140616332,
+              "present": true,
+              "residual": 2.7496581077575684,
+              "offset_bins": 0.839846647865794
+            },
+            {
+              "m": -2,
+              "n": -1,
+              "fx": -0.37709820340387523,
+              "fy": -0.12558583365753292,
+              "period_px": 2.515973225148906,
+              "angle_deg": 18.41941766321699,
+              "rel_magnitude": 0.6202323024526241,
+              "present": true,
+              "residual": 2.7356663942337036,
+              "offset_bins": 0.697105042636473
+            },
+            {
+              "m": 1,
+              "n": 2,
+              "fx": 0.3771313388831914,
+              "fy": -0.12594556161202491,
+              "period_px": 2.515054180473251,
+              "angle_deg": 161.5329092301798,
+              "rel_magnitude": 0.6207549412815445,
+              "present": true,
+              "residual": 2.737971603870392,
+              "offset_bins": 0.7461348946316474
+            },
+            {
+              "m": 1,
+              "n": -2,
+              "fx": -0.1257546269334853,
+              "fy": 0.37735704756341876,
+              "period_px": 2.5140824173444094,
+              "angle_deg": 108.43070494238799,
+              "rel_magnitude": 0.6162980449172634,
+              "present": true,
+              "residual": 2.71831351518631,
+              "offset_bins": 0.7973344019527164
+            },
+            {
+              "m": -1,
+              "n": 2,
+              "fx": 0.1257546269334853,
+              "fy": -0.37735704756341876,
+              "period_px": 2.514082417344409,
+              "angle_deg": 108.43070494238798,
+              "rel_magnitude": 0.6162980449172634,
+              "present": true,
+              "residual": 2.71831351518631,
+              "offset_bins": 0.7973344019527164
+            },
+            {
+              "m": -1,
+              "n": -2,
+              "fx": -0.3771313388831914,
+              "fy": 0.12594556161202491,
+              "period_px": 2.515054180473251,
+              "angle_deg": 161.53290923017983,
+              "rel_magnitude": 0.6207549412815445,
+              "present": true,
+              "residual": 2.737971603870392,
+              "offset_bins": 0.7461348946316474
+            }
+          ],
+          "isotropy": 0.895613743691527,
+          "lattice_orthogonality": 1.0006088677577982,
+          "classification": "halftone_screen",
+          "confidence": 0.8999999999999999,
+          "selected": true,
+          "reasons": [
+            "strong collinear harmonic comb (2f and 3f on the dot pitch)",
+            "coherent lattice (21/16 lines)",
+            "square two-axis lattice (ratio 1.00, perpendicularity 1.00)",
+            "stationary across 100% of tiles",
+            "isolated peak (annulus ratio 7.6)"
+          ],
+          "harm_of_fx": 9.423300070920959e-06,
+          "harm_of_fy": -0.12567390045151114,
+          "display_angle_deg": null,
+          "basis_display_angle_deg": null,
+          "explained_by_period_px": 7.957101622501714,
+          "explained_by_angle_deg": 90.00429616109787,
+          "explained_by_selected": true,
+          "lattice_order": [
+            -1,
+            1
+          ],
+          "distance_bins": 0.21253198607939805
+        },
+        {
+          "fx": 0.2515144443139434,
+          "fy": 0.1256121892016381,
+          "period_px": 3.5569863604587364,
+          "angle_deg": 26.538613911254128,
+          "magnitude": 82.68303680419922,
+          "snr": 13.606720357678576,
+          "prominence": 3.868520498275757,
+          "isolation": 6.56312854739124,
+          "coverage": 1.0,
+          "coherence": 0.8396226415094339,
+          "comb_present": 11,
+          "comb_expected": 11,
+          "collinear2_rel": 0.0,
+          "collinear2_offset": 1.0454390104458617,
+          "collinear3_rel": 0.0,
+          "collinear3_offset": 2.922714060626015,
+          "squareness": 0.999921219047656,
+          "perpendicularity": 0.9999189621876572,
+          "channel": "assist",
+          "channels": [
+            "assist"
+          ],
+          "basis_b": {
+            "fx": 0.12560607618652284,
+            "fy": -0.2515422553755343,
+            "period_px": 3.5567061376857847,
+            "angle_deg": 116.5349672096987,
+            "magnitude": 83.40567016601562
+          },
+          "lattice": [
+            {
+              "m": 1,
+              "n": 0,
+              "fx": 0.2515144443139434,
+              "fy": 0.1256121892016381,
+              "period_px": 3.5569863604587355,
+              "angle_deg": 26.538613911254128,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.8685205578804016,
+              "offset_bins": 0.5227195052229309
+            },
+            {
+              "m": 0,
+              "n": 1,
+              "fx": 0.12560607618652284,
+              "fy": -0.2515422553755343,
+              "period_px": 3.5567061376857847,
+              "angle_deg": 116.5349672096987,
+              "rel_magnitude": 0.9990805664545116,
+              "present": true,
+              "residual": 3.864963710308075,
+              "offset_bins": 0.5302623036694322
+            },
+            {
+              "m": -1,
+              "n": 0,
+              "fx": -0.2515144443139434,
+              "fy": -0.1256121892016381,
+              "period_px": 3.5569863604587364,
+              "angle_deg": 26.538613911254117,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.8685205578804016,
+              "offset_bins": 0.5227195052229309
+            },
+            {
+              "m": 0,
+              "n": -1,
+              "fx": -0.12560607618652284,
+              "fy": 0.2515422553755343,
+              "period_px": 3.5567061376857847,
+              "angle_deg": 116.5349672096987,
+              "rel_magnitude": 0.9990805664545116,
+              "present": true,
+              "residual": 3.864963710308075,
+              "offset_bins": 0.5302623036694322
+            },
+            {
+              "m": 1,
+              "n": 1,
+              "fx": 0.3771205205004662,
+              "fy": -0.1259300661738962,
+              "period_px": 2.51515013859246,
+              "angle_deg": 161.5345334198802,
+              "rel_magnitude": 0.5230685235606579,
+              "present": false,
+              "residual": 2.0235013365745544,
+              "offset_bins": 2.1216518122298083
+            },
+            {
+              "m": 1,
+              "n": -1,
+              "fx": 0.12590836812742054,
+              "fy": 0.3771544445771724,
+              "period_px": 2.5149900620545473,
+              "angle_deg": 71.5390474137707,
+              "rel_magnitude": 0.5628970800350461,
+              "present": true,
+              "residual": 2.177578926086426,
+              "offset_bins": 0.7481955913533284
+            },
+            {
+              "m": -1,
+              "n": 1,
+              "fx": -0.12590836812742054,
+              "fy": -0.3771544445771724,
+              "period_px": 2.5149900620545473,
+              "angle_deg": 71.5390474137707,
+              "rel_magnitude": 0.5628970800350461,
+              "present": true,
+              "residual": 2.177578926086426,
+              "offset_bins": 0.7481955913533284
+            },
+            {
+              "m": -1,
+              "n": -1,
+              "fx": -0.3771205205004662,
+              "fy": 0.1259300661738962,
+              "period_px": 2.51515013859246,
+              "angle_deg": 161.5345334198802,
+              "rel_magnitude": 0.5230685235606579,
+              "present": false,
+              "residual": 2.0235013365745544,
+              "offset_bins": 2.1216518122298083
+            },
+            {
+              "m": 2,
+              "n": 1,
+              "fx": 0.6286349648144096,
+              "fy": -0.0003178769722581021,
+              "period_px": 2.692767328402233,
+              "angle_deg": 179.9710276895466,
+              "rel_magnitude": 0.49190622221575103,
+              "present": true,
+              "residual": 1.902949333190918,
+              "offset_bins": 0.8429710378394114
+            },
+            {
+              "m": -2,
+              "n": -1,
+              "fx": -0.6286349648144096,
+              "fy": 0.0003178769722581021,
+              "period_px": 2.692767328402233,
+              "angle_deg": 179.97102768954662,
+              "rel_magnitude": 0.4995107699558749,
+              "present": true,
+              "residual": 1.9323676824569702,
+              "offset_bins": 0.8429710378394114
+            },
+            {
+              "m": 1,
+              "n": -2,
+              "fx": 0.00030229194089770317,
+              "fy": 0.6286966999527067,
+              "period_px": 2.693215138305687,
+              "angle_deg": 89.97245086372999,
+              "rel_magnitude": 0.5525104423131102,
+              "present": true,
+              "residual": 2.1373980045318604,
+              "offset_bins": 0.20694408992273594
+            },
+            {
+              "m": -1,
+              "n": 2,
+              "fx": -0.00030229194089770317,
+              "fy": -0.6286966999527067,
+              "period_px": 2.6932151383056877,
+              "angle_deg": 89.97245086372997,
+              "rel_magnitude": 0.55651694401515,
+              "present": true,
+              "residual": 2.1528972387313843,
+              "offset_bins": 0.20694408992273594
+            },
+            {
+              "m": 1,
+              "n": 0,
+              "fx": 0.12557923551648856,
+              "fy": -0.2514697007834911,
+              "period_px": 3.5576792340328334,
+              "angle_deg": 116.53667946516089,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.9531714618206024,
+              "offset_bins": 0.5055123140729179
+            },
+            {
+              "m": 0,
+              "n": 1,
+              "fx": 0.25147223453968764,
+              "fy": 0.12558223037049174,
+              "period_px": 3.557633607884991,
+              "angle_deg": 26.536994869658677,
+              "rel_magnitude": 0.9993571782934546,
+              "present": true,
+              "residual": 3.9506302773952484,
+              "offset_bins": 0.5066183914972239
+            },
+            {
+              "m": -1,
+              "n": 0,
+              "fx": -0.12557923551648856,
+              "fy": 0.2514697007834911,
+              "period_px": 3.5576792340328325,
+              "angle_deg": 116.53667946516089,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.9531714618206024,
+              "offset_bins": 0.5055123140729179
+            },
+            {
+              "m": 0,
+              "n": -1,
+              "fx": -0.25147223453968764,
+              "fy": -0.12558223037049174,
+              "period_px": 3.55763360788499,
+              "angle_deg": 26.536994869658656,
+              "rel_magnitude": 0.9993571782934546,
+              "present": true,
+              "residual": 3.9506302773952484,
+              "offset_bins": 0.5066183914972239
+            },
+            {
+              "m": 1,
+              "n": 1,
+              "fx": 0.37705147005617623,
+              "fy": -0.12588747041299939,
+              "period_px": 2.515649904380144,
+              "angle_deg": 161.5372045722106,
+              "rel_magnitude": 0.6058505625892378,
+              "present": false,
+              "residual": 2.395031154155731,
+              "offset_bins": 1.804595191079606
+            },
+            {
+              "m": 1,
+              "n": -1,
+              "fx": -0.1258929990231991,
+              "fy": -0.37705193115398283,
+              "period_px": 2.515636056150528,
+              "angle_deg": 71.53646976665394,
+              "rel_magnitude": 0.6071304161741323,
+              "present": false,
+              "residual": 2.4000906348228455,
+              "offset_bins": 1.8040294676729423
+            },
+            {
+              "m": -1,
+              "n": 1,
+              "fx": 0.1258929990231991,
+              "fy": 0.37705193115398283,
+              "period_px": 2.515636056150528,
+              "angle_deg": 71.53646976665394,
+              "rel_magnitude": 0.6071304161741323,
+              "present": false,
+              "residual": 2.4000906348228455,
+              "offset_bins": 1.8040294676729423
+            },
+            {
+              "m": -1,
+              "n": -1,
+              "fx": -0.37705147005617623,
+              "fy": 0.12588747041299939,
+              "period_px": 2.515649904380144,
+              "angle_deg": 161.53720457221064,
+              "rel_magnitude": 0.6058505625892378,
+              "present": false,
+              "residual": 2.395031154155731,
+              "offset_bins": 1.804595191079606
+            },
+            {
+              "m": 2,
+              "n": -1,
+              "fx": -0.00031376350671052933,
+              "fy": -0.628521631937474,
+              "period_px": 2.6919458285334565,
+              "angle_deg": 89.9713974471317,
+              "rel_magnitude": 0.5034107855286832,
+              "present": true,
+              "residual": 1.9900691509246826,
+              "offset_bins": 0.8788320874035734
+            },
+            {
+              "m": -2,
+              "n": 1,
+              "fx": 0.00031376350671052933,
+              "fy": 0.628521631937474,
+              "period_px": 2.6919458285334565,
+              "angle_deg": 89.9713974471317,
+              "rel_magnitude": 0.49950696371209347,
+              "present": true,
+              "residual": 1.9746366739273071,
+              "offset_bins": 0.8788320874035734
+            },
+            {
+              "m": 1,
+              "n": 2,
+              "fx": 0.6285237045958638,
+              "fy": -0.00030524004250764847,
+              "period_px": 2.6919608997427313,
+              "angle_deg": 179.9721745342757,
+              "rel_magnitude": 0.49950696371209347,
+              "present": true,
+              "residual": 1.9746366739273071,
+              "offset_bins": 0.8778655198208933
+            },
+            {
+              "m": -1,
+              "n": -2,
+              "fx": -0.6285237045958638,
+              "fy": 0.00030524004250764847,
+              "period_px": 2.6919608997427313,
+              "angle_deg": 179.9721745342757,
+              "rel_magnitude": 0.5034107855286832,
+              "present": true,
+              "residual": 1.9900691509246826,
+              "offset_bins": 0.8778655198208933
+            }
+          ],
+          "isotropy": 0.8675960227136416,
+          "lattice_orthogonality": 1.0000787871592716,
+          "classification": "ambiguous_periodic",
+          "confidence": 0.44,
+          "selected": false,
+          "reasons": [
+            "no collinear dot harmonics; periodic but not a dot screen",
+            "coherent lattice (11/11 lines)",
+            "square two-axis lattice (ratio 1.00, perpendicularity 1.00)",
+            "stationary across 100% of tiles",
+            "isolated peak (annulus ratio 6.6)"
+          ],
+          "harm_of_fx": 9.423300070920959e-06,
+          "harm_of_fy": -0.12567390045151114,
+          "display_angle_deg": null,
+          "basis_display_angle_deg": null,
+          "explained_by_period_px": 7.957101622501714,
+          "explained_by_angle_deg": 90.00429616109787,
+          "explained_by_selected": true,
+          "lattice_order": [
+            -1,
+            2
+          ],
+          "distance_bins": 0.29027257106843396
+        },
+        {
+          "fx": 0.2515093030408025,
+          "fy": -0.12563357767648994,
+          "period_px": 3.556923636616126,
+          "angle_deg": 153.45701832367837,
+          "magnitude": 82.6601333618164,
+          "snr": 14.995435429411113,
+          "prominence": 3.8667385578155518,
+          "isolation": 6.960784472663956,
+          "coverage": 1.0,
+          "coherence": 0.8396226415094339,
+          "comb_present": 11,
+          "comb_expected": 11,
+          "collinear2_rel": 0.0,
+          "collinear2_offset": 1.0476110601380533,
+          "collinear3_rel": 0.0,
+          "collinear3_offset": 2.929791985308771,
+          "squareness": 0.9999655441083615,
+          "perpendicularity": 0.9999001042259866,
+          "channel": "assist",
+          "channels": [
+            "assist"
+          ],
+          "basis_b": {
+            "fx": 0.12561817266978323,
+            "fy": 0.25152782583609223,
+            "period_px": 3.556801079640736,
+            "angle_deg": 63.46151363350897,
+            "magnitude": 83.79629516601562
+          },
+          "lattice": [
+            {
+              "m": 1,
+              "n": 0,
+              "fx": 0.2515093030408025,
+              "fy": -0.12563357767648994,
+              "period_px": 3.5569236366161263,
+              "angle_deg": 153.45701832367837,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.866738498210907,
+              "offset_bins": 0.5238055300690266
+            },
+            {
+              "m": 0,
+              "n": 1,
+              "fx": 0.12561817266978323,
+              "fy": 0.25152782583609223,
+              "period_px": 3.556801079640736,
+              "angle_deg": 63.46151363350897,
+              "rel_magnitude": 1.0048006487495658,
+              "present": true,
+              "residual": 3.885301351547241,
+              "offset_bins": 0.5274071080996362
+            },
+            {
+              "m": -1,
+              "n": 0,
+              "fx": -0.2515093030408025,
+              "fy": 0.12563357767648994,
+              "period_px": 3.556923636616126,
+              "angle_deg": 153.45701832367837,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.866738498210907,
+              "offset_bins": 0.5238055300690266
+            },
+            {
+              "m": 0,
+              "n": -1,
+              "fx": -0.12561817266978323,
+              "fy": -0.25152782583609223,
+              "period_px": 3.556801079640736,
+              "angle_deg": 63.46151363350896,
+              "rel_magnitude": 1.0048006487495658,
+              "present": true,
+              "residual": 3.885301351547241,
+              "offset_bins": 0.5274071080996362
+            },
+            {
+              "m": 1,
+              "n": 1,
+              "fx": 0.3771274757105857,
+              "fy": 0.1258942481596023,
+              "period_px": 2.515180161944316,
+              "angle_deg": 18.460253161633823,
+              "rel_magnitude": 0.507305068647321,
+              "present": false,
+              "residual": 1.961616039276123,
+              "offset_bins": 2.116428251166797
+            },
+            {
+              "m": 1,
+              "n": -1,
+              "fx": 0.12589113037101926,
+              "fy": -0.3771614035125822,
+              "period_px": 2.5149828337872107,
+              "angle_deg": 108.45827895044609,
+              "rel_magnitude": 0.5798848512065253,
+              "present": true,
+              "residual": 2.242263078689575,
+              "offset_bins": 0.748128141826788
+            },
+            {
+              "m": -1,
+              "n": 1,
+              "fx": -0.12589113037101926,
+              "fy": 0.3771614035125822,
+              "period_px": 2.5149828337872107,
+              "angle_deg": 108.45827895044609,
+              "rel_magnitude": 0.5798848512065253,
+              "present": true,
+              "residual": 2.242263078689575,
+              "offset_bins": 0.748128141826788
+            },
+            {
+              "m": -1,
+              "n": -1,
+              "fx": -0.3771274757105857,
+              "fy": -0.1258942481596023,
+              "period_px": 2.515180161944316,
+              "angle_deg": 18.4602531616338,
+              "rel_magnitude": 0.507305068647321,
+              "present": false,
+              "residual": 1.961616039276123,
+              "offset_bins": 2.116428251166797
+            },
+            {
+              "m": 2,
+              "n": 1,
+              "fx": 0.6286367787513882,
+              "fy": 0.0002606704831123463,
+              "period_px": 2.6927808044263,
+              "angle_deg": 0.023758262600593397,
+              "rel_magnitude": 0.4921329265145263,
+              "present": true,
+              "residual": 1.902949333190918,
+              "offset_bins": 0.8403808291745695
+            },
+            {
+              "m": -2,
+              "n": -1,
+              "fx": -0.6286367787513882,
+              "fy": -0.0002606704831123463,
+              "period_px": 2.6927808044263,
+              "angle_deg": 0.023758262600580338,
+              "rel_magnitude": 0.4997409789544996,
+              "present": true,
+              "residual": 1.9323676824569702,
+              "offset_bins": 0.8403808291745695
+            },
+            {
+              "m": 1,
+              "n": -2,
+              "fx": 0.0002729577012360318,
+              "fy": -0.6286892293486744,
+              "period_px": 2.693161116888199,
+              "angle_deg": 90.02487607955354,
+              "rel_magnitude": 0.5567734253887362,
+              "present": true,
+              "residual": 2.1528972387313843,
+              "offset_bins": 0.20057151356044395
+            },
+            {
+              "m": -1,
+              "n": 2,
+              "fx": -0.0002729577012360318,
+              "fy": 0.6286892293486744,
+              "period_px": 2.693161116888198,
+              "angle_deg": 90.02487607955354,
+              "rel_magnitude": 0.5527650772145074,
+              "present": true,
+              "residual": 2.1373980045318604,
+              "offset_bins": 0.20057151356044395
+            },
+            {
+              "m": 1,
+              "n": 0,
+              "fx": 0.12548549436032772,
+              "fy": 0.2514861742965877,
+              "period_px": 3.558022628316061,
+              "angle_deg": 63.48191768946698,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.5148077607154846,
+              "offset_bins": 0.5003083914225241
+            },
+            {
+              "m": 0,
+              "n": 1,
+              "fx": 0.2514672656543553,
+              "fy": -0.12553441971540452,
+              "period_px": 3.5579602214362085,
+              "angle_deg": 153.4712722370876,
+              "rel_magnitude": 0.9944691495515527,
+              "present": true,
+              "residual": 3.4953678846359253,
+              "offset_bins": 0.49969953802736466
+            },
+            {
+              "m": -1,
+              "n": 0,
+              "fx": -0.12548549436032772,
+              "fy": -0.2514861742965877,
+              "period_px": 3.558022628316061,
+              "angle_deg": 63.48191768946697,
+              "rel_magnitude": 1.0,
+              "present": true,
+              "residual": 3.5148077607154846,
+              "offset_bins": 0.5003083914225241
+            },
+            {
+              "m": 0,
+              "n": -1,
+              "fx": -0.2514672656543553,
+              "fy": 0.12553441971540452,
+              "period_px": 3.5579602214362085,
+              "angle_deg": 153.4712722370876,
+              "rel_magnitude": 0.9944691495515527,
+              "present": true,
+              "residual": 3.4953678846359253,
+              "offset_bins": 0.49969953802736466
+            },
+            {
+              "m": 1,
+              "n": 1,
+              "fx": 0.37695276001468303,
+              "fy": 0.12595175458118318,
+              "period_px": 2.516113619183867,
+              "angle_deg": 18.476092388255008,
+              "rel_magnitude": 0.5746354137193045,
+              "present": false,
+              "residual": 2.0197330117225647,
+              "offset_bins": 1.767450192654173
+            },
+            {
+              "m": 1,
+              "n": -1,
+              "fx": -0.12598177129402757,
+              "fy": 0.3770205940119922,
+              "period_px": 2.5156461732405893,
+              "angle_deg": 108.4770973515792,
+              "rel_magnitude": 0.536755667062566,
+              "present": true,
+              "residual": 1.886592984199524,
+              "offset_bins": 0.4728629356554591
+            },
+            {
+              "m": -1,
+              "n": 1,
+              "fx": 0.12598177129402757,
+              "fy": -0.3770205940119922,
+              "period_px": 2.5156461732405893,
+              "angle_deg": 108.47709735157919,
+              "rel_magnitude": 0.536755667062566,
+              "present": true,
+              "residual": 1.886592984199524,
+              "offset_bins": 0.4728629356554591
+            },
+            {
+              "m": -1,
+              "n": -1,
+              "fx": -0.37695276001468303,
+              "fy": -0.12595175458118318,
+              "period_px": 2.516113619183867,
+              "angle_deg": 18.47609238825501,
+              "rel_magnitude": 0.5746354137193045,
+              "present": false,
+              "residual": 2.0197330117225647,
+              "offset_bins": 1.767450192654173
+            },
+            {
+              "m": 2,
+              "n": -1,
+              "fx": -0.0004962769336998574,
+              "fy": 0.6285067683085799,
+              "period_px": 2.6918366806762735,
+              "angle_deg": 90.0452414664327,
+              "rel_magnitude": 0.4795512072516993,
+              "present": true,
+              "residual": 1.6855303049087524,
+              "offset_bins": 0.8920834921418287
+            },
+            {
+              "m": -2,
+              "n": 1,
+              "fx": 0.0004962769336998574,
+              "fy": -0.6285067683085799,
+              "period_px": 2.6918366806762735,
+              "angle_deg": 90.04524146643269,
+              "rel_magnitude": 0.4856127630716023,
+              "present": true,
+              "residual": 1.7068355083465576,
+              "offset_bins": 0.8920834921418287
+            },
+            {
+              "m": 1,
+              "n": 2,
+              "fx": 0.6284200256690383,
+              "fy": 0.0004173348657786624,
+              "period_px": 2.691208995005238,
+              "angle_deg": 0.03805022430989038,
+              "rel_magnitude": 0.6085484790072236,
+              "present": true,
+              "residual": 2.138930916786194,
+              "offset_bins": 0.9153858890432481
+            },
+            {
+              "m": -1,
+              "n": -2,
+              "fx": -0.6284200256690383,
+              "fy": -0.0004173348657786624,
+              "period_px": 2.6912089950052387,
+              "angle_deg": 0.038050224309898795,
+              "rel_magnitude": 0.6237150362966353,
+              "present": true,
+              "residual": 2.192238450050354,
+              "offset_bins": 0.9153858890432481
+            }
+          ],
+          "isotropy": 0.8624738437261442,
+          "lattice_orthogonality": 1.000034457078888,
+          "classification": "ambiguous_periodic",
+          "confidence": 0.44,
+          "selected": false,
+          "reasons": [
+            "no collinear dot harmonics; periodic but not a dot screen",
+            "coherent lattice (11/11 lines)",
+            "square two-axis lattice (ratio 1.00, perpendicularity 1.00)",
+            "stationary across 100% of tiles",
+            "isolated peak (annulus ratio 7.0)"
+          ],
+          "harm_of_fx": 9.423300070920959e-06,
+          "harm_of_fy": -0.12567390045151114,
+          "display_angle_deg": null,
+          "basis_display_angle_deg": null,
+          "explained_by_period_px": 7.957101622501714,
+          "explained_by_angle_deg": 90.00429616109787,
+          "explained_by_selected": true,
+          "lattice_order": [
+            1,
+            2
+          ],
+          "distance_bins": 0.31925608896730345
+        }
+      ],
+      "warnings": [
+        "Whole-ROI spectrum did not yield a screen; a flat-region diagnostic pass found candidate peaks. Confirm they are the same screen in the spectrum view before applying.",
+        "Screen at 7.73 px / 75.0\u00b0 has moderate confidence (0.74); inspect the spectrum before applying.",
+        "Peak at 2.67 px / 180.0\u00b0 looks like real content (no coherent lattice); not selected.",
+        "Peak at 7.86 px / 99.3\u00b0 looks like real content (no coherent lattice); not selected.",
+        "Peak at 3.62 px / 8.2\u00b0 looks like real content (no coherent lattice); not selected.",
+        "Peak at 7.21 px / 115.0\u00b0 looks like real content (no coherent lattice); not selected."
+      ],
+      "output_shape": [
+        380,
+        500
+      ]
+    }
+  ]
+}

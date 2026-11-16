@@ -1,0 +1,1310 @@
+{
+  "roi": [
+    0,
+    0,
+    1280,
+    960
+  ],
+  "absolute_roi": [
+    0,
+    0,
+    1280,
+    960
+  ],
+  "analysis_scale": 1.0,
+  "scale": 0.5,
+  "method": "frequency_notch",
+  "harmonics": [
+    1,
+    2
+  ],
+  "include_lattice_lines": true,
+  "radius_cyc_per_px": null,
+  "apodization": 0.35,
+  "strength": 1.0,
+  "taps": null,
+  "pad": null,
+  "feather": null,
+  "peaks": [
+    {
+      "fx": 0.03594402484377497,
+      "fy": -0.13416593531146645,
+      "period_px": 7.199561909693849,
+      "angle_deg": 104.99775706231314,
+      "magnitude": 1403.856201171875,
+      "snr": 0.07347988948551422,
+      "prominence": 2.690380096435547,
+      "isolation": 0.04782332832373,
+      "coverage": 1.0,
+      "coherence": 1.0,
+      "comb_present": 21,
+      "comb_expected": 16,
+      "collinear2_rel": 1.0368522665883984,
+      "collinear2_offset": 0.4017515944284886,
+      "collinear3_rel": 1.3078529124430889,
+      "collinear3_offset": 0.3986817868989092,
+      "squareness": 0.9999588272629814,
+      "perpendicularity": 0.9997781183041269,
+      "channel": "luma",
+      "channels": [
+        "luma"
+      ],
+      "basis_b": {
+        "fx": 0.13416519341990352,
+        "fy": 0.03596888572598497,
+        "period_px": 7.199265484024692,
+        "angle_deg": 15.007741738627434,
+        "magnitude": 1242.5574951171875
+      },
+      "lattice": [
+        {
+          "m": 1,
+          "n": 0,
+          "fx": 0.03594402484377497,
+          "fy": -0.13416593531146645,
+          "period_px": 7.1995619096938475,
+          "angle_deg": 104.99775706231314,
+          "rel_magnitude": 1.0,
+          "present": true,
+          "residual": 2.690380096435547,
+          "offset_bins": 0.2008757972142443
+        },
+        {
+          "m": 0,
+          "n": 1,
+          "fx": 0.13416519341990352,
+          "fy": 0.03596888572598497,
+          "period_px": 7.199265484024691,
+          "angle_deg": 15.007741738627434,
+          "rel_magnitude": 1.0326110536860509,
+          "present": true,
+          "residual": 2.778116226196289,
+          "offset_bins": 0.5412004633143768
+        },
+        {
+          "m": -1,
+          "n": 0,
+          "fx": -0.03594402484377497,
+          "fy": 0.13416593531146645,
+          "period_px": 7.1995619096938475,
+          "angle_deg": 104.99775706231316,
+          "rel_magnitude": 1.0,
+          "present": true,
+          "residual": 2.690380096435547,
+          "offset_bins": 0.2008757972142443
+        },
+        {
+          "m": 0,
+          "n": -1,
+          "fx": -0.13416519341990352,
+          "fy": -0.03596888572598497,
+          "period_px": 7.199265484024691,
+          "angle_deg": 15.00774173862743,
+          "rel_magnitude": 1.0326110536860509,
+          "present": true,
+          "residual": 2.778116226196289,
+          "offset_bins": 0.5412004633143768
+        },
+        {
+          "m": 1,
+          "n": 1,
+          "fx": 0.17010921826367847,
+          "fy": -0.09819704958548148,
+          "period_px": 5.091197871717084,
+          "angle_deg": 150.00392914235394,
+          "rel_magnitude": 0.8418901990310053,
+          "present": true,
+          "residual": 2.2650046348571777,
+          "offset_bins": 0.374373559356043
+        },
+        {
+          "m": 1,
+          "n": -1,
+          "fx": -0.09822116857612855,
+          "fy": -0.17013482103745142,
+          "period_px": 5.09031072899205,
+          "angle_deg": 60.00157006969154,
+          "rel_magnitude": 0.7858851683121427,
+          "present": true,
+          "residual": 2.1143298149108887,
+          "offset_bins": 0.4303474000829264
+        },
+        {
+          "m": -1,
+          "n": 1,
+          "fx": 0.09822116857612855,
+          "fy": 0.17013482103745142,
+          "period_px": 5.090310728992052,
+          "angle_deg": 60.001570069691546,
+          "rel_magnitude": 0.7858851683121427,
+          "present": true,
+          "residual": 2.1143298149108887,
+          "offset_bins": 0.43034740008288286
+        },
+        {
+          "m": -1,
+          "n": -1,
+          "fx": -0.17010921826367847,
+          "fy": 0.09819704958548148,
+          "period_px": 5.0911978717170845,
+          "angle_deg": 150.00392914235394,
+          "rel_magnitude": 0.8418901990310053,
+          "present": true,
+          "residual": 2.2650046348571777,
+          "offset_bins": 0.374373559356043
+        },
+        {
+          "m": 2,
+          "n": 0,
+          "fx": 0.07188804968754994,
+          "fy": -0.2683318706229329,
+          "period_px": 3.5997809548469246,
+          "angle_deg": 104.99775706231314,
+          "rel_magnitude": 1.0368522665883984,
+          "present": true,
+          "residual": 2.7895267009735107,
+          "offset_bins": 0.4017515944284886
+        },
+        {
+          "m": 0,
+          "n": 2,
+          "fx": 0.26833038683980703,
+          "fy": 0.07193777145196995,
+          "period_px": 3.5996327420123455,
+          "angle_deg": 15.007741738627434,
+          "rel_magnitude": 1.072857779394187,
+          "present": true,
+          "residual": 2.886395215988159,
+          "offset_bins": 0.4668010964587431
+        },
+        {
+          "m": -2,
+          "n": 0,
+          "fx": -0.07188804968754994,
+          "fy": 0.2683318706229329,
+          "period_px": 3.5997809548469237,
+          "angle_deg": 104.99775706231316,
+          "rel_magnitude": 1.0368522665883984,
+          "present": true,
+          "residual": 2.7895267009735107,
+          "offset_bins": 0.40175159442843184
+        },
+        {
+          "m": 0,
+          "n": -2,
+          "fx": -0.26833038683980703,
+          "fy": -0.07193777145196995,
+          "period_px": 3.599632742012346,
+          "angle_deg": 15.00774173862743,
+          "rel_magnitude": 1.072857779394187,
+          "present": true,
+          "residual": 2.886395215988159,
+          "offset_bins": 0.4668010964587358
+        },
+        {
+          "m": 2,
+          "n": 1,
+          "fx": 0.20605324310745346,
+          "fy": -0.23236298489694793,
+          "period_px": 3.219939916343665,
+          "angle_deg": 131.56574873810388,
+          "rel_magnitude": 0.9724302994468762,
+          "present": true,
+          "residual": 2.6162071228027344,
+          "offset_bins": 0.2609891840882406
+        },
+        {
+          "m": 2,
+          "n": -1,
+          "fx": -0.062277143732353574,
+          "fy": -0.30430075634891784,
+          "period_px": 3.219491037053741,
+          "angle_deg": 78.43375952012293,
+          "rel_magnitude": 0.9661096435817924,
+          "present": true,
+          "residual": 2.5992021560668945,
+          "offset_bins": 0.3129559169377455
+        },
+        {
+          "m": -2,
+          "n": 1,
+          "fx": 0.062277143732353574,
+          "fy": 0.30430075634891784,
+          "period_px": 3.219491037053741,
+          "angle_deg": 78.43375952012295,
+          "rel_magnitude": 0.9661096435817924,
+          "present": true,
+          "residual": 2.5992021560668945,
+          "offset_bins": 0.3129559169377221
+        },
+        {
+          "m": -2,
+          "n": -1,
+          "fx": -0.20605324310745346,
+          "fy": 0.23236298489694793,
+          "period_px": 3.219939916343665,
+          "angle_deg": 131.5657487381039,
+          "rel_magnitude": 0.9724302994468762,
+          "present": true,
+          "residual": 2.6162071228027344,
+          "offset_bins": 0.2609891840882406
+        },
+        {
+          "m": 1,
+          "n": 2,
+          "fx": 0.304274411683582,
+          "fy": -0.062228163859496505,
+          "period_px": 3.219860360354082,
+          "angle_deg": 168.4416375840535,
+          "rel_magnitude": 0.9632239456829824,
+          "present": true,
+          "residual": 2.5914385318756104,
+          "offset_bins": 0.5386791444852662
+        },
+        {
+          "m": 1,
+          "n": -2,
+          "fx": -0.23238636199603208,
+          "fy": -0.2061037067634364,
+          "period_px": 3.2194115143304716,
+          "angle_deg": 41.5698522858151,
+          "rel_magnitude": 0.9672957192098879,
+          "present": true,
+          "residual": 2.60239315032959,
+          "offset_bins": 0.47574518223487455
+        },
+        {
+          "m": -1,
+          "n": 2,
+          "fx": 0.23238636199603208,
+          "fy": 0.2061037067634364,
+          "period_px": 3.2194115143304716,
+          "angle_deg": 41.5698522858151,
+          "rel_magnitude": 0.9672957192098879,
+          "present": true,
+          "residual": 2.60239315032959,
+          "offset_bins": 0.47574518223487455
+        },
+        {
+          "m": -1,
+          "n": -2,
+          "fx": -0.304274411683582,
+          "fy": 0.062228163859496505,
+          "period_px": 3.2198603603540823,
+          "angle_deg": 168.44163758405352,
+          "rel_magnitude": 0.9632239456829824,
+          "present": true,
+          "residual": 2.5914385318756104,
+          "offset_bins": 0.5386791444852937
+        }
+      ],
+      "isotropy": 0.5218191348177343,
+      "lattice_orthogonality": 1.0000411744322828,
+      "classification": "halftone_screen",
+      "confidence": 0.74,
+      "selected": true,
+      "reasons": [
+        "strong collinear harmonic comb (2f and 3f on the dot pitch)",
+        "coherent lattice (21/16 lines)",
+        "square two-axis lattice (ratio 1.00, perpendicularity 1.00)",
+        "stationary across 100% of tiles",
+        "ridge-like energy (annulus ratio 0.0)"
+      ],
+      "harm_of_fx": null,
+      "harm_of_fy": null,
+      "display_angle_deg": 14.997757062313141,
+      "basis_display_angle_deg": 15.007741738627434
+    }
+  ],
+  "accepted_peaks": [
+    {
+      "fx": 0.03594402484377497,
+      "fy": -0.13416593531146645,
+      "period_px": 7.199561909693849,
+      "angle_deg": 104.99775706231314,
+      "magnitude": 1403.856201171875,
+      "snr": 0.07347988948551422,
+      "prominence": 2.690380096435547,
+      "isolation": 0.04782332832373,
+      "coverage": 1.0,
+      "coherence": 1.0,
+      "comb_present": 21,
+      "comb_expected": 16,
+      "collinear2_rel": 1.0368522665883984,
+      "collinear2_offset": 0.4017515944284886,
+      "collinear3_rel": 1.3078529124430889,
+      "collinear3_offset": 0.3986817868989092,
+      "squareness": 0.9999588272629814,
+      "perpendicularity": 0.9997781183041269,
+      "channel": "luma",
+      "channels": [
+        "luma"
+      ],
+      "basis_b": {
+        "fx": 0.13416519341990352,
+        "fy": 0.03596888572598497,
+        "period_px": 7.199265484024692,
+        "angle_deg": 15.007741738627434,
+        "magnitude": 1242.5574951171875
+      },
+      "lattice": [
+        {
+          "m": 1,
+          "n": 0,
+          "fx": 0.03594402484377497,
+          "fy": -0.13416593531146645,
+          "period_px": 7.1995619096938475,
+          "angle_deg": 104.99775706231314,
+          "rel_magnitude": 1.0,
+          "present": true,
+          "residual": 2.690380096435547,
+          "offset_bins": 0.2008757972142443
+        },
+        {
+          "m": 0,
+          "n": 1,
+          "fx": 0.13416519341990352,
+          "fy": 0.03596888572598497,
+          "period_px": 7.199265484024691,
+          "angle_deg": 15.007741738627434,
+          "rel_magnitude": 1.0326110536860509,
+          "present": true,
+          "residual": 2.778116226196289,
+          "offset_bins": 0.5412004633143768
+        },
+        {
+          "m": -1,
+          "n": 0,
+          "fx": -0.03594402484377497,
+          "fy": 0.13416593531146645,
+          "period_px": 7.1995619096938475,
+          "angle_deg": 104.99775706231316,
+          "rel_magnitude": 1.0,
+          "present": true,
+          "residual": 2.690380096435547,
+          "offset_bins": 0.2008757972142443
+        },
+        {
+          "m": 0,
+          "n": -1,
+          "fx": -0.13416519341990352,
+          "fy": -0.03596888572598497,
+          "period_px": 7.199265484024691,
+          "angle_deg": 15.00774173862743,
+          "rel_magnitude": 1.0326110536860509,
+          "present": true,
+          "residual": 2.778116226196289,
+          "offset_bins": 0.5412004633143768
+        },
+        {
+          "m": 1,
+          "n": 1,
+          "fx": 0.17010921826367847,
+          "fy": -0.09819704958548148,
+          "period_px": 5.091197871717084,
+          "angle_deg": 150.00392914235394,
+          "rel_magnitude": 0.8418901990310053,
+          "present": true,
+          "residual": 2.2650046348571777,
+          "offset_bins": 0.374373559356043
+        },
+        {
+          "m": 1,
+          "n": -1,
+          "fx": -0.09822116857612855,
+          "fy": -0.17013482103745142,
+          "period_px": 5.09031072899205,
+          "angle_deg": 60.00157006969154,
+          "rel_magnitude": 0.7858851683121427,
+          "present": true,
+          "residual": 2.1143298149108887,
+          "offset_bins": 0.4303474000829264
+        },
+        {
+          "m": -1,
+          "n": 1,
+          "fx": 0.09822116857612855,
+          "fy": 0.17013482103745142,
+          "period_px": 5.090310728992052,
+          "angle_deg": 60.001570069691546,
+          "rel_magnitude": 0.7858851683121427,
+          "present": true,
+          "residual": 2.1143298149108887,
+          "offset_bins": 0.43034740008288286
+        },
+        {
+          "m": -1,
+          "n": -1,
+          "fx": -0.17010921826367847,
+          "fy": 0.09819704958548148,
+          "period_px": 5.0911978717170845,
+          "angle_deg": 150.00392914235394,
+          "rel_magnitude": 0.8418901990310053,
+          "present": true,
+          "residual": 2.2650046348571777,
+          "offset_bins": 0.374373559356043
+        },
+        {
+          "m": 2,
+          "n": 0,
+          "fx": 0.07188804968754994,
+          "fy": -0.2683318706229329,
+          "period_px": 3.5997809548469246,
+          "angle_deg": 104.99775706231314,
+          "rel_magnitude": 1.0368522665883984,
+          "present": true,
+          "residual": 2.7895267009735107,
+          "offset_bins": 0.4017515944284886
+        },
+        {
+          "m": 0,
+          "n": 2,
+          "fx": 0.26833038683980703,
+          "fy": 0.07193777145196995,
+          "period_px": 3.5996327420123455,
+          "angle_deg": 15.007741738627434,
+          "rel_magnitude": 1.072857779394187,
+          "present": true,
+          "residual": 2.886395215988159,
+          "offset_bins": 0.4668010964587431
+        },
+        {
+          "m": -2,
+          "n": 0,
+          "fx": -0.07188804968754994,
+          "fy": 0.2683318706229329,
+          "period_px": 3.5997809548469237,
+          "angle_deg": 104.99775706231316,
+          "rel_magnitude": 1.0368522665883984,
+          "present": true,
+          "residual": 2.7895267009735107,
+          "offset_bins": 0.40175159442843184
+        },
+        {
+          "m": 0,
+          "n": -2,
+          "fx": -0.26833038683980703,
+          "fy": -0.07193777145196995,
+          "period_px": 3.599632742012346,
+          "angle_deg": 15.00774173862743,
+          "rel_magnitude": 1.072857779394187,
+          "present": true,
+          "residual": 2.886395215988159,
+          "offset_bins": 0.4668010964587358
+        },
+        {
+          "m": 2,
+          "n": 1,
+          "fx": 0.20605324310745346,
+          "fy": -0.23236298489694793,
+          "period_px": 3.219939916343665,
+          "angle_deg": 131.56574873810388,
+          "rel_magnitude": 0.9724302994468762,
+          "present": true,
+          "residual": 2.6162071228027344,
+          "offset_bins": 0.2609891840882406
+        },
+        {
+          "m": 2,
+          "n": -1,
+          "fx": -0.062277143732353574,
+          "fy": -0.30430075634891784,
+          "period_px": 3.219491037053741,
+          "angle_deg": 78.43375952012293,
+          "rel_magnitude": 0.9661096435817924,
+          "present": true,
+          "residual": 2.5992021560668945,
+          "offset_bins": 0.3129559169377455
+        },
+        {
+          "m": -2,
+          "n": 1,
+          "fx": 0.062277143732353574,
+          "fy": 0.30430075634891784,
+          "period_px": 3.219491037053741,
+          "angle_deg": 78.43375952012295,
+          "rel_magnitude": 0.9661096435817924,
+          "present": true,
+          "residual": 2.5992021560668945,
+          "offset_bins": 0.3129559169377221
+        },
+        {
+          "m": -2,
+          "n": -1,
+          "fx": -0.20605324310745346,
+          "fy": 0.23236298489694793,
+          "period_px": 3.219939916343665,
+          "angle_deg": 131.5657487381039,
+          "rel_magnitude": 0.9724302994468762,
+          "present": true,
+          "residual": 2.6162071228027344,
+          "offset_bins": 0.2609891840882406
+        },
+        {
+          "m": 1,
+          "n": 2,
+          "fx": 0.304274411683582,
+          "fy": -0.062228163859496505,
+          "period_px": 3.219860360354082,
+          "angle_deg": 168.4416375840535,
+          "rel_magnitude": 0.9632239456829824,
+          "present": true,
+          "residual": 2.5914385318756104,
+          "offset_bins": 0.5386791444852662
+        },
+        {
+          "m": 1,
+          "n": -2,
+          "fx": -0.23238636199603208,
+          "fy": -0.2061037067634364,
+          "period_px": 3.2194115143304716,
+          "angle_deg": 41.5698522858151,
+          "rel_magnitude": 0.9672957192098879,
+          "present": true,
+          "residual": 2.60239315032959,
+          "offset_bins": 0.47574518223487455
+        },
+        {
+          "m": -1,
+          "n": 2,
+          "fx": 0.23238636199603208,
+          "fy": 0.2061037067634364,
+          "period_px": 3.2194115143304716,
+          "angle_deg": 41.5698522858151,
+          "rel_magnitude": 0.9672957192098879,
+          "present": true,
+          "residual": 2.60239315032959,
+          "offset_bins": 0.47574518223487455
+        },
+        {
+          "m": -1,
+          "n": -2,
+          "fx": -0.304274411683582,
+          "fy": 0.062228163859496505,
+          "period_px": 3.2198603603540823,
+          "angle_deg": 168.44163758405352,
+          "rel_magnitude": 0.9632239456829824,
+          "present": true,
+          "residual": 2.5914385318756104,
+          "offset_bins": 0.5386791444852937
+        }
+      ],
+      "isotropy": 0.5218191348177343,
+      "lattice_orthogonality": 1.0000411744322828,
+      "classification": "halftone_screen",
+      "confidence": 0.74,
+      "selected": true,
+      "reasons": [
+        "strong collinear harmonic comb (2f and 3f on the dot pitch)",
+        "coherent lattice (21/16 lines)",
+        "square two-axis lattice (ratio 1.00, perpendicularity 1.00)",
+        "stationary across 100% of tiles",
+        "ridge-like energy (annulus ratio 0.0)"
+      ],
+      "harm_of_fx": null,
+      "harm_of_fy": null,
+      "display_angle_deg": 14.997757062313141,
+      "basis_display_angle_deg": 15.007741738627434
+    }
+  ],
+  "rejected_peaks": [],
+  "manual_peaks": [],
+  "lattice_explained": [],
+  "notch_specs": [
+    {
+      "period_px": 7.199561909693849,
+      "angle_deg": 104.99775706231314,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": null,
+      "label": "a1",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": -0.03594402484377496,
+      "center_fy": 0.13416593531146645,
+      "resolved_radius_cyc_per_px": 0.009722813815344586
+    },
+    {
+      "period_px": 7.199561909693849,
+      "angle_deg": 104.99775706231314,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 2,
+      "center_override": null,
+      "label": "a2",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": -0.07188804968754992,
+      "center_fy": 0.2683318706229329,
+      "resolved_radius_cyc_per_px": 0.013125798650715191
+    },
+    {
+      "period_px": 7.199265484024692,
+      "angle_deg": 15.007741738627434,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": null,
+      "label": "b1",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": 0.13416519341990352,
+      "center_fy": 0.03596888572598497,
+      "resolved_radius_cyc_per_px": 0.009723214146683623
+    },
+    {
+      "period_px": 7.199265484024692,
+      "angle_deg": 15.007741738627434,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 2,
+      "center_override": null,
+      "label": "b2",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": 0.26833038683980703,
+      "center_fy": 0.07193777145196995,
+      "resolved_radius_cyc_per_px": 0.013126339098022891
+    },
+    {
+      "period_px": 5.091197871717084,
+      "angle_deg": 150.00392914235394,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": [
+        0.17010921826367847,
+        -0.09819704958548148
+      ],
+      "label": "lattice(1,1)",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": 0.17010921826367847,
+      "center_fy": -0.09819704958548148,
+      "resolved_radius_cyc_per_px": 0.013749220078219323
+    },
+    {
+      "period_px": 5.09031072899205,
+      "angle_deg": 60.00157006969154,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": [
+        -0.09822116857612855,
+        -0.17013482103745142
+      ],
+      "label": "lattice(1,-1)",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": -0.09822116857612855,
+      "center_fy": -0.17013482103745142,
+      "resolved_radius_cyc_per_px": 0.013751616301400316
+    },
+    {
+      "period_px": 3.219939916343665,
+      "angle_deg": 131.56574873810388,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": [
+        0.20605324310745346,
+        -0.23236298489694793
+      ],
+      "label": "lattice(2,1)",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": 0.20605324310745346,
+      "center_fy": -0.23236298489694793,
+      "resolved_radius_cyc_per_px": 0.021739536084104026
+    },
+    {
+      "period_px": 3.219491037053741,
+      "angle_deg": 78.43375952012293,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": [
+        -0.062277143732353574,
+        -0.30430075634891784
+      ],
+      "label": "lattice(2,-1)",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": -0.062277143732353574,
+      "center_fy": -0.30430075634891784,
+      "resolved_radius_cyc_per_px": 0.02174256713075345
+    },
+    {
+      "period_px": 3.219860360354082,
+      "angle_deg": 168.4416375840535,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": [
+        0.304274411683582,
+        -0.062228163859496505
+      ],
+      "label": "lattice(1,2)",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": 0.304274411683582,
+      "center_fy": -0.062228163859496505,
+      "resolved_radius_cyc_per_px": 0.021740073222399695
+    },
+    {
+      "period_px": 3.2194115143304716,
+      "angle_deg": 41.5698522858151,
+      "radius_cyc_per_px": 0.0,
+      "apodization": 0.35,
+      "harmonic_order": 1,
+      "center_override": [
+        -0.23238636199603208,
+        -0.2061037067634364
+      ],
+      "label": "lattice(1,-2)",
+      "analysis_shape": [
+        960,
+        1280
+      ],
+      "center_fx": -0.23238636199603208,
+      "center_fy": -0.2061037067634364,
+      "resolved_radius_cyc_per_px": 0.021743104194170602
+    }
+  ],
+  "notch_notes": [
+    {
+      "period_px": 7.199561909693849,
+      "angle_deg": 104.99775706231314,
+      "harmonic_order": 1,
+      "axis": "a",
+      "center_fx": -0.03594402484377496,
+      "center_fy": 0.13416593531146648,
+      "applied": true
+    },
+    {
+      "period_px": 7.199561909693849,
+      "angle_deg": 104.99775706231314,
+      "harmonic_order": 2,
+      "axis": "a",
+      "center_fx": -0.07188804968754992,
+      "center_fy": 0.26833187062293296,
+      "applied": true
+    },
+    {
+      "period_px": 7.199265484024692,
+      "angle_deg": 15.007741738627434,
+      "harmonic_order": 1,
+      "axis": "b",
+      "center_fx": 0.13416519341990352,
+      "center_fy": 0.035968885725985,
+      "applied": true
+    },
+    {
+      "period_px": 7.199265484024692,
+      "angle_deg": 15.007741738627434,
+      "harmonic_order": 2,
+      "axis": "b",
+      "center_fx": 0.26833038683980703,
+      "center_fy": 0.07193777145197,
+      "applied": true
+    },
+    {
+      "period_px": 5.091197871717084,
+      "angle_deg": 150.00392914235394,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        1,
+        1
+      ],
+      "center_fx": 0.17010921826367853,
+      "center_fy": -0.09819704958548148,
+      "rel_magnitude": 0.8418901990310053,
+      "applied": true
+    },
+    {
+      "period_px": 5.09031072899205,
+      "angle_deg": 60.00157006969154,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        1,
+        -1
+      ],
+      "center_fx": -0.09822116857612856,
+      "center_fy": -0.17013482103745142,
+      "rel_magnitude": 0.7858851683121427,
+      "applied": true
+    },
+    {
+      "period_px": 5.090310728992052,
+      "angle_deg": 60.001570069691546,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        -1,
+        1
+      ],
+      "center_fx": 0.0982211685761285,
+      "center_fy": 0.17013482103745137,
+      "rel_magnitude": 0.7858851683121427,
+      "applied": true
+    },
+    {
+      "period_px": 5.0911978717170845,
+      "angle_deg": 150.00392914235394,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        -1,
+        -1
+      ],
+      "center_fx": -0.17010921826367847,
+      "center_fy": 0.09819704958548148,
+      "rel_magnitude": 0.8418901990310053,
+      "applied": true
+    },
+    {
+      "period_px": 3.219939916343665,
+      "angle_deg": 131.56574873810388,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        2,
+        1
+      ],
+      "center_fx": 0.20605324310745343,
+      "center_fy": -0.23236298489694795,
+      "rel_magnitude": 0.9724302994468762,
+      "applied": true
+    },
+    {
+      "period_px": 3.219491037053741,
+      "angle_deg": 78.43375952012293,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        2,
+        -1
+      ],
+      "center_fx": -0.0622771437323536,
+      "center_fy": -0.30430075634891784,
+      "rel_magnitude": 0.9661096435817924,
+      "applied": true
+    },
+    {
+      "period_px": 3.219491037053741,
+      "angle_deg": 78.43375952012295,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        -2,
+        1
+      ],
+      "center_fx": 0.0622771437323536,
+      "center_fy": 0.30430075634891784,
+      "rel_magnitude": 0.9661096435817924,
+      "applied": true
+    },
+    {
+      "period_px": 3.219939916343665,
+      "angle_deg": 131.5657487381039,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        -2,
+        -1
+      ],
+      "center_fx": -0.20605324310745343,
+      "center_fy": 0.23236298489694795,
+      "rel_magnitude": 0.9724302994468762,
+      "applied": true
+    },
+    {
+      "period_px": 3.219860360354082,
+      "angle_deg": 168.4416375840535,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        1,
+        2
+      ],
+      "center_fx": 0.30427441168358205,
+      "center_fy": -0.06222816385949648,
+      "rel_magnitude": 0.9632239456829824,
+      "applied": true
+    },
+    {
+      "period_px": 3.2194115143304716,
+      "angle_deg": 41.5698522858151,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        1,
+        -2
+      ],
+      "center_fx": -0.23238636199603208,
+      "center_fy": -0.20610370676343637,
+      "rel_magnitude": 0.9672957192098879,
+      "applied": true
+    },
+    {
+      "period_px": 3.2194115143304716,
+      "angle_deg": 41.5698522858151,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        -1,
+        2
+      ],
+      "center_fx": 0.23238636199603202,
+      "center_fy": 0.20610370676343637,
+      "rel_magnitude": 0.9672957192098879,
+      "applied": true
+    },
+    {
+      "period_px": 3.2198603603540823,
+      "angle_deg": 168.44163758405352,
+      "harmonic_order": 1,
+      "axis": "lattice",
+      "lattice_mn": [
+        -1,
+        -2
+      ],
+      "center_fx": -0.304274411683582,
+      "center_fy": 0.06222816385949648,
+      "rel_magnitude": 0.9632239456829824,
+      "applied": true
+    }
+  ],
+  "processing_audit": {
+    "method": "frequency_notch",
+    "channels_processed": "luminance",
+    "pad_px": 24,
+    "padding_mode": "reflect",
+    "edge_feather_px": 12,
+    "strength": 1.0,
+    "notches": [
+      {
+        "period_px": 7.199561909693849,
+        "angle_deg": 104.99775706231314,
+        "harmonic_order": 1,
+        "center_fx": -0.03594402484377496,
+        "center_fy": 0.13416593531146648,
+        "center_x_bin": 1280.2663350074668,
+        "center_y_bin": 135.2392627939582,
+        "radius_cyc_per_px": 0.009722813815344586,
+        "radius_bins_x": 12.91189674677761,
+        "radius_bins_y": 9.800596325867343,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.006319828979973981,
+          0.009722813815344586
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 7.199561909693849,
+        "angle_deg": 104.99775706231314,
+        "harmonic_order": 2,
+        "center_fx": -0.07188804968754992,
+        "center_fy": 0.26833187062293296,
+        "center_x_bin": 1232.5326700149337,
+        "center_y_bin": 270.4785255879164,
+        "radius_cyc_per_px": 0.013125798650715191,
+        "radius_bins_x": 17.431060608149775,
+        "radius_bins_y": 13.230805039920913,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.008531769122964874,
+          0.013125798650715191
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 7.199265484024692,
+        "angle_deg": 15.007741738627434,
+        "harmonic_order": 1,
+        "center_fx": 0.13416519341990352,
+        "center_fy": 0.035968885725985,
+        "center_x_bin": 178.17137686163187,
+        "center_y_bin": 36.25663681179288,
+        "radius_cyc_per_px": 0.009723214146683623,
+        "radius_bins_x": 12.91242838679585,
+        "radius_bins_y": 9.800999859857091,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.006320089195344355,
+          0.009723214146683623
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 7.199265484024692,
+        "angle_deg": 15.007741738627434,
+        "harmonic_order": 2,
+        "center_fx": 0.26833038683980703,
+        "center_fy": 0.07193777145197,
+        "center_x_bin": 356.34275372326374,
+        "center_y_bin": 72.51327362358576,
+        "radius_cyc_per_px": 0.013126339098022891,
+        "radius_bins_x": 17.4317783221744,
+        "radius_bins_y": 13.231349810807075,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.008532120413714879,
+          0.013126339098022891
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 5.091197871717084,
+        "angle_deg": 150.00392914235394,
+        "harmonic_order": 1,
+        "center_fx": 0.17010921826367853,
+        "center_fy": -0.09819704958548148,
+        "center_x_bin": 225.9050418541651,
+        "center_y_bin": 909.0173740178346,
+        "radius_cyc_per_px": 0.013749220078219323,
+        "radius_bins_x": 18.25896426387526,
+        "radius_bins_y": 13.859213838845077,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.00893699305084256,
+          0.013749220078219323
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 5.09031072899205,
+        "angle_deg": 60.00157006969154,
+        "harmonic_order": 1,
+        "center_fx": -0.09822116857612856,
+        "center_fy": -0.17013482103745142,
+        "center_x_bin": 1197.5622881309014,
+        "center_y_bin": 836.504100394249,
+        "radius_cyc_per_px": 0.013751616301400316,
+        "radius_bins_x": 18.26214644825962,
+        "radius_bins_y": 13.861629231811518,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.008938550595910205,
+          0.013751616301400316
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 3.219939916343665,
+        "angle_deg": 131.56574873810388,
+        "harmonic_order": 1,
+        "center_fx": 0.20605324310745343,
+        "center_fy": -0.23236298489694795,
+        "center_x_bin": 273.63870684669814,
+        "center_y_bin": 773.7781112238764,
+        "radius_cyc_per_px": 0.021739536084104026,
+        "radius_bins_x": 28.87010391969015,
+        "radius_bins_y": 21.91345237277686,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.014130698454667617,
+          0.021739536084104026
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 3.219491037053741,
+        "angle_deg": 78.43375952012293,
+        "harmonic_order": 1,
+        "center_fx": -0.0622771437323536,
+        "center_fy": -0.30430075634891784,
+        "center_x_bin": 1245.2959531234344,
+        "center_y_bin": 701.2648376002908,
+        "radius_cyc_per_px": 0.02174256713075345,
+        "radius_bins_x": 28.87412914964058,
+        "radius_bins_y": 21.91650766779948,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.014132668634989744,
+          0.02174256713075345
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 3.219860360354082,
+        "angle_deg": 168.4416375840535,
+        "harmonic_order": 1,
+        "center_fx": 0.30427441168358205,
+        "center_fy": -0.06222816385949648,
+        "center_x_bin": 404.07641871579693,
+        "center_y_bin": 945.2740108296275,
+        "radius_cyc_per_px": 0.021740073222399695,
+        "radius_bins_x": 28.870817239346795,
+        "radius_bins_y": 21.91399380817889,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.014131047594559801,
+          0.021740073222399695
+        ],
+        "pad_px": 24
+      },
+      {
+        "period_px": 3.2194115143304716,
+        "angle_deg": 41.5698522858151,
+        "harmonic_order": 1,
+        "center_fx": -0.23238636199603208,
+        "center_fy": -0.20610370676343637,
+        "center_x_bin": 1019.3909112692695,
+        "center_y_bin": 800.2474635824561,
+        "radius_cyc_per_px": 0.021743104194170602,
+        "radius_bins_x": 28.87484236985856,
+        "radius_bins_y": 21.917049027723966,
+        "apodization": 0.35,
+        "stopband_cyc_per_px": [
+          0.014133017726210891,
+          0.021743104194170602
+        ],
+        "pad_px": 24
+      }
+    ],
+    "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+    "notes": [
+      "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+      "The outer 12 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+    ]
+  },
+  "resample_audit": {
+    "method": "area_average",
+    "requested_scale": 0.5,
+    "output_shape": [
+      480,
+      640
+    ],
+    "prefilter": "exact fractional area box (per channel identical)",
+    "note": "Area averaging is applied after screen suppression; it also prevents any leftover high frequency from aliasing into new moire."
+  },
+  "resample_plan": {
+    "scale": 0.5,
+    "order": "suppress_then_resize",
+    "reason": "Suppression first removes the scanned screen; area resampling then prevents residual high frequency from aliasing into a new lower-frequency moire."
+  },
+  "metrics": {
+    "peak_suppression": {
+      "peaks": [
+        {
+          "period_px": 7.199561909693849,
+          "angle_deg": 104.99775706231314,
+          "amplitude_before": 0.0046806015286090154,
+          "amplitude_after": 3.5092559196274355e-07,
+          "local_floor_before": 7.686936079663065e-05,
+          "local_floor_after": 6.6107527880122e-05,
+          "snr_before_db": 35.69096800777239,
+          "snr_after_db": -45.50071751307611,
+          "lobe_max_before": 5.314966678619385,
+          "lobe_max_after": -1.8217297792434692,
+          "reduction_db": 82.50173257879253,
+          "reduction_ratio": 0.9999250255357527,
+          "amplitude_after_conjugate": 3.5092559196274355e-07
+        }
+      ],
+      "mean_reduction_db": 82.50173257879253,
+      "min_reduction_db": 82.50173257879253,
+      "all_reduced": true,
+      "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+    },
+    "content_preservation": {
+      "metrics": {
+        "edge_sharpness": {
+          "before": 1.0324164628982544,
+          "after": 0.941150426864624,
+          "retained_fraction": 0.9115995924964007
+        },
+        "edge_contrast": {
+          "before": 0.19033803045749664,
+          "after": 0.19213196635246277,
+          "retained_fraction": 1.0094249997788367
+        },
+        "hairline_contrast": {
+          "before": 0.23498906195163727,
+          "after": 0.2333732396364212,
+          "retained_fraction": 0.9931238403107093
+        },
+        "detail_energy": {
+          "before": 0.040397316217422485,
+          "after": 0.03966866806149483,
+          "retained_fraction": 0.9819629563507141
+        }
+      },
+      "worst_retained_fraction": 0.9115995924964007,
+      "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+    },
+    "moire_vs_area_reference": {
+      "reference_energy": 0.07991713285446167,
+      "output_energy": 0.07888057827949524,
+      "ratio": 0.9870296325963781,
+      "added_moire_risk": false,
+      "note": "Reference is area-averaged input with no screen removal. If the output carries more low-frequency beat energy than this reference, new moire is likely."
+    },
+    "seam": {
+      "border_wrap_step_p95": 0.07322162389755249,
+      "interior_step_p95": 0.057418473064899445,
+      "border_over_interior": 1.2752276399755689,
+      "input_border_wrap_step_p95": 0.07322162389755249,
+      "border_step_change": 1.0,
+      "wrap_seam_suspected": false,
+      "note": "border_step_change compares the wrap-boundary step with the same step in the input. ~1.0 means the border was restored and no circular seam was introduced. 'border_over_interior' is reported for context only; removing a screen changes interior steps."
+    },
+    "color_registration": {
+      "input": {
+        "note": "single-channel image"
+      },
+      "output": {
+        "note": "single-channel image"
+      },
+      "suppressed_output": {
+        "note": "single-channel image"
+      }
+    },
+    "resample_scale": 0.5,
+    "note": "Edge/hairline/detail metrics are measured on the suppressed image before resampling, so the resampling low-pass is not misreported as descreen smoothing."
+  },
+  "warnings": [
+    "Screen at 7.20 px / 105.0° has moderate confidence (0.74); inspect the spectrum before applying."
+  ],
+  "flat_tile_assist_used": false,
+  "flat_tiles": [],
+  "manual_review_required": false,
+  "elapsed_s": 1.166532039642334,
+  "inputs": {
+    "input_shape": [
+      960,
+      1280
+    ],
+    "suppressed_shape": [
+      960,
+      1280
+    ],
+    "output_shape": [
+      480,
+      640
+    ]
+  }
+}
