@@ -18,13 +18,26 @@ import numpy as np
 from PIL import Image
 
 from .analysis import analyze_image, channel_array, crop_overview_png, luma
-from .pipeline import result_json, result_pngs, run_pipeline
+from .pipeline import (
+    result_json,
+    result_overlay_png,
+    result_pngs,
+    run_pipeline,
+    run_region_pipeline,
+)
+from .regions import (
+    map_region_set,
+    recompute_regions,
+    suggest_regions,
+)
 from .synth import (
     make_fabric_fixture,
     make_known_screen_fixture,
     make_palette_fixture,
     make_photo_fixture,
     make_text_fixture,
+    make_two_frequency_clean,
+    make_two_frequency_fixture,
     to_png_bytes,
 )
 
@@ -40,6 +53,8 @@ def _fixture(name: str) -> tuple[np.ndarray, dict]:
         "photo": make_photo_fixture,
         "palette": make_palette_fixture,
         "known": make_known_screen_fixture,
+        "two_frequency": make_two_frequency_fixture,
+        "two_frequency_clean": make_two_frequency_clean,
     }
     if name not in makers:
         raise ValueError(f"unknown fixture {name!r}")
@@ -108,6 +123,10 @@ class Handler(BaseHTTPRequestHandler):
                 {"id": "photo_clean", "label": "Photo (no screen)"},
                 {"id": "palette", "label": "Color page, 3 rotated screens"},
                 {"id": "known", "label": "Flat tone, known 6 px / 33° screen"},
+                {"id": "two_frequency",
+                 "label": "Two-frequency page: 6 px/33° | 9.5 px/12° (text crosses)"},
+                {"id": "two_frequency_clean",
+                 "label": "Two-frequency artwork (no screen)"},
             ]})
         if path == "/api/state":
             q = parse_qs(u.query)
@@ -150,6 +169,12 @@ class Handler(BaseHTTPRequestHandler):
                 return self._analyze(self._read_json())
             if u.path == "/api/run":
                 return self._run(self._read_json())
+            if u.path == "/api/regions/suggest":
+                return self._suggest_regions(self._read_json())
+            if u.path == "/api/regions/recompute":
+                return self._recompute_regions(self._read_json())
+            if u.path == "/api/regions/run":
+                return self._run_regions(self._read_json())
         except ValueError as exc:
             return self._json(400, {"error": str(exc)})
         except Exception as exc:  # surfaced to the UI for manual adjustment
@@ -169,7 +194,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def _load_fixture(self, body: dict) -> None:
         name = body.get("fixture", "text")
-        if name.endswith("_clean"):
+        if name == "two_frequency_clean":
+            rgb, meta = make_two_frequency_clean()
+        elif name.endswith("_clean"):
             base = name[:-6]
             makers = {
                 "text": lambda: make_text_fixture(screen=None),
@@ -276,6 +303,90 @@ class Handler(BaseHTTPRequestHandler):
             "params_json": j,
             "images": {k: _b64(v) for k, v in pngs.items()},
         }
+        return self._json(200, payload)
+
+    # ---- region coordination ----
+
+    def _suggest_regions(self, body: dict) -> None:
+        sid, store = self._get(body)
+        res = suggest_regions(store["rgb"])
+        store["region_suggestions"] = res
+        return self._json(200, {"session": sid, "suggestion": res})
+
+    def _recompute_regions(self, body: dict) -> None:
+        sid, store = self._get(body)
+        regions = body.get("regions") or []
+        if not isinstance(regions, list) or not regions:
+            raise ValueError("send at least one region to recompute")
+        dirty = body.get("dirty_ids")
+        if dirty is not None and not isinstance(dirty, list):
+            raise ValueError("dirty_ids must be a list of region ids")
+        res = recompute_regions(
+            store["rgb"], regions,
+            dirty_ids=[str(v) for v in dirty] if dirty is not None else None,
+            deep_channels=bool(body.get("deep_channels")),
+            flat_tile_assist=bool(body.get("flat_tile_assist", True)))
+        return self._json(200, {"session": sid, **res})
+
+    def _run_regions(self, body: dict) -> None:
+        sid, store = self._get(body)
+        regions = body.get("regions") or []
+        if not isinstance(regions, list):
+            raise ValueError("regions must be a list")
+        if len(regions) > 24:
+            raise ValueError("at most 24 regions are supported")
+        rgb = store["rgb"]
+        roi = body.get("roi")
+        roi_t = tuple(int(v) for v in roi) if roi else None
+        params = body.get("params", {}) or {}
+        scale = float(params.get("scale", 1.0))
+        base_strength = float(params.get("base_strength", 0.0))
+        if not 0.0 <= base_strength <= 1.0:
+            raise ValueError("base_strength must be between 0 and 1")
+
+        # Region geometry is bound to source-page coordinates. Re-bind it when
+        # the page size changed, rather than letting stale rectangles land on
+        # the wrong content.
+        expected = body.get("source_shape")
+        mapping = None
+        current = [int(rgb.shape[0]), int(rgb.shape[1])]
+        if expected:
+            src = [int(expected[0]), int(expected[1])]
+            if src != current:
+                regions = map_region_set(regions, tuple(src), tuple(current))
+                mapping = {"mapped": True, "from": src, "to": current}
+        else:
+            mapping = {"mapped": False,
+                       "note": "caller did not declare a source shape; region "
+                               "rects were used as given"}
+
+        base_peaks = body.get("global_peaks") or None
+        if base_strength > 0 and not base_peaks:
+            raise ValueError(
+                "base_strength > 0 needs global_peaks (run the whole-image "
+                "analysis first) so the base layer has an explicit screen")
+        base_params = dict(params)
+        base_params.pop("base_strength", None)
+        base_params["strength"] = base_strength
+
+        result = run_region_pipeline(
+            rgb, regions, roi=roi_t, scale=scale,
+            base_strength=base_strength, base_params=base_params,
+            global_peaks=base_peaks)
+        result["region_mapping"]["source_shape_check"] = mapping
+        store["result"] = result
+        pngs = result_pngs(result)
+        j = result_json(result)
+        store["last_json"] = j
+        payload = {
+            "session": sid,
+            "result": _strip_arrays(result),
+            "params_json": j,
+            "images": {k: _b64(v) for k, v in pngs.items()},
+        }
+        overlay = result_overlay_png(result)
+        if overlay is not None:
+            payload["images"]["weight_overlay.png"] = _b64(overlay)
         return self._json(200, payload)
 
 

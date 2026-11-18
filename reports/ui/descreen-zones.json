@@ -1,0 +1,2747 @@
+{
+  "mode": "region",
+  "roi": [
+    0,
+    0,
+    1200,
+    900
+  ],
+  "absolute_roi": [
+    0,
+    0,
+    1200,
+    900
+  ],
+  "scale": 0.5,
+  "base_strength": 0.0,
+  "regions": [
+    {
+      "id": "auto-1",
+      "name": "auto-1",
+      "rect": [
+        320.0,
+        480.0,
+        320.0,
+        320.0
+      ],
+      "feather_px": 28,
+      "opacity": 1,
+      "enabled": true,
+      "status": "candidate",
+      "auto_peaks": true,
+      "peaks": [
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638,
+          "confidence": 0.8999999999999999,
+          "source": "region_analysis"
+        }
+      ],
+      "seed_peaks": [
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638
+        }
+      ],
+      "depends_on": [],
+      "params": {
+        "method": "frequency_notch",
+        "strength": 1,
+        "radius_cyc_per_px": null,
+        "apodization": 0.35,
+        "harmonic_orders": [
+          1,
+          2
+        ],
+        "include_lattice_lines": true
+      },
+      "rect_page": [
+        320.0,
+        480.0,
+        320.0,
+        320.0
+      ],
+      "clipped_to_roi": "inside"
+    },
+    {
+      "id": "auto-2",
+      "name": "auto-2",
+      "rect": [
+        640.0,
+        480.0,
+        320.0,
+        320.0
+      ],
+      "feather_px": 28,
+      "opacity": 1,
+      "enabled": true,
+      "status": "candidate",
+      "auto_peaks": true,
+      "peaks": [
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156,
+          "confidence": 0.8999999999999999,
+          "source": "region_analysis"
+        },
+        {
+          "period_px": 3.1668804140585918,
+          "angle_deg": 12.002554341485029,
+          "confidence": 0.78,
+          "source": "region_analysis"
+        }
+      ],
+      "seed_peaks": [
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156
+        },
+        {
+          "period_px": 3.1668804140585918,
+          "angle_deg": 12.002554341485029
+        }
+      ],
+      "depends_on": [],
+      "params": {
+        "method": "frequency_notch",
+        "strength": 1,
+        "radius_cyc_per_px": null,
+        "apodization": 0.35,
+        "harmonic_orders": [
+          1,
+          2
+        ],
+        "include_lattice_lines": true
+      },
+      "rect_page": [
+        640.0,
+        480.0,
+        320.0,
+        320.0
+      ],
+      "clipped_to_roi": "inside"
+    },
+    {
+      "id": "auto-3",
+      "name": "auto-3",
+      "rect": [
+        880.0,
+        580.0,
+        320.0,
+        320.0
+      ],
+      "feather_px": 28,
+      "opacity": 1,
+      "enabled": true,
+      "status": "candidate",
+      "auto_peaks": true,
+      "peaks": [
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256,
+          "confidence": 0.8999999999999999,
+          "source": "region_analysis"
+        },
+        {
+          "period_px": 3.004589331529302,
+          "angle_deg": 83.57064932460025,
+          "confidence": 0.8999999999999999,
+          "source": "region_analysis"
+        },
+        {
+          "period_px": 2.635188882821376,
+          "angle_deg": 45.69056598194508,
+          "confidence": 0.84,
+          "source": "region_analysis"
+        }
+      ],
+      "seed_peaks": [
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256
+        },
+        {
+          "period_px": 3.004589331529302,
+          "angle_deg": 83.57064932460025
+        },
+        {
+          "period_px": 2.635188882821376,
+          "angle_deg": 45.69056598194508
+        }
+      ],
+      "depends_on": [],
+      "params": {
+        "method": "frequency_notch",
+        "strength": 1,
+        "radius_cyc_per_px": null,
+        "apodization": 0.35,
+        "harmonic_orders": [
+          1,
+          2
+        ],
+        "include_lattice_lines": true
+      },
+      "rect_page": [
+        880.0,
+        580.0,
+        320.0,
+        320.0
+      ],
+      "clipped_to_roi": "inside"
+    },
+    {
+      "id": "auto-4",
+      "name": "auto-4",
+      "rect": [
+        640.0,
+        0.0,
+        320.0,
+        320.0
+      ],
+      "feather_px": 28,
+      "opacity": 1,
+      "enabled": true,
+      "status": "candidate",
+      "auto_peaks": true,
+      "peaks": [
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128,
+          "confidence": 0.74,
+          "source": "region_analysis"
+        }
+      ],
+      "seed_peaks": [
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128
+        }
+      ],
+      "depends_on": [],
+      "params": {
+        "method": "frequency_notch",
+        "strength": 1,
+        "radius_cyc_per_px": null,
+        "apodization": 0.35,
+        "harmonic_orders": [
+          1,
+          2
+        ],
+        "include_lattice_lines": true
+      },
+      "rect_page": [
+        640.0,
+        0.0,
+        320.0,
+        320.0
+      ],
+      "clipped_to_roi": "inside"
+    },
+    {
+      "id": "auto-5",
+      "name": "auto-5",
+      "rect": [
+        160.0,
+        320.0,
+        320.0,
+        320.0
+      ],
+      "feather_px": 28,
+      "opacity": 1,
+      "enabled": true,
+      "status": "candidate",
+      "auto_peaks": true,
+      "peaks": [
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996,
+          "confidence": 0.74,
+          "source": "region_analysis"
+        }
+      ],
+      "seed_peaks": [
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996
+        }
+      ],
+      "depends_on": [],
+      "params": {
+        "method": "frequency_notch",
+        "strength": 1,
+        "radius_cyc_per_px": null,
+        "apodization": 0.35,
+        "harmonic_orders": [
+          1,
+          2
+        ],
+        "include_lattice_lines": true
+      },
+      "rect_page": [
+        160.0,
+        320.0,
+        320.0,
+        320.0
+      ],
+      "clipped_to_roi": "inside"
+    },
+    {
+      "id": "auto-6",
+      "name": "auto-6",
+      "rect": [
+        800.0,
+        320.0,
+        320.0,
+        320.0
+      ],
+      "feather_px": 28,
+      "opacity": 1,
+      "enabled": true,
+      "status": "candidate",
+      "auto_peaks": true,
+      "peaks": [
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922,
+          "confidence": 0.74,
+          "source": "region_analysis"
+        }
+      ],
+      "seed_peaks": [
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922
+        }
+      ],
+      "depends_on": [],
+      "params": {
+        "method": "frequency_notch",
+        "strength": 1,
+        "radius_cyc_per_px": null,
+        "apodization": 0.35,
+        "harmonic_orders": [
+          1,
+          2
+        ],
+        "include_lattice_lines": true
+      },
+      "rect_page": [
+        800.0,
+        320.0,
+        320.0,
+        320.0
+      ],
+      "clipped_to_roi": "inside"
+    }
+  ],
+  "output_regions": [
+    {
+      "id": "auto-1",
+      "rect": [
+        160.0,
+        240.0,
+        160.0,
+        160.0
+      ],
+      "rect_page": [
+        160.0,
+        240.0,
+        160.0,
+        160.0
+      ],
+      "feather_px": 14.0,
+      "source_shape": [
+        900,
+        1200
+      ],
+      "scale": 0.5
+    },
+    {
+      "id": "auto-2",
+      "rect": [
+        320.0,
+        240.0,
+        160.0,
+        160.0
+      ],
+      "rect_page": [
+        320.0,
+        240.0,
+        160.0,
+        160.0
+      ],
+      "feather_px": 14.0,
+      "source_shape": [
+        900,
+        1200
+      ],
+      "scale": 0.5
+    },
+    {
+      "id": "auto-3",
+      "rect": [
+        440.0,
+        290.0,
+        160.0,
+        160.0
+      ],
+      "rect_page": [
+        440.0,
+        290.0,
+        160.0,
+        160.0
+      ],
+      "feather_px": 14.0,
+      "source_shape": [
+        900,
+        1200
+      ],
+      "scale": 0.5
+    },
+    {
+      "id": "auto-4",
+      "rect": [
+        320.0,
+        0.0,
+        160.0,
+        160.0
+      ],
+      "rect_page": [
+        320.0,
+        0.0,
+        160.0,
+        160.0
+      ],
+      "feather_px": 14.0,
+      "source_shape": [
+        900,
+        1200
+      ],
+      "scale": 0.5
+    },
+    {
+      "id": "auto-5",
+      "rect": [
+        80.0,
+        160.0,
+        160.0,
+        160.0
+      ],
+      "rect_page": [
+        80.0,
+        160.0,
+        160.0,
+        160.0
+      ],
+      "feather_px": 14.0,
+      "source_shape": [
+        900,
+        1200
+      ],
+      "scale": 0.5
+    },
+    {
+      "id": "auto-6",
+      "rect": [
+        400.0,
+        160.0,
+        160.0,
+        160.0
+      ],
+      "rect_page": [
+        400.0,
+        160.0,
+        160.0,
+        160.0
+      ],
+      "feather_px": 14.0,
+      "source_shape": [
+        900,
+        1200
+      ],
+      "scale": 0.5
+    }
+  ],
+  "region_mapping": {
+    "binding": "region geometry is stored in absolute source-page pixels",
+    "roi_rebind": "rect_in_crop = rect_page - roi_origin",
+    "output_mapping": "rect_out = (rect_page) * scale",
+    "notes": [
+      "changing the ROI re-binds regions; their page coordinates do not silently drift"
+    ],
+    "region_count": 6,
+    "source_shape_check": null
+  },
+  "weights": {
+    "legend": [
+      {
+        "id": "auto-1",
+        "color": [
+          1.0,
+          0.32156863808631897,
+          0.32156863808631897
+        ]
+      },
+      {
+        "id": "auto-2",
+        "color": [
+          0.32156863808631897,
+          0.6274510025978088,
+          1.0
+        ]
+      },
+      {
+        "id": "auto-3",
+        "color": [
+          0.3529411852359772,
+          0.8627451062202454,
+          0.5490196347236633
+        ]
+      },
+      {
+        "id": "auto-4",
+        "color": [
+          0.9607843160629272,
+          0.7450980544090271,
+          0.27450981736183167
+        ]
+      },
+      {
+        "id": "auto-5",
+        "color": [
+          0.7843137383460999,
+          0.4313725531101227,
+          1.0
+        ]
+      },
+      {
+        "id": "auto-6",
+        "color": [
+          0.27450981736183167,
+          0.8823529481887817,
+          0.8823529481887817
+        ]
+      }
+    ],
+    "sum_range": [
+      0.9999998807907104,
+      1.0000001192092896
+    ],
+    "base_fraction": 0.503669798374176,
+    "effective_strength_range": [
+      0.0,
+      1.0000001192092896
+    ],
+    "rule": "w_raw = smooth rect * opacity; k = 1/max(1, sum raw); region = raw*k; base = 1 - sum(raw)*k",
+    "grid_note": "per-pixel weight grid omitted from the export; recompute it from regions, feather_px and the weight rule"
+  },
+  "groups": [
+    {
+      "id": "g_7d39fab127ba8fa8",
+      "method": "frequency_notch",
+      "strength": 1.0,
+      "notch_count": 2,
+      "notch_specs": [
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.1397247291170061,
+          "center_fy": 0.09069066873053092,
+          "resolved_radius_cyc_per_px": 0.011660369071169959
+        },
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 2,
+          "center_override": null,
+          "label": "a2",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.2794494582340122,
+          "center_fy": 0.18138133746106183,
+          "resolved_radius_cyc_per_px": 0.015741498246079445
+        }
+      ],
+      "notes": [
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.13972472911700606,
+          "center_fy": 0.09069066873053089,
+          "applied": true
+        },
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638,
+          "harmonic_order": 2,
+          "axis": "a",
+          "center_fx": 0.2794494582340121,
+          "center_fy": 0.18138133746106178,
+          "applied": true
+        }
+      ]
+    },
+    {
+      "id": "g_471bf3b29d63bcb6",
+      "method": "frequency_notch",
+      "strength": 1.0,
+      "notch_count": 3,
+      "notch_specs": [
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.10290844312403354,
+          "center_fy": 0.02183299561729655,
+          "resolved_radius_cyc_per_px": 0.007363929255689719
+        },
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 2,
+          "center_override": null,
+          "label": "a2",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.20581688624806707,
+          "center_fy": 0.0436659912345931,
+          "resolved_radius_cyc_per_px": 0.009941304495181122
+        },
+        {
+          "period_px": 3.1668804140585918,
+          "angle_deg": 12.002554341485029,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.3088649405166507,
+          "center_fy": 0.06566566174733451,
+          "resolved_radius_cyc_per_px": 0.022103771171545383
+        }
+      ],
+      "notes": [
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.10290844312403358,
+          "center_fy": 0.02183299561729657,
+          "applied": true
+        },
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156,
+          "harmonic_order": 2,
+          "axis": "a",
+          "center_fx": 0.20581688624806704,
+          "center_fy": 0.04366599123459314,
+          "applied": true
+        },
+        {
+          "period_px": 3.1668804140585918,
+          "angle_deg": 12.002554341485029,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.3088649405166507,
+          "center_fy": 0.06566566174733457,
+          "applied": true
+        },
+        {
+          "period_px": 3.1668804140585918,
+          "angle_deg": 12.002554341485029,
+          "harmonic_order": 2,
+          "axis": "a",
+          "skipped": "above analysis band"
+        }
+      ]
+    },
+    {
+      "id": "g_2f4aea86429591d2",
+      "method": "frequency_notch",
+      "strength": 1.0,
+      "notch_count": 4,
+      "notch_specs": [
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.10294498975854366,
+          "center_fy": 0.02188810096849921,
+          "resolved_radius_cyc_per_px": 0.0073672330907831336
+        },
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 2,
+          "center_override": null,
+          "label": "a2",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.20588997951708732,
+          "center_fy": 0.04377620193699842,
+          "resolved_radius_cyc_per_px": 0.009945764672557231
+        },
+        {
+          "period_px": 3.004589331529302,
+          "angle_deg": 83.57064932460025,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.03726898375898599,
+          "center_fy": 0.33073095101863154,
+          "resolved_radius_cyc_per_px": 0.023297693054235402
+        },
+        {
+          "period_px": 2.635188882821376,
+          "angle_deg": 45.69056598194508,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.2650789560750127,
+          "center_fy": 0.2715470345690847,
+          "resolved_radius_cyc_per_px": 0.0265635607588987
+        }
+      ],
+      "notes": [
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.10294498975854371,
+          "center_fy": 0.021888100968499247,
+          "applied": true
+        },
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256,
+          "harmonic_order": 2,
+          "axis": "a",
+          "center_fx": 0.20588997951708732,
+          "center_fy": 0.04377620193699838,
+          "applied": true
+        },
+        {
+          "period_px": 3.004589331529302,
+          "angle_deg": 83.57064932460025,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.03726898375898602,
+          "center_fy": 0.3307309510186316,
+          "applied": true
+        },
+        {
+          "period_px": 3.004589331529302,
+          "angle_deg": 83.57064932460025,
+          "harmonic_order": 2,
+          "axis": "a",
+          "skipped": "above analysis band"
+        },
+        {
+          "period_px": 2.635188882821376,
+          "angle_deg": 45.69056598194508,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.26507895607501264,
+          "center_fy": 0.2715470345690847,
+          "applied": true
+        },
+        {
+          "period_px": 2.635188882821376,
+          "angle_deg": 45.69056598194508,
+          "harmonic_order": 2,
+          "axis": "a",
+          "skipped": "above analysis band"
+        }
+      ]
+    },
+    {
+      "id": "g_833267896e1b64d1",
+      "method": "frequency_notch",
+      "strength": 1.0,
+      "notch_count": 2,
+      "notch_specs": [
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": -0.021789940702728907,
+          "center_fy": 0.10315440601843875,
+          "resolved_radius_cyc_per_px": 0.007380149164111946
+        },
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 2,
+          "center_override": null,
+          "label": "a2",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": -0.043579881405457814,
+          "center_fy": 0.2063088120368775,
+          "resolved_radius_cyc_per_px": 0.009963201371551128
+        }
+      ],
+      "notes": [
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": -0.021789940702728883,
+          "center_fy": 0.10315440601843873,
+          "applied": true
+        },
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128,
+          "harmonic_order": 2,
+          "axis": "a",
+          "center_fx": -0.04357988140545782,
+          "center_fy": 0.20630881203687745,
+          "applied": true
+        }
+      ]
+    },
+    {
+      "id": "g_5b8484b5df386f0c",
+      "method": "frequency_notch",
+      "strength": 1.0,
+      "notch_count": 2,
+      "notch_specs": [
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": -0.09064032390597274,
+          "center_fy": 0.13965600337833173,
+          "resolved_radius_cyc_per_px": 0.011654415095885442
+        },
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 2,
+          "center_override": null,
+          "label": "a2",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": -0.18128064781194547,
+          "center_fy": 0.27931200675666346,
+          "resolved_radius_cyc_per_px": 0.015733460379445348
+        }
+      ],
+      "notes": [
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": -0.09064032390597276,
+          "center_fy": 0.13965600337833173,
+          "applied": true
+        },
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996,
+          "harmonic_order": 2,
+          "axis": "a",
+          "center_fx": -0.18128064781194547,
+          "center_fy": 0.27931200675666346,
+          "applied": true
+        }
+      ]
+    },
+    {
+      "id": "g_37798907be2016ef",
+      "method": "frequency_notch",
+      "strength": 1.0,
+      "notch_count": 2,
+      "notch_specs": [
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 1,
+          "center_override": null,
+          "label": "a1",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.10249931882135571,
+          "center_fy": 0.022144848015159372,
+          "resolved_radius_cyc_per_px": 0.007340495405423025
+        },
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922,
+          "radius_cyc_per_px": 0.0,
+          "apodization": 0.35,
+          "harmonic_order": 2,
+          "center_override": null,
+          "label": "a2",
+          "analysis_shape": [
+            900,
+            1200
+          ],
+          "center_fx": 0.20499863764271142,
+          "center_fy": 0.044289696030318744,
+          "resolved_radius_cyc_per_px": 0.009909668797321084
+        }
+      ],
+      "notes": [
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922,
+          "harmonic_order": 1,
+          "axis": "a",
+          "center_fx": 0.10249931882135566,
+          "center_fy": 0.02214484801515937,
+          "applied": true
+        },
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922,
+          "harmonic_order": 2,
+          "axis": "a",
+          "center_fx": 0.20499863764271142,
+          "center_fy": 0.04428969603031874,
+          "applied": true
+        }
+      ]
+    }
+  ],
+  "processing_audit": {
+    "mode": "region_coordinated",
+    "groups": [
+      {
+        "group": "g_7d39fab127ba8fa8",
+        "method": "frequency_notch",
+        "strength": 1.0,
+        "regions": [
+          "auto-1"
+        ],
+        "notch_count": 2
+      },
+      {
+        "group": "g_471bf3b29d63bcb6",
+        "method": "frequency_notch",
+        "strength": 1.0,
+        "regions": [
+          "auto-2"
+        ],
+        "notch_count": 3
+      },
+      {
+        "group": "g_2f4aea86429591d2",
+        "method": "frequency_notch",
+        "strength": 1.0,
+        "regions": [
+          "auto-3"
+        ],
+        "notch_count": 4
+      },
+      {
+        "group": "g_833267896e1b64d1",
+        "method": "frequency_notch",
+        "strength": 1.0,
+        "regions": [
+          "auto-4"
+        ],
+        "notch_count": 2
+      },
+      {
+        "group": "g_5b8484b5df386f0c",
+        "method": "frequency_notch",
+        "strength": 1.0,
+        "regions": [
+          "auto-5"
+        ],
+        "notch_count": 2
+      },
+      {
+        "group": "g_37798907be2016ef",
+        "method": "frequency_notch",
+        "strength": 1.0,
+        "regions": [
+          "auto-6"
+        ],
+        "notch_count": 2
+      }
+    ],
+    "candidate_passes": 6,
+    "base_group": null,
+    "weight_sum_range": [
+      0.9999998807907104,
+      1.0000001192092896
+    ],
+    "base_fraction": 0.503669798374176,
+    "mean_region_weight": {
+      "auto-1": 0.0829993337392807,
+      "auto-2": 0.07642316073179245,
+      "auto-3": 0.08109591901302338,
+      "auto-4": 0.0949629619717598,
+      "auto-5": 0.0829993337392807,
+      "auto-6": 0.07784952968358994
+    },
+    "group_audits": {
+      "g_7d39fab127ba8fa8": {
+        "method": "frequency_notch",
+        "channels_processed": "luminance",
+        "pad_px": 24,
+        "padding_mode": "reflect",
+        "edge_feather_px": 12,
+        "strength": 1.0,
+        "notches": [
+          {
+            "period_px": 6.003240512607245,
+            "angle_deg": 32.98625982201638,
+            "harmonic_order": 1,
+            "center_fx": 0.13972472911700606,
+            "center_fy": 0.09069066873053089,
+            "center_x_bin": 174.37646193802357,
+            "center_y_bin": 85.97475395654328,
+            "radius_cyc_per_px": 0.011660369071169959,
+            "radius_bins_x": 14.55214060082011,
+            "radius_bins_y": 11.054029879469121,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.007579239896260474,
+              0.011660369071169959
+            ],
+            "pad_px": 24
+          },
+          {
+            "period_px": 6.003240512607245,
+            "angle_deg": 32.98625982201638,
+            "harmonic_order": 2,
+            "center_fx": 0.2794494582340121,
+            "center_fy": 0.18138133746106178,
+            "center_x_bin": 348.75292387604713,
+            "center_y_bin": 171.94950791308656,
+            "radius_cyc_per_px": 0.015741498246079445,
+            "radius_bins_x": 19.645389811107147,
+            "radius_bins_y": 14.922940337283313,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.01023197385995164,
+              0.015741498246079445
+            ],
+            "pad_px": 24
+          }
+        ],
+        "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+        "notes": [
+          "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+          "The outer 12 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+        ]
+      },
+      "g_471bf3b29d63bcb6": {
+        "method": "frequency_notch",
+        "channels_processed": "luminance",
+        "pad_px": 29,
+        "padding_mode": "reflect",
+        "edge_feather_px": 14,
+        "strength": 1.0,
+        "notches": [
+          {
+            "period_px": 9.505794742109275,
+            "angle_deg": 11.978227323592156,
+            "harmonic_order": 1,
+            "center_fx": 0.10290844312403358,
+            "center_fy": 0.02183299561729657,
+            "center_x_bin": 129.45882145003424,
+            "center_y_bin": 20.916009801370112,
+            "radius_cyc_per_px": 0.007363929255689719,
+            "radius_bins_x": 9.263823003657667,
+            "radius_bins_y": 7.054644226950751,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.004786554016198318,
+              0.007363929255689719
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 9.505794742109275,
+            "angle_deg": 11.978227323592156,
+            "harmonic_order": 2,
+            "center_fx": 0.20581688624806704,
+            "center_fy": 0.04366599123459314,
+            "center_x_bin": 258.91764290006836,
+            "center_y_bin": 41.832019602740225,
+            "radius_cyc_per_px": 0.009941304495181122,
+            "radius_bins_x": 12.50616105493785,
+            "radius_bins_y": 9.523769706383515,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.0064618479218677295,
+              0.009941304495181122
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 3.1668804140585918,
+            "angle_deg": 12.002554341485029,
+            "harmonic_order": 1,
+            "center_fx": 0.3088649405166507,
+            "center_fy": 0.06566566174733457,
+            "center_x_bin": 388.5520951699466,
+            "center_y_bin": 62.907703953946516,
+            "radius_cyc_per_px": 0.022103771171545383,
+            "radius_bins_x": 27.806544133804092,
+            "radius_bins_y": 21.175412782340477,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.0143674512615045,
+              0.022103771171545383
+            ],
+            "pad_px": 29
+          }
+        ],
+        "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+        "notes": [
+          "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+          "The outer 14 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+        ]
+      },
+      "g_2f4aea86429591d2": {
+        "method": "frequency_notch",
+        "channels_processed": "luminance",
+        "pad_px": 29,
+        "padding_mode": "reflect",
+        "edge_feather_px": 14,
+        "strength": 1.0,
+        "notches": [
+          {
+            "period_px": 9.501531869213471,
+            "angle_deg": 12.003444167301256,
+            "harmonic_order": 1,
+            "center_fx": 0.10294498975854371,
+            "center_fy": 0.021888100968499247,
+            "center_x_bin": 129.504797116248,
+            "center_y_bin": 20.968800727822277,
+            "radius_cyc_per_px": 0.0073672330907831336,
+            "radius_bins_x": 9.267979228205181,
+            "radius_bins_y": 7.057809300970242,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.0047887015090090366,
+              0.0073672330907831336
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 9.501531869213471,
+            "angle_deg": 12.003444167301256,
+            "harmonic_order": 2,
+            "center_fx": 0.20588997951708732,
+            "center_fy": 0.04377620193699838,
+            "center_x_bin": 259.00959423249583,
+            "center_y_bin": 41.93760145564445,
+            "radius_cyc_per_px": 0.009945764672557231,
+            "radius_bins_x": 12.511771958076997,
+            "radius_bins_y": 9.528042556309828,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.0064647470371622,
+              0.009945764672557231
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 3.004589331529302,
+            "angle_deg": 83.57064932460025,
+            "harmonic_order": 1,
+            "center_fx": 0.03726898375898602,
+            "center_fy": 0.3307309510186316,
+            "center_x_bin": 46.884381568804415,
+            "center_y_bin": 316.84025107584904,
+            "radius_cyc_per_px": 0.023297693054235402,
+            "radius_bins_x": 29.308497862228137,
+            "radius_bins_y": 22.319189945957515,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.015143500485253012,
+              0.023297693054235402
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 2.635188882821376,
+            "angle_deg": 45.69056598194508,
+            "harmonic_order": 1,
+            "center_fx": 0.26507895607501264,
+            "center_fy": 0.2715470345690847,
+            "center_x_bin": 333.4693267423659,
+            "center_y_bin": 260.1420591171831,
+            "radius_cyc_per_px": 0.0265635607588987,
+            "radius_bins_x": 33.41695943469457,
+            "radius_bins_y": 25.447891207024956,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.017266314493284154,
+              0.0265635607588987
+            ],
+            "pad_px": 29
+          }
+        ],
+        "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+        "notes": [
+          "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+          "The outer 14 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+        ]
+      },
+      "g_833267896e1b64d1": {
+        "method": "frequency_notch",
+        "channels_processed": "luminance",
+        "pad_px": 29,
+        "padding_mode": "reflect",
+        "edge_feather_px": 14,
+        "strength": 1.0,
+        "notches": [
+          {
+            "period_px": 9.484903142662038,
+            "angle_deg": 101.92759749232128,
+            "harmonic_order": 1,
+            "center_fx": -0.021789940702728883,
+            "center_fy": 0.10315440601843873,
+            "center_x_bin": 1230.588254595967,
+            "center_y_bin": 98.8219209656643,
+            "radius_cyc_per_px": 0.007380149164111946,
+            "radius_bins_x": 9.284227648452829,
+            "radius_bins_y": 7.070182899219245,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.004797096956672765,
+              0.007380149164111946
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 9.484903142662038,
+            "angle_deg": 101.92759749232128,
+            "harmonic_order": 2,
+            "center_fx": -0.04357988140545782,
+            "center_fy": 0.20630881203687745,
+            "center_x_bin": 1203.1765091919342,
+            "center_y_bin": 197.6438419313286,
+            "radius_cyc_per_px": 0.009963201371551128,
+            "radius_bins_x": 12.533707325411319,
+            "radius_bins_y": 9.54474691394598,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.006476080891508233,
+              0.009963201371551128
+            ],
+            "pad_px": 29
+          }
+        ],
+        "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+        "notes": [
+          "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+          "The outer 14 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+        ]
+      },
+      "g_5b8484b5df386f0c": {
+        "method": "frequency_notch",
+        "channels_processed": "luminance",
+        "pad_px": 24,
+        "padding_mode": "reflect",
+        "edge_feather_px": 12,
+        "strength": 1.0,
+        "notches": [
+          {
+            "period_px": 6.006307431482624,
+            "angle_deg": 122.98460370148996,
+            "harmonic_order": 1,
+            "center_fx": -0.09064032390597276,
+            "center_fy": 0.13965600337833173,
+            "center_x_bin": 1134.880875765346,
+            "center_y_bin": 132.39389120265847,
+            "radius_cyc_per_px": 0.011654415095885442,
+            "radius_bins_x": 14.54471003966503,
+            "radius_bins_y": 11.048385510899399,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.007575369812325537,
+              0.011654415095885442
+            ],
+            "pad_px": 24
+          },
+          {
+            "period_px": 6.006307431482624,
+            "angle_deg": 122.98460370148996,
+            "harmonic_order": 2,
+            "center_fx": -0.18128064781194547,
+            "center_fy": 0.27931200675666346,
+            "center_x_bin": 1021.761751530692,
+            "center_y_bin": 264.78778240531693,
+            "radius_cyc_per_px": 0.015733460379445348,
+            "radius_bins_x": 19.635358553547793,
+            "radius_bins_y": 14.91532043971419,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.010226749246639476,
+              0.015733460379445348
+            ],
+            "pad_px": 24
+          }
+        ],
+        "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+        "notes": [
+          "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+          "The outer 12 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+        ]
+      },
+      "g_37798907be2016ef": {
+        "method": "frequency_notch",
+        "channels_processed": "luminance",
+        "pad_px": 29,
+        "padding_mode": "reflect",
+        "edge_feather_px": 14,
+        "strength": 1.0,
+        "notches": [
+          {
+            "period_px": 9.536141109534007,
+            "angle_deg": 12.19130093166922,
+            "harmonic_order": 1,
+            "center_fx": 0.10249931882135566,
+            "center_fy": 0.02214484801515937,
+            "center_x_bin": 128.9441430772654,
+            "center_y_bin": 21.214764398522675,
+            "radius_cyc_per_px": 0.007340495405423025,
+            "radius_bins_x": 9.234343220022165,
+            "radius_bins_y": 7.032194598395257,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.0047713220135249665,
+              0.007340495405423025
+            ],
+            "pad_px": 29
+          },
+          {
+            "period_px": 9.536141109534007,
+            "angle_deg": 12.19130093166922,
+            "harmonic_order": 2,
+            "center_fx": 0.20499863764271142,
+            "center_fy": 0.04428969603031874,
+            "center_x_bin": 257.888286154531,
+            "center_y_bin": 42.42952879704535,
+            "radius_cyc_per_px": 0.009909668797321084,
+            "radius_bins_x": 12.466363347029924,
+            "radius_bins_y": 9.493462707833599,
+            "apodization": 0.35,
+            "stopband_cyc_per_px": [
+              0.0064412847182587045,
+              0.009909668797321084
+            ],
+            "pad_px": 29
+          }
+        ],
+        "blend": "reflect-pad FFT -> crop -> cosine feather to original at border",
+        "notes": [
+          "Reflect padding supplies continuity; the mask is never applied to the unpadded array, so there is no circular wrap seam.",
+          "The outer 14 px ramp toward the original is an explicit, exportable compromise for boundary continuity."
+        ]
+      }
+    },
+    "note": "Every group was filtered over the whole image; the composite is a normalized weighted blend. No region was filtered in isolation."
+  },
+  "resample_audit": {
+    "method": "area_average",
+    "requested_scale": 0.5,
+    "output_shape": [
+      450,
+      600
+    ],
+    "prefilter": "exact fractional area box (per channel identical)",
+    "note": "Area averaging is applied after screen suppression; it also prevents any leftover high frequency from aliasing into new moire."
+  },
+  "resample_plan": {
+    "scale": 0.5,
+    "order": "suppress_then_resize",
+    "reason": "Suppression first removes the scanned screen; area resampling then prevents residual high frequency from aliasing into a new lower-frequency moire."
+  },
+  "region_metrics": [
+    {
+      "id": "auto-1",
+      "status": "measured",
+      "rect_in_crop": [
+        320,
+        480,
+        320,
+        320
+      ],
+      "mean_weight": 0.8443260192871094,
+      "mean_weight_page": 0.0829993337392807,
+      "min_weight_in_rect": 0.20000000298023224,
+      "strength": 1.0,
+      "method": "frequency_notch",
+      "peaks_applied": [
+        {
+          "period_px": 6.003240512607245,
+          "angle_deg": 32.98625982201638
+        }
+      ],
+      "content_preservation": {
+        "metrics": {
+          "edge_sharpness": {
+            "before": 1.1576224565505981,
+            "after": 1.1278327703475952,
+            "retained_fraction": 0.9742664924696017
+          },
+          "edge_contrast": {
+            "before": 0.17627762258052826,
+            "after": 0.1772928535938263,
+            "retained_fraction": 1.0057592733464185
+          },
+          "hairline_contrast": {
+            "before": 0.27442702651023865,
+            "after": 0.27723777294158936,
+            "retained_fraction": 1.0102422362224803
+          },
+          "detail_energy": {
+            "before": 0.03270334377884865,
+            "after": 0.03225402906537056,
+            "retained_fraction": 0.98626089379372
+          }
+        },
+        "worst_retained_fraction": 0.9742664924696017,
+        "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+      },
+      "peak_suppression": {
+        "mean_reduction_db": 17.295420223549286,
+        "min_reduction_db": 17.295420223549286,
+        "all_reduced": true,
+        "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+      }
+    },
+    {
+      "id": "auto-2",
+      "status": "measured",
+      "rect_in_crop": [
+        640,
+        480,
+        320,
+        320
+      ],
+      "mean_weight": 0.7773832082748413,
+      "mean_weight_page": 0.07642316073179245,
+      "min_weight_in_rect": 0.21675527095794678,
+      "strength": 1.0,
+      "method": "frequency_notch",
+      "peaks_applied": [
+        {
+          "period_px": 9.505794742109275,
+          "angle_deg": 11.978227323592156
+        },
+        {
+          "period_px": 3.1668804140585918,
+          "angle_deg": 12.002554341485029
+        }
+      ],
+      "content_preservation": {
+        "metrics": {
+          "edge_sharpness": {
+            "before": 1.1110813617706299,
+            "after": 1.0682569742202759,
+            "retained_fraction": 0.9614570192392493
+          },
+          "edge_contrast": {
+            "before": 0.15700575709342957,
+            "after": 0.15330567955970764,
+            "retained_fraction": 0.9764334913431224
+          },
+          "hairline_contrast": {
+            "before": 0.2593473792076111,
+            "after": 0.2616371810436249,
+            "retained_fraction": 1.008829091865165
+          },
+          "detail_energy": {
+            "before": 0.03096921183168888,
+            "after": 0.030407655984163284,
+            "retained_fraction": 0.9818672864334574
+          }
+        },
+        "worst_retained_fraction": 0.9614570192392493,
+        "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+      },
+      "peak_suppression": {
+        "mean_reduction_db": 28.68724151222943,
+        "min_reduction_db": 15.763924010441912,
+        "all_reduced": true,
+        "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+      }
+    },
+    {
+      "id": "auto-3",
+      "status": "measured",
+      "rect_in_crop": [
+        880,
+        580,
+        320,
+        320
+      ],
+      "mean_weight": 0.843919038772583,
+      "mean_weight_page": 0.08109591901302338,
+      "min_weight_in_rect": 0.1111111119389534,
+      "strength": 1.0,
+      "method": "frequency_notch",
+      "peaks_applied": [
+        {
+          "period_px": 9.501531869213471,
+          "angle_deg": 12.003444167301256
+        },
+        {
+          "period_px": 3.004589331529302,
+          "angle_deg": 83.57064932460025
+        },
+        {
+          "period_px": 2.635188882821376,
+          "angle_deg": 45.69056598194508
+        }
+      ],
+      "content_preservation": {
+        "metrics": {
+          "edge_sharpness": {
+            "before": 0.5446709394454956,
+            "after": 0.4729887843132019,
+            "retained_fraction": 0.8683936484563138
+          },
+          "edge_contrast": {
+            "before": 0.07637349516153336,
+            "after": 0.06455379724502563,
+            "retained_fraction": 0.8452382218267145
+          },
+          "hairline_contrast": {
+            "before": 0.11986299604177475,
+            "after": 0.10468033701181412,
+            "retained_fraction": 0.8733332260052205
+          },
+          "detail_energy": {
+            "before": 0.012714019976556301,
+            "after": 0.011054632253944874,
+            "retained_fraction": 0.8694836310096088
+          }
+        },
+        "worst_retained_fraction": 0.8452382218267145,
+        "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+      },
+      "peak_suppression": {
+        "mean_reduction_db": 32.32239884296775,
+        "min_reduction_db": 24.07506341778899,
+        "all_reduced": true,
+        "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+      }
+    },
+    {
+      "id": "auto-4",
+      "status": "measured",
+      "rect_in_crop": [
+        640,
+        0,
+        320,
+        320
+      ],
+      "mean_weight": 0.9762524366378784,
+      "mean_weight_page": 0.0949629619717598,
+      "min_weight_in_rect": 0.2767401337623596,
+      "strength": 1.0,
+      "method": "frequency_notch",
+      "peaks_applied": [
+        {
+          "period_px": 9.484903142662038,
+          "angle_deg": 101.92759749232128
+        }
+      ],
+      "content_preservation": {
+        "metrics": {
+          "edge_sharpness": {
+            "before": 2.1644108295440674,
+            "after": 2.161576509475708,
+            "retained_fraction": 0.9986904888713034
+          },
+          "edge_contrast": {
+            "before": 0.14609846472740173,
+            "after": 0.1480192393064499,
+            "retained_fraction": 1.013147123637692
+          },
+          "hairline_contrast": {
+            "before": 0.25013497471809387,
+            "after": 0.24912576377391815,
+            "retained_fraction": 0.9959653345346323
+          },
+          "detail_energy": {
+            "before": 0.07591749727725983,
+            "after": 0.075544573366642,
+            "retained_fraction": 0.995087773912569
+          }
+        },
+        "worst_retained_fraction": 0.995087773912569,
+        "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+      },
+      "peak_suppression": {
+        "mean_reduction_db": 44.14851166459651,
+        "min_reduction_db": 44.14851166459651,
+        "all_reduced": true,
+        "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+      }
+    },
+    {
+      "id": "auto-5",
+      "status": "measured",
+      "rect_in_crop": [
+        160,
+        320,
+        320,
+        320
+      ],
+      "mean_weight": 0.8448194265365601,
+      "mean_weight_page": 0.0829993337392807,
+      "min_weight_in_rect": 0.23450271785259247,
+      "strength": 1.0,
+      "method": "frequency_notch",
+      "peaks_applied": [
+        {
+          "period_px": 6.006307431482624,
+          "angle_deg": 122.98460370148996
+        }
+      ],
+      "content_preservation": {
+        "metrics": {
+          "edge_sharpness": {
+            "before": 2.1636109352111816,
+            "after": 2.1551413536071777,
+            "retained_fraction": 0.9960854414875763
+          },
+          "edge_contrast": {
+            "before": 0.16853590309619904,
+            "after": 0.1671985387802124,
+            "retained_fraction": 0.9920648105749712
+          },
+          "hairline_contrast": {
+            "before": 0.30322688817977905,
+            "after": 0.301160991191864,
+            "retained_fraction": 0.9931869597702359
+          },
+          "detail_energy": {
+            "before": 0.06503783911466599,
+            "after": 0.06467355042695999,
+            "retained_fraction": 0.99439881932326
+          }
+        },
+        "worst_retained_fraction": 0.9920648105749712,
+        "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+      },
+      "peak_suppression": {
+        "mean_reduction_db": 18.774185441348365,
+        "min_reduction_db": 18.774185441348365,
+        "all_reduced": true,
+        "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+      }
+    },
+    {
+      "id": "auto-6",
+      "status": "measured",
+      "rect_in_crop": [
+        800,
+        320,
+        320,
+        320
+      ],
+      "mean_weight": 0.7924763560295105,
+      "mean_weight_page": 0.07784952968358994,
+      "min_weight_in_rect": 0.21675527095794678,
+      "strength": 1.0,
+      "method": "frequency_notch",
+      "peaks_applied": [
+        {
+          "period_px": 9.536141109534007,
+          "angle_deg": 12.19130093166922
+        }
+      ],
+      "content_preservation": {
+        "metrics": {
+          "edge_sharpness": {
+            "before": 2.017718553543091,
+            "after": 1.99445378780365,
+            "retained_fraction": 0.9884697666586907
+          },
+          "edge_contrast": {
+            "before": 0.1764412820339203,
+            "after": 0.18341931700706482,
+            "retained_fraction": 1.0395487659843858
+          },
+          "hairline_contrast": {
+            "before": 0.2665714919567108,
+            "after": 0.26833122968673706,
+            "retained_fraction": 1.0066013725515406
+          },
+          "detail_energy": {
+            "before": 0.060583461076021194,
+            "after": 0.059271544218063354,
+            "retained_fraction": 0.978345296972855
+          }
+        },
+        "worst_retained_fraction": 0.978345296972855,
+        "note": "Retained fraction near 1.0 means content is preserved. Values below ~0.85 on edge/hairline metrics indicate over-smoothing."
+      },
+      "peak_suppression": {
+        "mean_reduction_db": 28.500928839817966,
+        "min_reduction_db": 28.500928839817966,
+        "all_reduced": true,
+        "note": "Reduction is the before/after ratio of a Hann-windowed DTFT evaluated at the exact detected screen frequency (matched filter), not the max of nearby FFT bins. 3 dB is the minimum meaningful drop; 12 dB indicates a clean notch. The conjugate amplitude is reported so a one-sided mask cannot pass."
+      }
+    }
+  ],
+  "boundary_continuity": {
+    "boundaries": [
+      {
+        "axis": "x",
+        "pos": 320,
+        "extent": [
+          480,
+          800
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -5.658774171024561e-06,
+          "level_hi": -1.8649152480065823e-05,
+          "delta": 1.2990378309041262e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.00677490746602416,
+          "level_hi": 0.009055208414793015,
+          "delta": 0.002280300948768854,
+          "significant": true,
+          "width_px": 12.0,
+          "width_over_feather": 1.0,
+          "single_step_fraction": 0.1344761997461319
+        },
+        "output_sharpness": {
+          "level_lo": 0.048378895968198776,
+          "level_hi": 0.056658320128917694,
+          "delta": 0.008279424160718918,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0052259801886975765,
+          "typical": 0.005558118224143982,
+          "ratio": 0.9402427292304874
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 640,
+        "extent": [
+          480,
+          800
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 6.70115405227989e-05,
+          "level_hi": -0.00012178561883047223,
+          "delta": 0.00018879715935327113,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.01108934823423624,
+          "level_hi": 0.00704855564981699,
+          "delta": 0.0040407925844192505,
+          "significant": true,
+          "width_px": 9.0,
+          "width_over_feather": 0.75,
+          "single_step_fraction": 0.13774937391281128
+        },
+        "output_sharpness": {
+          "level_lo": 0.04782404005527496,
+          "level_hi": 0.06107889860868454,
+          "delta": 0.013254858553409576,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0051691606640815735,
+          "typical": 0.007032777648419142,
+          "ratio": 0.7350098620327713
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 480,
+        "extent": [
+          320,
+          640
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -2.8341164579614997e-05,
+          "level_hi": 2.2481894120573997e-05,
+          "delta": 5.0823058700188994e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.008196092210710049,
+          "level_hi": 0.009256056509912014,
+          "delta": 0.0010599642992019653,
+          "significant": true,
+          "width_px": 18.0,
+          "width_over_feather": 1.5,
+          "single_step_fraction": 0.08948297798633575
+        },
+        "output_sharpness": {
+          "level_lo": 0.09929114580154419,
+          "level_hi": 0.02221881039440632,
+          "delta": 0.07707233540713787,
+          "significant": true,
+          "width_px": 7.0,
+          "width_over_feather": 0.5833333333333334,
+          "single_step_fraction": 0.3600693345069885
+        },
+        "coherent_delta_step": {
+          "edge": 0.004560055676847696,
+          "typical": 0.005196921061724424,
+          "ratio": 0.8774533507886771
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.35266804695129395
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 800,
+        "extent": [
+          320,
+          640
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -3.5648467019200325e-05,
+          "level_hi": 0.0,
+          "delta": 3.5648467019200325e-05,
+          "significant": true,
+          "width_px": 2.0,
+          "width_over_feather": 0.16666666666666666,
+          "single_step_fraction": 0.4160747230052948
+        },
+        "processing_magnitude": {
+          "level_lo": 0.010517355054616928,
+          "level_hi": 0.0,
+          "delta": 0.010517355054616928,
+          "significant": true,
+          "width_px": 18.0,
+          "width_over_feather": 1.5,
+          "single_step_fraction": 0.06207900121808052
+        },
+        "output_sharpness": {
+          "level_lo": 0.02263050153851509,
+          "level_hi": 0.02311260625720024,
+          "delta": 0.00048210471868515015,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0037613757885992527,
+          "typical": 0.003682628972455859,
+          "ratio": 1.0213833094099538
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 960,
+        "extent": [
+          480,
+          800
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -0.00027897628024220467,
+          "level_hi": -1.4417513739317656e-05,
+          "delta": 0.000264558766502887,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.0116814486682415,
+          "level_hi": 0.01172423455864191,
+          "delta": 4.27858904004097e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "output_sharpness": {
+          "level_lo": 0.04047562554478645,
+          "level_hi": 0.032516155391931534,
+          "delta": 0.00795947015285492,
+          "significant": true,
+          "width_px": 6.0,
+          "width_over_feather": 0.5,
+          "single_step_fraction": 0.6727883815765381
+        },
+        "coherent_delta_step": {
+          "edge": 0.008317490108311176,
+          "typical": 0.008402375504374504,
+          "ratio": 0.989897453890678
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.6731663346290588
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 480,
+        "extent": [
+          640,
+          960
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -1.5753263141959906e-05,
+          "level_hi": 5.480577237904072e-05,
+          "delta": 7.055903552100062e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.019229765981435776,
+          "level_hi": 0.016676390543580055,
+          "delta": 0.0025533754378557205,
+          "significant": true,
+          "width_px": 36.0,
+          "width_over_feather": 3.0,
+          "single_step_fraction": 0.055705804377794266
+        },
+        "output_sharpness": {
+          "level_lo": 0.0995510071516037,
+          "level_hi": 0.018972555175423622,
+          "delta": 0.08057845197618008,
+          "significant": true,
+          "width_px": 8.0,
+          "width_over_feather": 0.6666666666666666,
+          "single_step_fraction": 0.3595494031906128
+        },
+        "coherent_delta_step": {
+          "edge": 0.002133673755452037,
+          "typical": 0.0020742749329656363,
+          "ratio": 1.028635930997607
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.35711491107940674
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 800,
+        "extent": [
+          640,
+          960
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -9.249267168343067e-05,
+          "level_hi": 5.857972428202629e-05,
+          "delta": 0.00015107239596545696,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.012475625611841679,
+          "level_hi": 0.005847993306815624,
+          "delta": 0.006627632305026054,
+          "significant": true,
+          "width_px": 14.0,
+          "width_over_feather": 1.1666666666666667,
+          "single_step_fraction": 0.07924237847328186
+        },
+        "output_sharpness": {
+          "level_lo": 0.019419154152274132,
+          "level_hi": 0.019661542028188705,
+          "delta": 0.00024238787591457367,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0020885171834379435,
+          "typical": 0.002088941400870681,
+          "ratio": 0.9997969223887837
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 880,
+        "extent": [
+          580,
+          900
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 9.346730075776577e-05,
+          "level_hi": -6.47357665002346e-05,
+          "delta": 0.00015820306725800037,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.010112161748111248,
+          "level_hi": 0.01215580478310585,
+          "delta": 0.002043643034994602,
+          "significant": true,
+          "width_px": 12.0,
+          "width_over_feather": 1.0,
+          "single_step_fraction": 0.15366517007350922
+        },
+        "output_sharpness": {
+          "level_lo": 0.019455647096037865,
+          "level_hi": 0.018910348415374756,
+          "delta": 0.0005452986806631088,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.00712008960545063,
+          "typical": 0.007631789892911911,
+          "ratio": 0.9329514795882934
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 580,
+        "extent": [
+          880,
+          1200
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -2.580159343779087e-05,
+          "level_hi": 8.163135498762131e-05,
+          "delta": 0.00010743294842541218,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.010064611211419106,
+          "level_hi": 0.011929505504667759,
+          "delta": 0.0018648942932486534,
+          "significant": true,
+          "width_px": 19.0,
+          "width_over_feather": 1.5833333333333333,
+          "single_step_fraction": 0.08231893926858902
+        },
+        "output_sharpness": {
+          "level_lo": 0.019953880459070206,
+          "level_hi": 0.018999282270669937,
+          "delta": 0.0009545981884002686,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0032268266659229994,
+          "typical": 0.0031185965053737164,
+          "ratio": 1.034704754416942
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 640,
+        "extent": [
+          0,
+          320
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 0.0,
+          "level_hi": 8.627469651401043e-05,
+          "delta": 8.627469651401043e-05,
+          "significant": true,
+          "width_px": 16.0,
+          "width_over_feather": 1.3333333333333333,
+          "single_step_fraction": 0.08196703344583511
+        },
+        "processing_magnitude": {
+          "level_lo": 0.0,
+          "level_hi": 0.008121341466903687,
+          "delta": 0.008121341466903687,
+          "significant": true,
+          "width_px": 22.0,
+          "width_over_feather": 1.8333333333333333,
+          "single_step_fraction": 0.05438578873872757
+        },
+        "output_sharpness": {
+          "level_lo": 0.058083437383174896,
+          "level_hi": 0.049825530499219894,
+          "delta": 0.008257906883955002,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0003944119089283049,
+          "typical": 0.0004704800376202911,
+          "ratio": 0.8383183962594085
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 960,
+        "extent": [
+          0,
+          320
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 8.365054964087903e-05,
+          "level_hi": 0.0,
+          "delta": 8.365054964087903e-05,
+          "significant": true,
+          "width_px": 4.0,
+          "width_over_feather": 0.3333333333333333,
+          "single_step_fraction": 0.22580519318580627
+        },
+        "processing_magnitude": {
+          "level_lo": 0.012112180702388287,
+          "level_hi": 0.0,
+          "delta": 0.012112180702388287,
+          "significant": true,
+          "width_px": 17.0,
+          "width_over_feather": 1.4166666666666667,
+          "single_step_fraction": 0.062491703778505325
+        },
+        "output_sharpness": {
+          "level_lo": 0.06025848165154457,
+          "level_hi": 0.04140423610806465,
+          "delta": 0.01885424554347992,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.001159797189757228,
+          "typical": 0.0010111713781952858,
+          "ratio": 1.1469836545843999
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 320,
+        "extent": [
+          640,
+          960
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -6.667169509455562e-05,
+          "level_hi": 2.068234607577324e-05,
+          "delta": 8.735404117032886e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.011289229616522789,
+          "level_hi": 0.018351614475250244,
+          "delta": 0.007062384858727455,
+          "significant": true,
+          "width_px": 14.0,
+          "width_over_feather": 1.1666666666666667,
+          "single_step_fraction": 0.0889609307050705
+        },
+        "output_sharpness": {
+          "level_lo": 0.09699683636426926,
+          "level_hi": 0.019962677732110023,
+          "delta": 0.07703415863215923,
+          "significant": true,
+          "width_px": 8.0,
+          "width_over_feather": 0.6666666666666666,
+          "single_step_fraction": 0.3641760051250458
+        },
+        "coherent_delta_step": {
+          "edge": 0.0037385327741503716,
+          "typical": 0.004071346018463373,
+          "ratio": 0.9182547587312727
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.3608201742172241
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 160,
+        "extent": [
+          320,
+          640
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 0.0,
+          "level_hi": -2.1128100343048573e-05,
+          "delta": 2.1128100343048573e-05,
+          "significant": true,
+          "width_px": 5.0,
+          "width_over_feather": 0.4166666666666667,
+          "single_step_fraction": 0.23476839065551758
+        },
+        "processing_magnitude": {
+          "level_lo": 0.0,
+          "level_hi": 0.016008762642741203,
+          "delta": 0.016008762642741203,
+          "significant": true,
+          "width_px": 19.0,
+          "width_over_feather": 1.5833333333333333,
+          "single_step_fraction": 0.0589129701256752
+        },
+        "output_sharpness": {
+          "level_lo": 0.06919164955615997,
+          "level_hi": 0.06641469150781631,
+          "delta": 0.0027769580483436584,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0034754672087728977,
+          "typical": 0.004034055862575769,
+          "ratio": 0.8615317847933829
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 480,
+        "extent": [
+          320,
+          640
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 1.0495627066120505e-05,
+          "level_hi": 2.1089392248541117e-05,
+          "delta": 1.0593765182420611e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.010327121242880821,
+          "level_hi": 0.007883906364440918,
+          "delta": 0.0024432148784399033,
+          "significant": true,
+          "width_px": 10.0,
+          "width_over_feather": 0.8333333333333334,
+          "single_step_fraction": 0.1426592767238617
+        },
+        "output_sharpness": {
+          "level_lo": 0.056363776326179504,
+          "level_hi": 0.07238700985908508,
+          "delta": 0.01602323353290558,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.004815756808966398,
+          "typical": 0.005380164831876755,
+          "ratio": 0.8950946791330641
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 320,
+        "extent": [
+          160,
+          480
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 0.0,
+          "level_hi": -3.818538971245289e-05,
+          "delta": 3.818538971245289e-05,
+          "significant": true,
+          "width_px": 3.0,
+          "width_over_feather": 0.25,
+          "single_step_fraction": 0.3185071051120758
+        },
+        "processing_magnitude": {
+          "level_lo": 0.0,
+          "level_hi": 0.011984196491539478,
+          "delta": 0.011984196491539478,
+          "significant": true,
+          "width_px": 17.0,
+          "width_over_feather": 1.4166666666666667,
+          "single_step_fraction": 0.0648060068488121
+        },
+        "output_sharpness": {
+          "level_lo": 0.1013718917965889,
+          "level_hi": 0.022848591208457947,
+          "delta": 0.07852330058813095,
+          "significant": true,
+          "width_px": 7.0,
+          "width_over_feather": 0.5833333333333334,
+          "single_step_fraction": 0.36241838335990906
+        },
+        "coherent_delta_step": {
+          "edge": 0.005056900437921286,
+          "typical": 0.004816524684429169,
+          "ratio": 1.0499064614705995
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.3618290424346924
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 640,
+        "extent": [
+          160,
+          480
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 5.522510036826134e-06,
+          "level_hi": 1.0210322216153145e-05,
+          "delta": 4.687812179327011e-06,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.00864626094698906,
+          "level_hi": 0.007469764910638332,
+          "delta": 0.001176496036350727,
+          "significant": true,
+          "width_px": 6.0,
+          "width_over_feather": 0.5,
+          "single_step_fraction": 0.2249291092157364
+        },
+        "output_sharpness": {
+          "level_lo": 0.022232288494706154,
+          "level_hi": 0.022743239998817444,
+          "delta": 0.00051095150411129,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0055128103122115135,
+          "typical": 0.005691570695489645,
+          "ratio": 0.9685920879429856
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 800,
+        "extent": [
+          320,
+          640
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": 6.359792314469814e-05,
+          "level_hi": -0.0003298797528259456,
+          "delta": 0.00039347767597064376,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.007654513698071241,
+          "level_hi": 0.019162988290190697,
+          "delta": 0.011508474592119455,
+          "significant": true,
+          "width_px": 15.0,
+          "width_over_feather": 1.25,
+          "single_step_fraction": 0.10106339305639267
+        },
+        "output_sharpness": {
+          "level_lo": 0.055571649223566055,
+          "level_hi": 0.05038869008421898,
+          "delta": 0.005182959139347076,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.0076265279203653336,
+          "typical": 0.007871625013649464,
+          "ratio": 0.9688632192562084
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "x",
+        "pos": 1120,
+        "extent": [
+          320,
+          640
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -0.0002859003725461662,
+          "level_hi": -0.00014615035615861416,
+          "delta": 0.00013975001638755202,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.022603556513786316,
+          "level_hi": 0.004039934370666742,
+          "delta": 0.018563622143119574,
+          "significant": true,
+          "width_px": 17.0,
+          "width_over_feather": 1.4166666666666667,
+          "single_step_fraction": 0.07420872151851654
+        },
+        "output_sharpness": {
+          "level_lo": 0.055643051862716675,
+          "level_hi": 0.04229075461626053,
+          "delta": 0.013352297246456146,
+          "significant": true,
+          "width_px": 3.0,
+          "width_over_feather": 0.25,
+          "single_step_fraction": 0.3554977774620056
+        },
+        "coherent_delta_step": {
+          "edge": 0.0066649895161390305,
+          "typical": 0.0069483001716434956,
+          "ratio": 0.9592259102612484
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.35677823424339294
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 320,
+        "extent": [
+          800,
+          1120
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -0.00014398485654965043,
+          "level_hi": -0.00018346798606216908,
+          "delta": 3.9483129512518644e-05,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.007446896284818649,
+          "level_hi": 0.023119285702705383,
+          "delta": 0.015672389417886734,
+          "significant": true,
+          "width_px": 14.0,
+          "width_over_feather": 1.1666666666666667,
+          "single_step_fraction": 0.0764317736029625
+        },
+        "output_sharpness": {
+          "level_lo": 0.09862510114908218,
+          "level_hi": 0.020073302090168,
+          "delta": 0.07855179905891418,
+          "significant": true,
+          "width_px": 2.0,
+          "width_over_feather": 0.16666666666666666,
+          "single_step_fraction": 0.4935089945793152
+        },
+        "coherent_delta_step": {
+          "edge": 0.002874220721423626,
+          "typical": 0.0029796985909342766,
+          "ratio": 0.9646011732754649
+        },
+        "input_highfreq_transition": {
+          "significant": true,
+          "single_step_fraction": 0.4951573610305786
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      },
+      {
+        "axis": "y",
+        "pos": 640,
+        "extent": [
+          800,
+          1120
+        ],
+        "feather_px": 12.0,
+        "brightness": {
+          "level_lo": -8.028978481888771e-05,
+          "level_hi": 7.56715890020132e-05,
+          "delta": 0.00015596137382090092,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "processing_magnitude": {
+          "level_lo": 0.011812148615717888,
+          "level_hi": 0.012398955412209034,
+          "delta": 0.0005868067964911461,
+          "significant": true,
+          "width_px": 24.0,
+          "width_over_feather": 2.0,
+          "single_step_fraction": 0.09145870059728622
+        },
+        "output_sharpness": {
+          "level_lo": 0.019247688353061676,
+          "level_hi": 0.019058842211961746,
+          "delta": 0.0001888461410999298,
+          "significant": false,
+          "width_px": 0.0,
+          "width_over_feather": 0.0,
+          "single_step_fraction": 0.0
+        },
+        "coherent_delta_step": {
+          "edge": 0.004071890842169523,
+          "typical": 0.004408418666571379,
+          "ratio": 0.9236624800143884
+        },
+        "input_highfreq_transition": {
+          "significant": false,
+          "single_step_fraction": 0.0
+        },
+        "hard_transitions": [],
+        "seam_suspected": false
+      }
+    ],
+    "seam_suspected": false,
+    "hard_boundaries": 0,
+    "max_transition_width_px": 36.0,
+    "min_transition_ratio": 0.5,
+    "note": "For each region edge the processing delta's magnitude profile is measured along the edge. A smooth weight ramp yields a 10-90% transition comparable to feather_px; a per-block paste yields a one-pixel change and is flagged."
+  },
+  "warnings": [
+    "50% of the crop is outside every zone and the base strength is 0, so that area is not filtered at all. Extend the zones or raise the base strength if it also carries a screen."
+  ],
+  "elapsed_s": 4.688169717788696,
+  "inputs": {
+    "input_shape": [
+      900,
+      1200
+    ],
+    "suppressed_shape": [
+      900,
+      1200
+    ],
+    "output_shape": [
+      450,
+      600
+    ]
+  }
+}

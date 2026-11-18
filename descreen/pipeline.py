@@ -13,6 +13,7 @@ import numpy as np
 
 from .analysis import analyze_image, channel_array, spectrum_png, crop_overview_png
 from .metrics import (
+    boundary_continuity,
     color_registration,
     content_preservation,
     moire_after_resample,
@@ -22,9 +23,20 @@ from .metrics import (
 from .process import (
     area_resize,
     build_notch_specs,
+    coordinated_filter,
     frequency_notch,
     resample_plan,
     spatial_fir,
+)
+from .regions import (
+    composite_weights,
+    effective_strength,
+    group_signature,
+    output_regions,
+    region_boundaries,
+    weight_grid,
+    weight_heatmap,
+    weight_overlay,
 )
 from .synth import to_png_bytes
 
@@ -209,6 +221,284 @@ def run_pipeline(
     return result
 
 
+def _region_peak(p: dict) -> dict:
+    """Full peak record for a region peak, so metrics can use fx/fy."""
+    q = _manual_peak({"period_px": p["period_px"], "angle_deg": p["angle_deg"]})
+    q["classification"] = str(p.get("classification", "region"))
+    q["confidence"] = float(p.get("confidence", 0.0) or 0.0)
+    q["reasons"] = [str(p.get("source", "region parameter"))]
+    if p.get("basis_b"):
+        q["basis_b"] = p["basis_b"]
+    if p.get("lattice"):
+        q["lattice"] = p["lattice"]
+    return q
+
+
+def _region_group(gid: str, params: dict, peaks: list[dict],
+                  shape: tuple[int, int]) -> tuple[dict, list[dict]]:
+    specs, notes = build_notch_specs(
+        peaks,
+        harmonic_orders=tuple(params.get("harmonic_orders", [1, 2])),
+        radius_cyc_per_px=params.get("radius_cyc_per_px"),
+        apodization=float(params.get("apodization", 0.35)),
+        include_lattice_lines=bool(params.get("include_lattice_lines", True)),
+        analysis_shape=shape,
+    )
+    return {
+        "id": gid,
+        "method": params.get("method", "frequency_notch"),
+        "strength": float(params.get("strength", 1.0)),
+        "specs": specs,
+        "pad": params.get("pad"),
+        "feather": params.get("feather"),
+        "taps": params.get("taps"),
+        "peaks": peaks,
+    }, notes
+
+
+def run_region_pipeline(
+    rgb: np.ndarray,
+    regions: list[dict],
+    *,
+    roi: tuple[int, int, int, int] | None = None,
+    scale: float = 1.0,
+    base_strength: float = 0.0,
+    base_params: dict | None = None,
+    global_peaks: list[dict] | None = None,
+) -> dict:
+    """Region-coordinated suppression over the same crop as ``run_pipeline``.
+
+    ``regions`` arrive in absolute source-page coordinates.  They are rebound to
+    the ROI, so moving or resizing the ROI maps them correctly, and the weight
+    maps are computed at ROI resolution.  Identical parameter groups are
+    filtered once over the whole crop and blended by smooth weights; no block
+    is processed independently.
+    """
+    t0 = time.time()
+    x0, y0, rw, rh = roi if roi else (0, 0, rgb.shape[1], rgb.shape[0])
+    crop = np.asarray(rgb[y0:y0 + rh, x0:x0 + rw], dtype=np.float32)
+    shape = crop.shape[:2]
+
+    rebound = []
+    mapping_notes = []
+    for r in regions:
+        q = json.loads(json.dumps(r))
+        gx, gy, gw, gh = [float(v) for v in q["rect"]]
+        q["rect_page"] = [gx, gy, gw, gh]
+        q["rect"] = [gx - x0, gy - y0, gw, gh]
+        if (q["rect"][0] + q["rect"][2] <= 0 or q["rect"][1] + q["rect"][3] <= 0
+                or q["rect"][0] >= rw or q["rect"][1] >= rh):
+            q["clipped_to_roi"] = "outside"
+            mapping_notes.append(
+                f"{q['id']}: region lies outside the current ROI and contributes "
+                f"no pixels")
+        else:
+            q["clipped_to_roi"] = "partial" if (
+                q["rect"][0] < 0 or q["rect"][1] < 0
+                or q["rect"][0] + q["rect"][2] > rw
+                or q["rect"][1] + q["rect"][3] > rh) else "inside"
+        rebound.append(q)
+
+    weights = composite_weights(shape, rebound)
+    groups: dict[str, dict] = {}
+    group_notes: dict[str, list[dict]] = {}
+    group_peaks: dict[str, list[dict]] = {}
+    region_group: dict[str, str] = {}
+    region_peak_dicts: dict[str, list[dict]] = {}
+    region_issues: list[str] = []
+
+    for r in rebound:
+        rid = str(r["id"])
+        if not r.get("enabled", True):
+            region_issues.append(f"{rid}: disabled; its area is left to the base layer")
+            continue
+        peaks_in = r.get("peaks") or []
+        peak_dicts = [_region_peak(p) for p in peaks_in]
+        region_peak_dicts[rid] = peak_dicts
+        params = r.get("params") or {}
+        group, notes = _region_group("", params, peak_dicts, shape)
+        gid = f"g_{group_signature(params, group['specs'])}"
+        group["id"] = gid
+        if gid not in groups:
+            groups[gid] = group
+            group_notes[gid] = notes
+            group_peaks[gid] = peak_dicts
+        region_group[rid] = gid
+        if not peak_dicts:
+            region_issues.append(
+                f"{rid}: no peaks were applied; its area is left at the base "
+                f"strength ({base_strength:.2f})")
+
+    base_group = None
+    if base_strength > 0:
+        bp = dict(base_params or {})
+        bp["strength"] = float(base_strength)
+        base_peaks = [_region_peak(p) for p in (global_peaks or [])]
+        if base_peaks:
+            group, notes = _region_group("", bp, base_peaks, shape)
+            base_group = f"gbase_{group_signature(bp, group['specs'])}"
+            group["id"] = base_group
+            if base_group not in groups:
+                groups[base_group] = group
+                group_notes[base_group] = notes
+                group_peaks[base_group] = base_peaks
+        else:
+            region_issues.append(
+                "base strength > 0 but no global screen peaks are available; "
+                "the base layer stays unfiltered")
+
+    suppressed, proc_audit = coordinated_filter(
+        crop, weights, groups, region_group, base_group=base_group)
+
+    eff = effective_strength(
+        weights,
+        {str(r["id"]): float((r.get("params") or {}).get("strength", 1.0))
+         for r in rebound},
+        base_strength if base_group is not None else 0.0)
+
+    out, resize_audit = area_resize(suppressed, scale)
+
+    region_metrics = []
+    for r in rebound:
+        rid = str(r["id"])
+        if r.get("clipped_to_roi") == "outside":
+            region_metrics.append({"id": rid, "status": "outside_roi"})
+            continue
+        rx, ry, rw2, rh2 = [int(round(float(v))) for v in r["rect"]]
+        cx0, cy0 = max(0, rx), max(0, ry)
+        cx1, cy1 = min(shape[1], rx + rw2), min(shape[0], ry + rh2)
+        if cx1 - cx0 < 8 or cy1 - cy0 < 8:
+            region_metrics.append({"id": rid, "status": "too_small_to_measure"})
+            continue
+        before_r = crop[cy0:cy1, cx0:cx1]
+        after_r = suppressed[cy0:cy1, cx0:cx1]
+        wgt = weights["per_region"].get(rid)
+        row = {
+            "id": rid,
+            "status": "measured",
+            "rect_in_crop": [cx0, cy0, cx1 - cx0, cy1 - cy0],
+            # Mean over the region's own rectangle: a page-wide mean would
+            # report a small zone as "weakly weighted" even when it fully owns
+            # its own pixels. The page-wide figure is kept separately.
+            "mean_weight": float(wgt[cy0:cy1, cx0:cx1].mean())
+            if wgt is not None else 0.0,
+            "mean_weight_page": float(wgt.mean()) if wgt is not None else 0.0,
+            "min_weight_in_rect": float(wgt[cy0:cy1, cx0:cx1].min())
+            if wgt is not None else 0.0,
+            "strength": float((r.get("params") or {}).get("strength", 1.0)),
+            "method": (r.get("params") or {}).get("method", "frequency_notch"),
+            "peaks_applied": [{"period_px": p["period_px"],
+                               "angle_deg": p["angle_deg"]}
+                              for p in region_peak_dicts.get(rid, [])],
+            "content_preservation": content_preservation(before_r, after_r),
+        }
+        pk = region_peak_dicts.get(rid) or []
+        if pk:
+            row["peak_suppression"] = peak_suppression(before_r, after_r, pk)
+            row["peak_suppression"].pop("peaks", None)
+        region_metrics.append(row)
+
+    boundaries = region_boundaries(rebound, shape)
+    continuity = boundary_continuity(crop, suppressed, boundaries)
+
+    wgrid = weight_grid(weights, eff)
+    overlay, legend = weight_overlay(weights)
+    heat = weight_heatmap(eff)
+
+    warnings = list(region_issues)
+    uncovered = float(weights["base_fraction"])
+    if base_group is None and uncovered > 0.02:
+        warnings.append(
+            f"{uncovered * 100:.0f}% of the crop is outside every zone and the "
+            f"base strength is 0, so that area is not filtered at all. Extend "
+            f"the zones or raise the base strength if it also carries a screen.")
+    if continuity.get("seam_suspected"):
+        warnings.append(
+            "A region boundary step exceeds the continuity threshold; widen the "
+            "feather or reduce the strength difference between the two sides.")
+    for rm in region_metrics:
+        if rm.get("status") != "measured":
+            continue
+        cp = rm["content_preservation"]["worst_retained_fraction"]
+        if cp < 0.75:
+            warnings.append(
+                f"{rm['id']}: detail retention {cp:.2f} is low; reduce that "
+                f"region's strength or notch radius.")
+        ps = rm.get("peak_suppression") or {}
+        if ps.get("peaks") is not None and not ps.get("all_reduced", True):
+            warnings.append(
+                f"{rm['id']}: not every applied screen peak dropped > 3 dB.")
+        if rm["mean_weight"] < 0.5:
+            warnings.append(
+                f"{rm['id']}: over its own rectangle its weight averages only "
+                f"{rm['mean_weight']:.2f} (heavy overlap or a very narrow "
+                f"rectangle); the effective parameters there are a blend, not "
+                f"this region's alone.")
+
+    result = {
+        "mode": "region",
+        "roi": [int(x0), int(y0), int(rw), int(rh)],
+        "absolute_roi": [int(x0), int(y0), int(rw), int(rh)],
+        "scale": float(scale),
+        "base_strength": float(base_strength),
+        "regions": rebound,
+        "output_regions": output_regions(rebound, scale, offset=(x0, y0),
+                                         source_shape=shape),
+        "region_mapping": {
+            "binding": "region geometry is stored in absolute source-page pixels",
+            "roi_rebind": "rect_in_crop = rect_page - roi_origin",
+            "output_mapping": "rect_out = (rect_page) * scale",
+            "notes": mapping_notes + [
+                "changing the ROI re-binds regions; their page coordinates "
+                "do not silently drift"],
+            "region_count": len(rebound),
+        },
+        "weights": {
+            "grid": wgrid,
+            "legend": legend,
+            "sum_range": [weights["sum_min"], weights["sum_max"]],
+            "base_fraction": weights["base_fraction"],
+            "effective_strength_range": [float(eff.min()), float(eff.max())],
+            "rule": "w_raw = smooth rect * opacity; k = 1/max(1, sum raw); "
+                    "region = raw*k; base = 1 - sum(raw)*k",
+        },
+        "groups": [
+            {"id": gid,
+             "method": g["method"],
+             "strength": g["strength"],
+             "notch_count": len(g["specs"]),
+             "notch_specs": [s.__dict__ | {
+                 "center_fx": float(s.center()[0]),
+                 "center_fy": float(s.center()[1]),
+                 "resolved_radius_cyc_per_px": float(s.resolved_radius())}
+                 for s in g["specs"]],
+             "notes": group_notes.get(gid, [])}
+            for gid, g in groups.items()
+        ],
+        "processing_audit": proc_audit,
+        "resample_audit": resize_audit,
+        "resample_plan": resample_plan(scale),
+        "region_metrics": region_metrics,
+        "boundary_continuity": continuity,
+        "warnings": warnings,
+        "elapsed_s": float(time.time() - t0),
+        "inputs": {
+            "input_shape": list(shape),
+            "suppressed_shape": list(suppressed.shape[:2]),
+            "output_shape": list(out.shape[:2]),
+        },
+    }
+    result["_images"] = {
+        "input": crop,
+        "suppressed": suppressed,
+        "output": out,
+        "weight_heatmap": heat,
+        "weight_overlay": overlay,
+        "difference": _difference_image(crop, suppressed),
+    }
+    return result
+
+
 def _same_screen(a: dict, b: dict, *, period_tol: float = 0.05,
                  angle_tol: float = 5.0) -> bool:
     from .analysis import angle_diff
@@ -290,15 +580,28 @@ def _pipeline_warnings(accepted: list[dict], specs, metrics: dict) -> list[str]:
 
 def result_pngs(result: dict) -> dict[str, bytes]:
     imgs = result["_images"]
-    return {
+    out = {
         "input.png": to_png_bytes(imgs["input"]),
         "suppressed.png": to_png_bytes(imgs["suppressed"]),
         "output.png": to_png_bytes(imgs["output"]),
-        "spectrum.png": imgs["spectrum_png"],
-        "overview.png": imgs["overview_png"],
-        "difference.png": to_png_bytes(_difference_image(
-            imgs["input"], imgs["suppressed"])),
+        "difference.png": to_png_bytes(imgs.get("difference") if imgs.get("difference")
+                                       is not None else _difference_image(
+                                           imgs["input"], imgs["suppressed"])),
     }
+    if imgs.get("spectrum_png") is not None:
+        out["spectrum.png"] = imgs["spectrum_png"]
+    if imgs.get("overview_png") is not None:
+        out["overview.png"] = imgs["overview_png"]
+    if imgs.get("weight_heatmap") is not None:
+        out["weights.png"] = to_png_bytes(imgs["weight_heatmap"])
+    return out
+
+
+def result_overlay_png(result: dict) -> bytes | None:
+    img = result.get("_images", {}).get("weight_overlay")
+    if img is None:
+        return None
+    return to_png_bytes(img)
 
 
 def _difference_image(before: np.ndarray, after: np.ndarray) -> np.ndarray:
@@ -316,6 +619,15 @@ def _difference_image(before: np.ndarray, after: np.ndarray) -> np.ndarray:
 
 def result_json(result: dict) -> str:
     payload = {k: v for k, v in result.items() if not k.startswith("_")}
+    if isinstance(payload.get("weights"), dict):
+        # The per-pixel weight grid is preview data. The exported parameters
+        # keep the region geometry, feather and normalization rule, which are
+        # exactly what is needed to reproduce the same transition.
+        payload["weights"] = {k: v for k, v in payload["weights"].items()
+                              if k != "grid"}
+        payload["weights"]["grid_note"] = (
+            "per-pixel weight grid omitted from the export; recompute it from "
+            "regions, feather_px and the weight rule")
 
     def clean(obj):
         if isinstance(obj, dict):

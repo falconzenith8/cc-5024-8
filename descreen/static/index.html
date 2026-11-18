@@ -30,6 +30,8 @@
     <div class="canvas-wrap">
       <canvas id="source-canvas" width="640" height="480" aria-label="Source image. Drag to select a region."></canvas>
       <div id="roi-box" class="roi-box hidden"></div>
+      <div id="region-boxes"></div>
+      <img id="weight-overlay-canvas" class="weight-overlay hidden" alt="Zone weight overlay on the source">
     </div>
     <p class="hint">Drag on the image to choose the analysis region. The default is the whole image.</p>
     <div class="row">
@@ -78,8 +80,41 @@
     </details>
   </section>
 
+  <section class="panel" id="region-panel">
+    <h2>3 · Zones <span class="meta">(per-region parameters, blended)</span></h2>
+    <p class="meta">Zones let one page use different screens and strengths. Every
+      zone's filter runs over the whole crop and the results are blended by smooth
+      weights, so a boundary never shows a brightness or sharpness step. The
+      overlay draws those weights, not just rectangles.</p>
+    <div class="row">
+      <button id="suggest-regions">Suggest zones from screens</button>
+      <button id="clear-regions">Clear zones</button>
+      <label class="chk"><input type="checkbox" id="show-weights"> Show weight overlay</label>
+    </div>
+    <div id="suggest-notes" class="warnings"></div>
+    <div class="table-wrap">
+      <table id="regions-table">
+        <thead><tr>
+          <th>On</th><th>Name</th><th>Rect x, y, w, h (page px)</th><th>Feather</th>
+          <th>Opacity</th><th>Strength</th><th>Method</th><th>Status</th><th></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="row">
+      <button id="add-region">Add zone</button>
+      <button id="recompute-regions" disabled>Recompute changed zones</button>
+      <label class="chk"><input type="checkbox" id="deep-channels-regions"> Analyze R, G, B separately</label>
+    </div>
+    <div id="region-warnings" class="warnings"></div>
+    <p class="hint">Rectangles stay in page coordinates; changing the ROI or the
+      output scale maps them, it does not move them. "Recompute changed zones"
+      re-analyzes only zones you edited and those declared to depend on them;
+      zones the detector cannot measure keep their candidate seed peak and say so.</p>
+  </section>
+
   <section class="panel" id="process-panel">
-    <h2>3 · Suppression and resampling</h2>
+    <h2>4 · Suppression and resampling</h2>
     <div class="grid">
       <label>Method
         <select id="method">
@@ -99,6 +134,9 @@
       <label>Strength (0–1)
         <input id="strength" type="number" min="0" max="1" step="0.05" value="1">
       </label>
+      <label>Base strength outside zones (0–1, region mode)
+        <input id="base-strength" type="number" min="0" max="1" step="0.05" value="0">
+      </label>
       <label>Harmonics
         <select id="harmonics">
           <option value="1,2" selected>1 and 2</option>
@@ -116,19 +154,26 @@
       <label class="chk"><input type="checkbox" id="force-peaks"> Apply even if nothing auto-selected</label>
     </div>
     <button id="run" class="primary" disabled>Run pipeline</button>
+    <button id="run-regions" class="primary" disabled>Run zone pipeline</button>
     <p class="hint">Suppression is applied to all channels with the same mask, then
       resampling uses exact fractional area averaging. Edge metrics are measured
-      before resampling, so the resampling low-pass is not counted as descreen damage.</p>
+      before resampling, so the resampling low-pass is not counted as descreen damage.
+      The zone pipeline uses the zones above; the plain pipeline ignores them.</p>
   </section>
 
   <section class="panel" id="result-panel">
-    <h2>4 · Result</h2>
+    <h2>5 · Result</h2>
     <p id="result-summary" class="meta">Not run yet.</p>
     <div class="views">
       <figure><img id="result-input" alt="Input region"><figcaption>Input</figcaption></figure>
       <figure><img id="result-suppressed" alt="Suppressed, before resampling"><figcaption>Suppressed (pre-resample)</figcaption></figure>
       <figure><img id="result-output" alt="Final resampled output"><figcaption>Output (after area resampling)</figcaption></figure>
       <figure><img id="result-difference" alt="Difference map"><figcaption>Difference (amplified)</figcaption></figure>
+      <figure id="weights-figure" class="hidden">
+        <img id="result-weights" alt="Effective parameter weight map">
+        <figcaption>Effective strength weight (dark = 0, bright = 1) — the map
+          the export reproduces, not a preview-only effect</figcaption>
+      </figure>
     </div>
     <div class="grid two">
       <div>
@@ -141,7 +186,9 @@
           <button id="download-json">Download parameters (.json)</button>
           <button id="download-output">Download output (.png)</button>
           <button id="download-suppressed">Download suppressed (.png)</button>
+          <button id="download-weights" class="hidden">Download weight map (.png)</button>
         </div>
+        <p id="weight-readout" class="meta"></p>
         <pre id="audit" class="audit"></pre>
       </div>
     </div>

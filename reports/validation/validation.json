@@ -30,7 +30,7 @@
         },
         "note": "flat tone + known screen; used for period/angle scoring"
       },
-      "analysis_seconds": 2.407,
+      "analysis_seconds": 4.301,
       "expected": {
         "screens": [
           {
@@ -139,7 +139,7 @@
         },
         "note": "flat tone + known screen; used for period/angle scoring"
       },
-      "analysis_seconds": 2.802,
+      "analysis_seconds": 2.712,
       "expected": {
         "screens": [
           {
@@ -248,7 +248,7 @@
         },
         "note": "flat tone + known screen; used for period/angle scoring"
       },
-      "analysis_seconds": 2.282,
+      "analysis_seconds": 3.066,
       "expected": {
         "screens": [
           {
@@ -353,7 +353,7 @@
         "screen": null,
         "note": "sharp text, 1 px hairlines, diagonal hairlines, tone patches"
       },
-      "analysis_seconds": 0.958,
+      "analysis_seconds": 1.243,
       "expected": {
         "screens": [],
         "should_select": false
@@ -449,7 +449,7 @@
         },
         "note": "sharp text, 1 px hairlines, diagonal hairlines, tone patches"
       },
-      "analysis_seconds": 2.436,
+      "analysis_seconds": 4.191,
       "expected": {
         "screens": [
           {
@@ -599,7 +599,7 @@
         ],
         "note": "woven fabric with real 9.0/12.5 px repeats; not a screen"
       },
-      "analysis_seconds": 0.795,
+      "analysis_seconds": 0.956,
       "expected": {
         "screens": [],
         "should_select": false
@@ -703,7 +703,7 @@
         ],
         "note": "woven fabric with real 9.0/12.5 px repeats; not a screen"
       },
-      "analysis_seconds": 1.623,
+      "analysis_seconds": 2.299,
       "expected": {
         "screens": [
           {
@@ -850,7 +850,7 @@
         "screen": null,
         "note": "continuous tone; no periodic screen was applied"
       },
-      "analysis_seconds": 0.812,
+      "analysis_seconds": 1.002,
       "expected": {
         "screens": [],
         "should_select": false
@@ -954,7 +954,7 @@
         },
         "note": "continuous tone; no periodic screen was applied"
       },
-      "analysis_seconds": 1.7,
+      "analysis_seconds": 1.815,
       "expected": {
         "screens": [
           {
@@ -1113,7 +1113,7 @@
         ],
         "note": "three independently rotated screens; hard color edges"
       },
-      "analysis_seconds": 4.716,
+      "analysis_seconds": 6.005,
       "expected": {
         "screens": [
           {

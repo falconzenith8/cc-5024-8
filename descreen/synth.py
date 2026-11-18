@@ -268,6 +268,96 @@ def make_known_screen_fixture(
     return out, meta
 
 
+def make_two_frequency_fixture(
+    shape: tuple[int, int] = (900, 1200),
+    *,
+    split: int | None = None,
+    left_screen: ScreenSpec = ScreenSpec(6.0, 33.0, 0.16),
+    right_screen: ScreenSpec = ScreenSpec(9.5, 12.0, 0.17),
+    seed: int = 21,
+) -> tuple[np.ndarray, dict]:
+    """One page with two different screens and text crossing the junction.
+
+    This is the region-coordination test page: the left part carries one
+    screen and the right part another, and the same words run continuously
+    across the boundary.  A per-block paste produces a visible step there; a
+    coordinated, smoothly weighted composite must not.
+
+    The clean variant returns the identical artwork without any screen, which
+    is the honest reference for text-detail retention.
+    """
+    h, w = shape
+    split = int(w * 0.55) if split is None else int(split)
+    meta = _two_frequency_art(shape, split, seed)
+    clean = meta.pop("_image")
+    left = dot_screen(clean.shape, left_screen, clean)
+    right = dot_screen(clean.shape, right_screen, clean)
+    page = left.copy()
+    page[:, split:] = right[:, split:]
+    meta["kind"] = "two_frequency"
+    meta["split_x"] = int(split)
+    meta["screens"] = [
+        {"region": "left", "rect": [0, 0, split, h], **_spec_dict(left_screen)},
+        {"region": "right", "rect": [split, 0, w - split, h],
+         **_spec_dict(right_screen)},
+    ]
+    meta["note"] = "two different screens; text and rules cross the junction"
+    return page.astype(np.float32), meta
+
+
+def make_two_frequency_clean(
+    shape: tuple[int, int] = (900, 1200),
+    *,
+    split: int | None = None,
+    seed: int = 21,
+) -> tuple[np.ndarray, dict]:
+    """Same artwork as :func:`make_two_frequency_fixture`, without screens."""
+    h, w = shape
+    split = int(w * 0.55) if split is None else int(split)
+    meta = _two_frequency_art(shape, split, seed)
+    return meta.pop("_image"), meta
+
+
+def _two_frequency_art(shape: tuple[int, int], split: int,
+                       seed: int) -> dict:
+    h, w = shape
+    img = Image.new("L", (w, h), 240)
+    d = ImageDraw.Draw(img)
+    body = _font(30)
+    small = _font(17)
+    d.text((48, 40), "Two screen frequencies, one continuous line",
+           font=_font(46), fill=20)
+    for i in range(7):
+        y = 130 + i * 52
+        d.text((48, y), "The quick brown fox jumps over the lazy dog "
+                        "while the press runs at full speed.", font=body, fill=22)
+    baseline = 130 + 7 * 52 + 12
+    d.line([(30, baseline), (w - 30, baseline)], fill=8, width=2)
+    d.line([(30, baseline + 12), (w - 30, baseline + 12)], fill=8, width=1)
+    d.text((48, baseline + 28),
+           "Hairline grid and 9 pt text must stay resolved on both sides "
+           "of the screen change.", font=small, fill=26)
+    for i in range(14):
+        x = 48 + i * 72
+        d.line([(x, baseline + 62), (x + 52, baseline + 62)], fill=10, width=1)
+    d.line([(split, 90), (split, baseline + 90)], fill=14, width=1)
+    rng = np.random.default_rng(seed)
+    tone = np.asarray(img, dtype=np.float32) / 255.0
+    tone = np.clip(tone + rng.normal(0.0, 0.004, tone.shape).astype(np.float32),
+                   0.0, 1.0)
+    return {
+        "kind": "two_frequency_clean",
+        "screens": [],
+        "note": "two-screen test artwork without a screen",
+        "_image": tone,
+    }
+
+
+def _spec_dict(spec: ScreenSpec) -> dict:
+    return {"period_px": spec.period_px, "angle_deg": spec.angle_deg,
+            "amplitude": spec.amplitude}
+
+
 def to_png_bytes(arr: np.ndarray) -> bytes:
     if arr.dtype != np.uint8:
         arr8 = np.clip(arr * 255.0 + 0.5, 0, 255).astype(np.uint8)

@@ -1,0 +1,102 @@
+{
+  "source_shape": [
+    900,
+    1200
+  ],
+  "target_shape": [
+    450,
+    600
+  ],
+  "regions": [
+    {
+      "id": "left",
+      "expected_rect": [
+        0.0,
+        0.0,
+        330.0,
+        450.0
+      ],
+      "mapped_rect": [
+        0.0,
+        0.0,
+        330.0,
+        450.0
+      ],
+      "max_abs_delta_px": 0.0,
+      "feather_expected": 14.0,
+      "feather_mapped": 14.0
+    },
+    {
+      "id": "right",
+      "expected_rect": [
+        330.0,
+        0.0,
+        270.0,
+        450.0
+      ],
+      "mapped_rect": [
+        330.0,
+        0.0,
+        270.0,
+        450.0
+      ],
+      "max_abs_delta_px": 0.0,
+      "feather_expected": 14.0,
+      "feather_mapped": 14.0
+    }
+  ],
+  "max_abs_delta_px": 0.0,
+  "feather_scaled_correctly": true,
+  "weight_sum_range_after_mapping": [
+    1.0,
+    1.0
+  ],
+  "roi_rebind": [
+    {
+      "id": "left",
+      "rect_page": [
+        0.0,
+        0.0,
+        330.0,
+        450.0
+      ],
+      "rect_in_crop": [
+        -150.0,
+        -90.0,
+        330.0,
+        450.0
+      ],
+      "expected_rect_in_crop": [
+        -150.0,
+        -90.0,
+        330.0,
+        450.0
+      ]
+    },
+    {
+      "id": "right",
+      "rect_page": [
+        330.0,
+        0.0,
+        270.0,
+        450.0
+      ],
+      "rect_in_crop": [
+        180.0,
+        -90.0,
+        270.0,
+        450.0
+      ],
+      "expected_rect_in_crop": [
+        180.0,
+        -90.0,
+        270.0,
+        450.0
+      ]
+    }
+  ],
+  "roi_rebind_ok": true,
+  "ok": true,
+  "note": "Zone rectangles are multiplied by the size ratio and feathers by sqrt(sx*sy); the mapped zones must land on the same content. Running through a cropped ROI subtracts the ROI origin without moving the content a zone owns.",
+  "all_ok": true
+}

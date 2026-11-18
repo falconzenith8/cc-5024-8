@@ -401,6 +401,342 @@ def seam_check(img: np.ndarray, *, reference: np.ndarray | None = None) -> dict:
     return out
 
 
+def band_detail_retention(candidate: np.ndarray, reference: np.ndarray,
+                          bands: list[dict], *, half_width: int = 24) -> dict:
+    """Detail retention measured only inside thin bands around region edges.
+
+    Whole-image retention hides a local seam: the damaged strip is a small
+    fraction of the page. This measures the same edge/hairline statistics in
+    the bands where region transitions actually happen, against the clean
+    artwork, so a seam that smears text in a narrow strip is visible.
+    """
+    a = _channel_luma(candidate)
+    b = _channel_luma(reference)
+    if a.shape != b.shape:
+        raise ValueError("band_detail_retention expects equal shapes")
+    mask = np.zeros(a.shape, dtype=bool)
+    h, w = a.shape
+    for band in bands:
+        axis, pos = band["axis"], int(band["pos"])
+        lo = max(0, int(band.get("lo", 0)))
+        hi = int(band.get("hi", h if axis == "x" else w))
+        if axis == "x":
+            mask[lo:min(h, hi), max(0, pos - half_width):min(w, pos + half_width)] = True
+        else:
+            mask[max(0, pos - half_width):min(h, pos + half_width), lo:min(w, hi)] = True
+
+    if mask.sum() < 64:
+        return {"note": "no band pixels", "edge_slope_retention": None}
+
+    ref_gx = ndimage.sobel(b, axis=1)
+    ref_gy = ndimage.sobel(b, axis=0)
+    ref_g = np.hypot(ref_gx, ref_gy)
+    thr = max(float(np.percentile(ref_g[mask], 90)), 0.12 * float(ref_g.max()))
+    inner = mask & (ref_g >= thr)
+    if inner.sum() < 32:
+        inner = mask & (ref_g >= 0.5 * float(ref_g.max()))
+    cand_g = np.hypot(ndimage.sobel(a, axis=1), ndimage.sobel(a, axis=0))
+    true_edge = float(ref_g[inner].mean()) if inner.size else 0.0
+    got_edge = float(cand_g[inner].mean()) if inner.size else 0.0
+    blur_a = ndimage.gaussian_filter(a, 2.0)
+    blur_b = ndimage.gaussian_filter(b, 2.0)
+    acut_true = float(np.abs(b - blur_b)[inner].mean()) if inner.size else 0.0
+    acut_got = float(np.abs(a - blur_a)[inner].mean()) if inner.size else 0.0
+    return {
+        "pixels": int(mask.sum()),
+        "edge_pixels": int(inner.sum()),
+        "edge_slope_retention": got_edge / max(true_edge, 1e-9),
+        "edge_acutance_retention": acut_got / max(acut_true, 1e-9),
+        "note": "Detail statistics measured only within +-half_width of the "
+                "declared region edges, against the clean artwork.",
+    }
+
+
+def boundary_continuity(before: np.ndarray, after: np.ndarray,
+                        boundaries: list[dict], *,
+                        default_feather: float = 12.0,
+                        trim: float = 0.1) -> dict:
+    """Seam test for region-composited output.
+
+    A hard paste of independently filtered blocks changes the image abruptly
+    at the block edge: the amount of processing (and therefore the sharpness
+    and residual texture) differs on the two sides and flips within a pixel.
+    A smooth weight ramp spreads exactly that change over the feather width.
+
+    Each boundary is measured on profiles taken *along* the edge:
+    ``mean`` (brightness) and ``rms`` of the processing delta ``after-before``,
+    plus RMS of the output's own high-pass detail.  For each profile the two
+    plateau levels are read at the ends, and when they genuinely differ the
+    10%-90% transition width is measured.  A transition much narrower than the
+    declared feather is a hard seam; a transition comparable to the feather is
+    the intended smooth blend.
+
+    ``boundaries`` entries are ``{"axis": "x"|"y", "pos": int,
+    "lo": int, "hi": int}`` with an optional ``feather_px``.  ``pos`` is the
+    first pixel of the second side and ``lo..hi`` is the measured extent along
+    the edge.
+    """
+    yb = _channel_luma(before)
+    ya = _channel_luma(after)
+    if yb.shape != ya.shape:
+        raise ValueError("boundary_continuity expects equal shapes")
+    d = ya - yb
+    h, w = d.shape
+
+    rows = []
+    for b in boundaries:
+        axis = b["axis"]
+        pos = int(b["pos"])
+        lo, hi = int(b["lo"]), int(b["hi"])
+        feather = float(b.get("feather_px", default_feather) or default_feather)
+        half_band = int(max(24, round(2.0 * feather)))
+        n = w if axis == "x" else h
+        start = max(0, pos - half_band)
+        stop = min(n, pos + half_band)
+        if stop - start < 8:
+            continue
+        span = hi - lo
+        lo_t = lo + int(round(trim * span))
+        hi_t = hi - int(round(trim * span))
+        if hi_t - lo_t < 4:
+            lo_t, hi_t = lo, hi
+
+        profiles = _edge_profiles(d, ya, axis, start, stop, lo_t, hi_t,
+                                  edge_idx=pos - start)
+        input_profiles = _edge_profiles(
+            np.zeros_like(yb), yb, axis, start, stop, lo_t, hi_t,
+            edge_idx=pos - start)
+        if profiles is None:
+            continue
+
+        def width_of(prof: np.ndarray) -> dict:
+            return _transition(prof, profiles["edge_idx"], feather)
+
+        mean_w = width_of(profiles["mean"])
+        rms_w = width_of(profiles["rms"])
+        out_w = width_of(profiles["out_rms"])
+        out_in_w = (width_of(input_profiles["out_rms"]) if input_profiles
+                    else {"significant": False})
+
+        # Coherent step: a filter seam shifts *every* row at the same position,
+        # while genuine content (a letter stroke crossing the edge) touches only
+        # a few rows. Average |step| over the edge extent, aligned per row, and
+        # compare with the same statistic beside the edge. Content averages
+        # down; a coherent seam does not.
+        aligned = _aligned_step(d, axis, pos, lo_t, hi_t, start, stop)
+
+        hard = []
+        if _concentrated(mean_w):
+            hard.append("brightness")
+        if _concentrated(rms_w):
+            hard.append("processing_magnitude")
+        # Output sharpness is only a seam if it flips in one pixel *and* the
+        # input did not already have a sharpness step there. The synthetic
+        # direction change splices two real screen phases together, so the
+        # input itself carries a step at that edge; that is content, not a
+        # processing seam.
+        input_already_hard = bool(
+            out_in_w.get("significant")
+            and out_in_w.get("single_step_fraction", 0.0) >= 0.5)
+        if _concentrated(out_w) and not input_already_hard:
+            hard.append("output_sharpness")
+        if aligned["ratio"] > 4.0:
+            hard.append("coherent_delta_step")
+        hard = sorted(set(hard))
+
+        rows.append({
+            "axis": axis,
+            "pos": pos,
+            "extent": [lo, hi],
+            "feather_px": feather,
+            "brightness": _summ(mean_w),
+            "processing_magnitude": _summ(rms_w),
+            "output_sharpness": _summ(out_w),
+            "coherent_delta_step": aligned,
+            "input_highfreq_transition": {
+                "significant": bool(out_in_w.get("significant", False)),
+                "single_step_fraction": float(out_in_w.get(
+                    "single_step_fraction", 0.0)),
+            },
+            "hard_transitions": hard,
+            "seam_suspected": bool(hard),
+        })
+
+    if not rows:
+        return {"boundaries": [], "seam_suspected": False,
+                "max_transition_width_px": 0.0,
+                "min_transition_ratio": 0.0,
+                "hard_boundaries": 0,
+                "note": "no measurable interior region boundaries"}
+    widths = [r["processing_magnitude"]["width_px"] for r in rows
+              if r["processing_magnitude"]["significant"]]
+    ratios = [r["processing_magnitude"]["width_px"] / max(r["feather_px"], 1e-6)
+              for r in rows if r["processing_magnitude"]["significant"]]
+    hard_count = sum(1 for r in rows if r["seam_suspected"])
+    return {
+        "boundaries": rows,
+        "seam_suspected": bool(hard_count),
+        "hard_boundaries": hard_count,
+        "max_transition_width_px": float(max(widths)) if widths else 0.0,
+        "min_transition_ratio": float(min(ratios)) if ratios else 0.0,
+        "note": "For each region edge the processing delta's magnitude profile "
+                "is measured along the edge. A smooth weight ramp yields a "
+                "10-90% transition comparable to feather_px; a per-block paste "
+                "yields a one-pixel change and is flagged.",
+    }
+
+
+def _summ(info: dict) -> dict:
+    return {
+        "level_lo": float(info["level_lo"]),
+        "level_hi": float(info["level_hi"]),
+        "delta": float(info["delta"]),
+        "significant": bool(info["significant"]),
+        "width_px": float(info["width_px"]),
+        "width_over_feather": float(info["width_over_feather"]),
+        "single_step_fraction": float(info["single_step_fraction"]),
+    }
+
+
+def _concentrated(info: dict) -> bool:
+    """Is the change concentrated in one pixel rather than spread out?
+
+    A smooth ramp of width ``feather`` spreads the change over many columns;
+    its largest single step is a small fraction of the total. A hard paste puts
+    nearly the whole change into one step. At least 5% of the total must be
+    present for the profile to count as having a real transition at all.
+    """
+    return bool(info["significant"]
+                and info["single_step_fraction"] >= 0.5)
+
+
+def _aligned_step(plane: np.ndarray, axis: str, pos: int, lo: int, hi: int,
+                  start: int, stop: int) -> dict:
+    """Coherent step across an edge, averaged over the edge extent.
+
+    For every line along the edge, the step at the edge column is compared with
+    the mean step a few pixels away. A filter seam shifts every line at the
+    same column, so it survives the average; image content does not.
+    """
+    if axis == "x":
+        block = plane[lo:hi, start:stop]
+        edge_local = pos - start
+        if block.size == 0 or edge_local <= 1 or edge_local >= block.shape[1] - 1:
+            return {"edge": 0.0, "typical": 0.0, "ratio": 1.0}
+        at_edge = np.abs(block[:, edge_local] - block[:, edge_local - 1])
+        mask = np.ones(block.shape[1] - 1, dtype=bool)
+        mask[max(0, edge_local - 3):min(block.shape[1] - 1, edge_local + 2)] = False
+        far = np.abs(np.diff(block, axis=1))[:, mask]
+    else:
+        block = plane[start:stop, lo:hi]
+        edge_local = pos - start
+        if block.size == 0 or edge_local <= 1 or edge_local >= block.shape[0] - 1:
+            return {"edge": 0.0, "typical": 0.0, "ratio": 1.0}
+        at_edge = np.abs(block[edge_local, :] - block[edge_local - 1, :])
+        mask = np.ones(block.shape[0] - 1, dtype=bool)
+        mask[max(0, edge_local - 3):min(block.shape[0] - 1, edge_local + 2)] = False
+        far = np.abs(np.diff(block, axis=0))[mask, :]
+    edge = float(np.mean(at_edge)) if at_edge.size else 0.0
+    typical = float(np.mean(far)) if far.size else 0.0
+    return {"edge": edge, "typical": typical,
+            "ratio": (edge + 1e-9) / (typical + 1e-9) if typical > 0 else 1.0}
+
+
+def _edge_profiles(delta: np.ndarray, after: np.ndarray, axis: str,
+                   start: int, stop: int, lo: int, hi: int,
+                   edge_idx: int) -> dict | None:
+    """Profiles across a boundary, averaged along the edge direction."""
+    if delta.shape != after.shape:
+        return None
+    hp = after - ndimage.gaussian_filter(after, 1.0)
+    if axis == "x":
+        sl = (slice(lo, hi), slice(start, stop))
+    else:
+        sl = (slice(start, stop), slice(lo, hi))
+    sub = delta[sl]
+    sub_hp = hp[sl]
+    if sub.size == 0:
+        return None
+    if axis == "x":
+        mean = sub.mean(axis=0)
+        rms = np.sqrt((sub ** 2).mean(axis=0))
+        out_rms = np.sqrt((sub_hp ** 2).mean(axis=0))
+    else:
+        mean = sub.mean(axis=1)
+        rms = np.sqrt((sub ** 2).mean(axis=1))
+        out_rms = np.sqrt((sub_hp ** 2).mean(axis=1))
+    if mean.size < 8:
+        return None
+    return {
+        "mean": mean,
+        "rms": rms,
+        "out_rms": out_rms,
+        "edge_idx": int(edge_idx),
+    }
+
+
+def _transition(prof: np.ndarray, edge_idx: int | None,
+                feather: float) -> dict:
+    """Plateau levels and the 10-90% transition width of a profile.
+
+    The transition is measured as the distance between the last sample at the
+    low plateau and the first sample at the high plateau. ``single_step_fraction``
+    is the largest one-pixel change inside that window divided by the total
+    change across it: a smooth ramp spreads the change over many pixels
+    (small fraction), a hard paste does nearly all of it in one step (~1).
+    """
+    n = prof.size
+    third = max(2, n // 5)
+    level_lo = float(np.median(prof[:third]))
+    level_hi = float(np.median(prof[-third:]))
+    delta = abs(level_hi - level_lo)
+    far = np.concatenate([np.abs(np.diff(prof[:third])),
+                          np.abs(np.diff(prof[-third:]))])
+    noise = float(np.median(far)) if far.size else 0.0
+    significant = bool(delta > max(4.0 * noise, 1e-5))
+    width = 0.0
+    single_frac = 0.0
+    if significant:
+        low, high = min(level_lo, level_hi), max(level_lo, level_hi)
+        t10 = low + 0.10 * (high - low)
+        t90 = low + 0.90 * (high - low)
+        rising = level_hi > level_lo
+        # Use the *inner* crossing on each side (nearest the middle) so a
+        # broad, smooth ramp is measured between its 10% and 90% points rather
+        # than clipped by a single noisy sample at the far end.
+        mid = n // 2
+        if rising:
+            lows = np.flatnonzero(prof <= t10)
+            highs = np.flatnonzero(prof >= t90)
+            a_i = int(lows[lows < mid][-1]) if np.any(lows < mid) else 0
+            after = highs[highs > a_i]
+            b_i = int(after[0]) if after.size else n - 1
+        else:
+            highs = np.flatnonzero(prof >= t90)
+            lows = np.flatnonzero(prof <= t10)
+            a_i = int(highs[highs < mid][-1]) if np.any(highs < mid) else 0
+            after = lows[lows > a_i]
+            b_i = int(after[0]) if after.size else n - 1
+        width = float(max(1, b_i - a_i))
+        seg = prof[max(0, a_i - 1):min(n, b_i + 2)]
+        if seg.size >= 2:
+            steps = np.abs(np.diff(seg))
+            total = float(steps.sum())
+            single_frac = float(steps.max() / total) if total > 1e-12 else 1.0
+        else:
+            single_frac = 1.0
+    return {
+        "level_lo": level_lo,
+        "level_hi": level_hi,
+        "delta": delta,
+        "significant": significant,
+        "width_px": width,
+        "width_over_feather": width / max(feather, 1e-6),
+        "noise": noise,
+        "single_step_fraction": float(single_frac),
+    }
+
+
 def spectrum_peak_change(before: np.ndarray, after: np.ndarray,
                          *, band: tuple[float, float] = (1 / 32, 1 / 2.5)) -> dict:
     """Broadband high-frequency energy change, for an at-a-glance comparison."""

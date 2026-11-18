@@ -212,7 +212,176 @@ function assert(cond, msg) {
   await page.screenshot({ path: path.join(OUT, "05-clean-no-false-positive.png"),
     fullPage: true });
 
-  console.log("9. console clean");
+  console.log("9. zone pipeline: suggest, recompute, run, weights");
+  await page.selectOption("#fixture-select", "two_frequency");
+  await page.click("#load-fixture");
+  await page.waitForFunction(() =>
+    document.querySelector("#source-meta").textContent.includes("two_frequency"));
+  await page.waitForFunction(() =>
+    document.querySelector("#source-canvas").width > 100);
+
+  await page.click("#suggest-regions");
+  await page.waitForFunction(() =>
+    !document.querySelector("#suggest-regions").disabled &&
+    document.querySelectorAll("#regions-table tbody tr").length > 0,
+    { timeout: 240000 });
+  const suggested = await page.$$eval("#regions-table tbody tr", (trs) =>
+    trs.filter((tr) => tr.children.length > 3).map((tr) => ({
+      status: tr.children[7].textContent.trim(),
+      rect: [...tr.children[2].querySelectorAll("input")].map((i) => i.value),
+    })));
+  console.log("   suggested zones:", JSON.stringify(suggested));
+  assert(suggested.length >= 1, "suggest produced at least one candidate zone");
+  assert(suggested.every((s) => /candidate|pending/.test(s.status)),
+    "suggestions are labelled candidates, not confirmed regions");
+  const notes = await page.textContent("#suggest-notes");
+  assert(/candidate|not a recognised page layout/i.test(notes),
+    "page states that suggestions need confirmation");
+
+  console.log("9a. recompute dirty zones");
+  await page.click("#recompute-regions");
+  await page.waitForFunction(() =>
+    !document.querySelector("#recompute-regions").disabled,
+    { timeout: 240000 });
+  const afterRecompute = await page.textContent("#regions-table tbody");
+  assert(afterRecompute.length > 0, "zone table still rendered after recompute");
+
+  console.log("9b. run the zone pipeline");
+  await page.fill("#scale", "0.5");
+  await page.fill("#base-strength", "0");
+  await page.click("#run-regions");
+  await page.waitForFunction(() =>
+    !document.querySelector("#run-regions").disabled &&
+    document.querySelector("#result-summary").textContent.includes("zone-coordinated"),
+    { timeout: 240000 });
+  const zoneSummary = await page.textContent("#result-summary");
+  console.log("   result-summary:", zoneSummary);
+  assert(/zone-coordinated/.test(zoneSummary), "result comes from the zone pipeline");
+
+  const zoneRows = await page.$$eval("#metrics-table tbody tr", (trs) =>
+    trs.map((tr) => [tr.children[0].textContent, tr.children[1].textContent]));
+  console.log("   zone metrics:", JSON.stringify(zoneRows, null, 1));
+  const wsum = zoneRows.find(([k]) => /Weight sum range/.test(k));
+  assert(wsum && /1\.000[–-]1\.000/.test(wsum[1]),
+    "normalized weights sum to 1 (partition of unity)");
+  const hard = zoneRows.find(([k]) => /Hard boundaries/.test(k));
+  assert(hard && /none/.test(hard[1]),
+    "no hard zone boundary in the coordinated composite");
+  const zoneRow = zoneRows.find(([k]) => /^Zone .*weight/.test(k));
+  assert(zoneRow, "per-zone weight and detail retention are shown");
+
+  console.log("9c. parameter weight is displayed, not just boxes");
+  await page.check("#show-weights");
+  const overlayVisible = await page.isVisible("#weight-overlay-canvas");
+  assert(overlayVisible, "weight overlay is drawn over the source");
+  const overlayOk = await page.evaluate(async () => {
+    const el = document.querySelector("#weight-overlay-canvas");
+    if (!el.src.startsWith("data:image/png;base64,")) return false;
+    await el.decode();
+    return el.naturalWidth > 8 && el.naturalHeight > 8;
+  });
+  assert(overlayOk, "overlay image decodes to an actual weight raster");
+  const boxes = await page.$$eval("#region-boxes .region-box", (b) => b.length);
+  assert(boxes >= 1, "zone rectangles are drawn over the source too");
+  assert(await page.isVisible("#weights-figure"),
+    "effective-strength weight map is shown in the result panel");
+
+  const cboxEl = page.locator("#source-canvas");
+  await cboxEl.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(120);
+  const cbox = await cboxEl.boundingBox();
+  // Hover the centre of the first suggested zone, so a real per-zone weight is
+  // reported rather than an uncovered pixel.
+  const firstRect = await page.evaluate(() =>
+    [...document.querySelectorAll("#regions-table tbody tr")]
+      .filter((tr) => tr.children.length > 3)
+      .map((tr) => [...tr.children[2].querySelectorAll("input")].map((i) => Number(i.value)))[0]);
+  const fullW = await page.evaluate(() => document.querySelector("#source-canvas").width);
+  const fullH = await page.evaluate(() => document.querySelector("#source-canvas").height);
+  const cx = cbox.x + (firstRect[0] + firstRect[2] / 2) * cbox.width / fullW;
+  const cy = cbox.y + (firstRect[1] + firstRect[3] / 2) * cbox.height / fullH;
+  await page.mouse.move(cx, cy);
+  await page.waitForTimeout(150);
+  const readout = await page.textContent("#weight-readout");
+  console.log("   weight readout:", readout);
+  assert(/effective strength/.test(readout) &&
+    /constituent zone weights/.test(readout) &&
+    /auto-1 [0-9]/.test(readout),
+    "hovering reports the per-zone weight at that pixel");
+  await page.screenshot({ path: path.join(OUT, "06-zones.png"), fullPage: true });
+
+  console.log("9d. zone export reproduces the transitions");
+  const dlWeights = page.waitForEvent("download");
+  await page.click("#download-weights");
+  const weightsDl = await dlWeights;
+  const weightsPath = path.join(OUT, "descreen-weights.png");
+  await weightsDl.saveAs(weightsPath);
+  assert(fs.statSync(weightsPath).size > 1000, "weight map exported as a real PNG");
+
+  const dlZoneJson = page.waitForEvent("download");
+  await page.click("#download-json");
+  const zoneJsonDl = await dlZoneJson;
+  const zoneJsonPath = path.join(OUT, "descreen-zones.json");
+  await zoneJsonDl.saveAs(zoneJsonPath);
+  const zj = JSON.parse(fs.readFileSync(zoneJsonPath, "utf8"));
+  assert(zj.mode === "region", "exported JSON records the region mode");
+  assert(zj.weights && zj.weights.rule && zj.weights.grid_note,
+    "exported JSON carries the weight rule and a grid note");
+  assert(!zj.weights.grid, "heavy per-pixel grid is omitted from the export");
+  assert(Array.isArray(zj.regions) && zj.regions.every((q) => q.rect_page),
+    "each exported zone keeps its page-coordinate binding");
+  assert(zj.region_mapping && zj.region_mapping.binding,
+    "exported JSON documents the coordinate binding");
+
+  console.log("9e. candidate confirmation, add/clear, invalid input");
+  const confirmBtn = page.locator("#regions-table button", { hasText: "confirm" }).first();
+  await confirmBtn.click();
+  await page.waitForTimeout(150);
+  const firstStatus = await page.evaluate(() => {
+    const tr = [...document.querySelectorAll("#regions-table tbody tr")]
+      .find((t) => t.children.length > 3);
+    return tr.children[7].textContent.trim();
+  });
+  assert(/^confirmed/.test(firstStatus),
+    "confirming a candidate changes its status to confirmed");
+
+  await page.click("#add-region");
+  const addedRows = await page.$$eval("#regions-table tbody tr",
+    (trs) => trs.filter((t) => t.children.length > 3).length);
+  assert(addedRows === 7, "add zone appends exactly one editable zone");
+
+  const badPeaks = page.locator("#regions-table .region-peaks-row input").last();
+  await badPeaks.fill("abc");
+  await badPeaks.dispatchEvent("change");
+  await page.waitForTimeout(150);
+  const badBanner = await page.textContent("#banner");
+  assert(/period@angle/.test(badBanner),
+    "invalid screen text is rejected with an explanation");
+  assert(await page.evaluate(() => document.querySelector("#banner").classList.contains("error")),
+    "the rejection is shown as an error, not silently dropped");
+
+  await page.click("#clear-regions");
+  const clearedRows = await page.$$eval("#regions-table tbody tr",
+    (trs) => trs.filter((t) => t.children.length > 3).length);
+  assert(clearedRows === 0, "clear zones removes every zone");
+  assert(await page.evaluate(() => document.querySelector("#run-regions").disabled),
+    "run is disabled when there are no zones");
+
+  console.log("9f. failures feed back into the page");
+  // Re-create a zone so the run button is available again.
+  await page.click("#add-region");
+  await page.fill("#base-strength", "0.4");
+  await page.click("#run-regions");
+  await page.waitForFunction(() =>
+    document.querySelector("#banner").classList.contains("error"),
+    { timeout: 60000 });
+  const errBanner = await page.textContent("#banner");
+  console.log("   banner:", errBanner);
+  assert(/analysis|global_peaks|explicit screen/i.test(errBanner),
+    "base strength without an analysis is rejected with an explanation");
+  await page.fill("#base-strength", "0");
+
+  console.log("10. console clean");
   assert(consoleErrors.length === 0,
     "no console errors (" + JSON.stringify(consoleErrors) + ")");
 

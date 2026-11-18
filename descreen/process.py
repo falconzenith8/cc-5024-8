@@ -509,6 +509,95 @@ def spatial_fir(
     }
 
 
+def coordinated_filter(
+    image: np.ndarray,
+    weights: dict,
+    groups: dict[str, dict],
+    region_group: dict[str, str],
+    *,
+    base_group: str | None = None,
+) -> tuple[np.ndarray, dict]:
+    """Composite whole-page filtered candidates with smooth region weights.
+
+    Each distinct parameter group is filtered over the *entire* image first.
+    That is what keeps pixels just across a region boundary honest: the filter
+    support always reads real neighbouring pixels, never a separately filtered
+    block.  The candidates are then blended by normalized weights.
+
+    ``groups`` maps group id -> ``{"method", "specs", "strength", "pad",
+    "feather", "taps"}``.  ``region_group`` maps region id -> group id.
+    ``base_group`` optionally filters the uncovered base layer; ``None`` leaves
+    it as the original (identity) image.
+    """
+    arr = np.asarray(image, dtype=np.float32)
+    h, w = arr.shape[:2]
+    if weights["base"].shape != (h, w):
+        raise ValueError("weights shape does not match the image")
+
+    candidates: dict[str, np.ndarray] = {}
+    audits: dict[str, dict] = {}
+    for gid, g in groups.items():
+        specs = g.get("specs") or []
+        method = g.get("method", "frequency_notch")
+        strength = float(g.get("strength", 1.0))
+        if not specs or strength <= 0.0:
+            candidates[gid] = arr.copy()
+            audits[gid] = {"method": method, "notches": [],
+                           "note": "identity candidate: no notch or zero strength"}
+            continue
+        if method == "spatial_fir":
+            cand, audit = spatial_fir(arr, specs, taps=g.get("taps"),
+                                      strength=strength)
+        elif method == "frequency_notch":
+            cand, audit = frequency_notch(arr, specs, pad=g.get("pad"),
+                                          feather=g.get("feather"),
+                                          strength=strength)
+        else:
+            raise ValueError(f"unknown method {method!r}")
+        candidates[gid] = cand
+        audits[gid] = audit
+
+    if base_group is not None:
+        base_candidate = candidates[base_group]
+    else:
+        base_candidate = arr
+
+    out = base_candidate * weights["base"][..., None] if arr.ndim == 3 else (
+        base_candidate * weights["base"])
+    per_region_weight: dict[str, float] = {}
+    for rid, wgt in weights["per_region"].items():
+        gid = region_group.get(rid)
+        if gid is None:
+            raise ValueError(f"region {rid!r} has no filter group")
+        cand = candidates[gid]
+        out = out + (cand * wgt[..., None] if arr.ndim == 3 else cand * wgt)
+        per_region_weight[rid] = float(wgt.mean())
+    out = np.clip(out.astype(np.float32), 0.0, 1.0)
+
+    group_rows = []
+    for gid, g in groups.items():
+        used = [rid for rid, rg in region_group.items() if rg == gid]
+        group_rows.append({
+            "group": gid,
+            "method": g.get("method", "frequency_notch"),
+            "strength": float(g.get("strength", 1.0)),
+            "regions": used,
+            "notch_count": len(g.get("specs") or []),
+        })
+    return out, {
+        "mode": "region_coordinated",
+        "groups": group_rows,
+        "candidate_passes": len(candidates),
+        "base_group": base_group,
+        "weight_sum_range": [weights["sum_min"], weights["sum_max"]],
+        "base_fraction": weights["base_fraction"],
+        "mean_region_weight": per_region_weight,
+        "group_audits": audits,
+        "note": "Every group was filtered over the whole image; the composite is "
+                "a normalized weighted blend. No region was filtered in isolation.",
+    }
+
+
 def _area_weights(n_in: int, n_out: int) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Exact area-overlap spans for one axis.
 

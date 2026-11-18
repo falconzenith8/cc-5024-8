@@ -1,0 +1,684 @@
+{
+  "scenarios": 4,
+  "all_coordinated_no_hard_seam": true,
+  "all_ok": true,
+  "naive_control_flagged": 3,
+  "coordinated_hard_boundaries": 0,
+  "results": [
+    {
+      "name": "text_across_two_screens",
+      "description": "one body of text crosses 6 px/33 deg on the left and 9.5 px/12 deg on the right",
+      "scale": 1.0,
+      "coordinated": {
+        "hard_boundaries": 0,
+        "seam_suspected": false,
+        "boundaries_measured": 1,
+        "min_transition_ratio": 0.39285714285714285,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 660,
+            "processing_width_px": 11.0,
+            "processing_single_step_fraction": 0.09828703850507736,
+            "hard": []
+          }
+        ]
+      },
+      "naive_per_block": {
+        "hard_boundaries": 1,
+        "seam_suspected": true,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 660,
+            "processing_width_px": 1.0,
+            "processing_single_step_fraction": 0.979930579662323,
+            "hard": [
+              "processing_magnitude"
+            ]
+          }
+        ]
+      },
+      "no_hard_seam": true,
+      "naive_has_hard_seam": true,
+      "text_retention": {
+        "coordinated_edge_slope": 0.6592146818175804,
+        "screened_input_edge_slope": 0.6630689166010308,
+        "naive_edge_slope": 0.6590453169428248,
+        "coordinated_acutance": 0.6718764432241844,
+        "screened_input_acutance": 0.6752626044225153,
+        "naive_acutance": 0.6717633292291705,
+        "psnr_vs_clean_db": 16.483320402350664,
+        "naive_psnr_vs_clean_db": 16.480877389234823
+      },
+      "seam_band_retention": {
+        "half_width_px": 40,
+        "edge_pixels": 7200,
+        "coordinated_edge_slope": 0.6541206032417772,
+        "naive_edge_slope": 0.6528480916110501,
+        "screened_input_edge_slope": 0.6612812912116334,
+        "coordinated_acutance": 0.6600004195710623,
+        "naive_acutance": 0.6593042718004021,
+        "screened_input_acutance": 0.6647250732264901,
+        "note": "Detail retention restricted to +-40 px of the region edges. Both implementations preserve text here; they differ in boundary continuity, not in local detail loss."
+      },
+      "regions": [
+        {
+          "id": "left",
+          "mean_weight": 0.9963943362236023,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 6.0,
+              "angle_deg": 33.0
+            }
+          ],
+          "worst_detail_retention": 0.9845375651316308,
+          "suppression_db": 73.73334073513867
+        },
+        {
+          "id": "right",
+          "mean_weight": 0.9946680068969727,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 9.5,
+              "angle_deg": 12.0
+            }
+          ],
+          "worst_detail_retention": 0.9796635559699128,
+          "suppression_db": 57.052421119385244
+        }
+      ],
+      "weight_sum_range": [
+        1.0,
+        1.0
+      ],
+      "base_fraction": 4.967053990334591e-10,
+      "export_fidelity": {
+        "matches": true,
+        "max_abs_weight_delta": 0.0,
+        "grid_omitted": true,
+        "rule_exported": "w_raw = smooth rect * opacity; k = 1/max(1, sum raw); region = raw*k; base = 1 - sum(raw)*k",
+        "regions_rebuilt": 2,
+        "note": "Weights were rebuilt from the exported JSON alone and compared with the run's weight grid; a small delta means the export reproduces the previewed transition."
+      },
+      "ok": true
+    },
+    {
+      "name": "local_screen_direction_change",
+      "description": "a 620x200 patch rotates its screen from 33 deg to 78 deg; the surrounding page stays at 33 deg",
+      "scale": 1.0,
+      "coordinated": {
+        "hard_boundaries": 0,
+        "seam_suspected": false,
+        "boundaries_measured": 4,
+        "min_transition_ratio": 0.7692307692307693,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 170,
+            "processing_width_px": 28.0,
+            "processing_single_step_fraction": 0.07169640064239502,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 790,
+            "processing_width_px": 20.0,
+            "processing_single_step_fraction": 0.09503714740276337,
+            "hard": []
+          },
+          {
+            "axis": "y",
+            "pos": 250,
+            "processing_width_px": 28.0,
+            "processing_single_step_fraction": 0.06577149033546448,
+            "hard": []
+          },
+          {
+            "axis": "y",
+            "pos": 450,
+            "processing_width_px": 33.0,
+            "processing_single_step_fraction": 0.07198842614889145,
+            "hard": []
+          }
+        ]
+      },
+      "naive_per_block": {
+        "hard_boundaries": 0,
+        "seam_suspected": false,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 170,
+            "processing_width_px": 4.0,
+            "processing_single_step_fraction": 0.30243682861328125,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 790,
+            "processing_width_px": 22.0,
+            "processing_single_step_fraction": 0.05330987274646759,
+            "hard": []
+          },
+          {
+            "axis": "y",
+            "pos": 250,
+            "processing_width_px": 9.0,
+            "processing_single_step_fraction": 0.10756312310695648,
+            "hard": []
+          },
+          {
+            "axis": "y",
+            "pos": 450,
+            "processing_width_px": 31.0,
+            "processing_single_step_fraction": 0.06460926681756973,
+            "hard": []
+          }
+        ]
+      },
+      "no_hard_seam": true,
+      "naive_has_hard_seam": false,
+      "text_retention": {
+        "coordinated_edge_slope": 0.6706305383689694,
+        "screened_input_edge_slope": 0.6714775517522215,
+        "naive_edge_slope": 0.6706323617003173,
+        "coordinated_acutance": 0.6713051825407494,
+        "screened_input_acutance": 0.672655286603167,
+        "naive_acutance": 0.6712982844638296,
+        "psnr_vs_clean_db": 16.72792635088896,
+        "naive_psnr_vs_clean_db": 16.731202934876066
+      },
+      "seam_band_retention": {
+        "half_width_px": 40,
+        "edge_pixels": 11521,
+        "coordinated_edge_slope": 0.6762055174040086,
+        "naive_edge_slope": 0.6760794124018782,
+        "screened_input_edge_slope": 0.6768653671416781,
+        "coordinated_acutance": 0.6765769042348596,
+        "naive_acutance": 0.6764023300736383,
+        "screened_input_acutance": 0.6772166112934441,
+        "note": "Detail retention restricted to +-40 px of the region edges. Both implementations preserve text here; they differ in boundary continuity, not in local detail loss."
+      },
+      "regions": [
+        {
+          "id": "surround",
+          "mean_weight": 0.9112876653671265,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 6.0,
+              "angle_deg": 33.0
+            }
+          ],
+          "worst_detail_retention": 0.9851318273306608,
+          "suppression_db": 27.714627155091502
+        },
+        {
+          "id": "band",
+          "mean_weight": 0.4903688430786133,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 6.0,
+              "angle_deg": 78.0
+            }
+          ],
+          "worst_detail_retention": 0.9786139374365195,
+          "suppression_db": 6.047009114918824
+        }
+      ],
+      "weight_sum_range": [
+        0.9999999403953552,
+        1.0000001192092896
+      ],
+      "base_fraction": 7.818142799820293e-10,
+      "export_fidelity": {
+        "matches": true,
+        "max_abs_weight_delta": 0.0,
+        "grid_omitted": true,
+        "rule_exported": "w_raw = smooth rect * opacity; k = 1/max(1, sum raw); region = raw*k; base = 1 - sum(raw)*k",
+        "regions_rebuilt": 2,
+        "note": "Weights were rebuilt from the exported JSON alone and compared with the run's weight grid; a small delta means the export reproduces the previewed transition."
+      },
+      "ok": true
+    },
+    {
+      "name": "overlapping_regions",
+      "description": "two regions share a 240 px strip; the overlap is normalized and still filters the whole crop",
+      "scale": 1.0,
+      "coordinated": {
+        "hard_boundaries": 0,
+        "seam_suspected": false,
+        "boundaries_measured": 3,
+        "min_transition_ratio": 0.225,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 780,
+            "processing_width_px": 65.0,
+            "processing_single_step_fraction": 0.034501709043979645,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 540,
+            "processing_width_px": 22.0,
+            "processing_single_step_fraction": 0.06331067532300949,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 660,
+            "processing_width_px": 9.0,
+            "processing_single_step_fraction": 0.10470790416002274,
+            "hard": []
+          }
+        ]
+      },
+      "naive_per_block": {
+        "hard_boundaries": 1,
+        "seam_suspected": true,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 780,
+            "processing_width_px": 62.0,
+            "processing_single_step_fraction": 0.04938556253910065,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 540,
+            "processing_width_px": 14.0,
+            "processing_single_step_fraction": 0.1359749138355255,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 660,
+            "processing_width_px": 1.0,
+            "processing_single_step_fraction": 0.979930579662323,
+            "hard": [
+              "processing_magnitude"
+            ]
+          }
+        ]
+      },
+      "no_hard_seam": true,
+      "naive_has_hard_seam": true,
+      "text_retention": {
+        "coordinated_edge_slope": 0.6595608630644596,
+        "screened_input_edge_slope": 0.6630689166010308,
+        "naive_edge_slope": 0.6590453169428248,
+        "coordinated_acutance": 0.6720716404765426,
+        "screened_input_acutance": 0.6752626044225153,
+        "naive_acutance": 0.6717633292291705,
+        "psnr_vs_clean_db": 16.48520363157611,
+        "naive_psnr_vs_clean_db": 16.480877389234823
+      },
+      "seam_band_retention": {
+        "half_width_px": 40,
+        "edge_pixels": 21600,
+        "coordinated_edge_slope": 0.6577921919290639,
+        "naive_edge_slope": 0.6553653247463201,
+        "screened_input_edge_slope": 0.6619391770128279,
+        "coordinated_acutance": 0.6648385029920186,
+        "naive_acutance": 0.6632854313246412,
+        "screened_input_acutance": 0.668131040950541,
+        "note": "Detail retention restricted to +-40 px of the region edges. Both implementations preserve text here; they differ in boundary continuity, not in local detail loss."
+      },
+      "regions": [
+        {
+          "id": "left",
+          "mean_weight": 0.8428845405578613,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 6.0,
+              "angle_deg": 33.0
+            }
+          ],
+          "worst_detail_retention": 0.9892376275472967,
+          "suppression_db": 22.58244052068712
+        },
+        {
+          "id": "right",
+          "mean_weight": 0.81330806016922,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 9.5,
+              "angle_deg": 12.0
+            }
+          ],
+          "worst_detail_retention": 0.9836925978154107,
+          "suppression_db": 18.47785565869878
+        }
+      ],
+      "weight_sum_range": [
+        0.9999999403953552,
+        1.0000001192092896
+      ],
+      "base_fraction": 7.947286162490741e-10,
+      "export_fidelity": {
+        "matches": true,
+        "max_abs_weight_delta": 0.0,
+        "grid_omitted": true,
+        "rule_exported": "w_raw = smooth rect * opacity; k = 1/max(1, sum raw); region = raw*k; base = 1 - sum(raw)*k",
+        "regions_rebuilt": 2,
+        "note": "Weights were rebuilt from the exported JSON alone and compared with the run's weight grid; a small delta means the export reproduces the previewed transition."
+      },
+      "ok": true
+    },
+    {
+      "name": "very_narrow_region",
+      "description": "a 14 px wide strip with its own reduced strength inside the left screen; no hard edge may appear",
+      "scale": 1.0,
+      "coordinated": {
+        "hard_boundaries": 0,
+        "seam_suspected": false,
+        "boundaries_measured": 7,
+        "min_transition_ratio": 0.375,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 660,
+            "processing_width_px": 11.0,
+            "processing_single_step_fraction": 0.09828703850507736,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 300,
+            "processing_width_px": 20.0,
+            "processing_single_step_fraction": 0.12148134410381317,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 314,
+            "processing_width_px": 18.0,
+            "processing_single_step_fraction": 0.19283178448677063,
+            "hard": []
+          },
+          {
+            "axis": "y",
+            "pos": 100,
+            "processing_width_px": 3.0,
+            "processing_single_step_fraction": 0.2832258641719818,
+            "hard": []
+          },
+          {
+            "axis": "y",
+            "pos": 600,
+            "processing_width_px": 7.0,
+            "processing_single_step_fraction": 0.2429930865764618,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 300,
+            "processing_width_px": 20.0,
+            "processing_single_step_fraction": 0.12148134410381317,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 314,
+            "processing_width_px": 18.0,
+            "processing_single_step_fraction": 0.19283178448677063,
+            "hard": []
+          }
+        ]
+      },
+      "naive_per_block": {
+        "hard_boundaries": 5,
+        "seam_suspected": true,
+        "per_boundary": [
+          {
+            "axis": "x",
+            "pos": 660,
+            "processing_width_px": 1.0,
+            "processing_single_step_fraction": 0.979930579662323,
+            "hard": [
+              "processing_magnitude"
+            ]
+          },
+          {
+            "axis": "x",
+            "pos": 300,
+            "processing_width_px": 20.0,
+            "processing_single_step_fraction": 0.4992319643497467,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 314,
+            "processing_width_px": 18.0,
+            "processing_single_step_fraction": 0.9103221893310547,
+            "hard": [
+              "processing_magnitude"
+            ]
+          },
+          {
+            "axis": "y",
+            "pos": 100,
+            "processing_width_px": 1.0,
+            "processing_single_step_fraction": 0.9643625020980835,
+            "hard": [
+              "processing_magnitude"
+            ]
+          },
+          {
+            "axis": "y",
+            "pos": 600,
+            "processing_width_px": 1.0,
+            "processing_single_step_fraction": 0.9127737879753113,
+            "hard": [
+              "processing_magnitude"
+            ]
+          },
+          {
+            "axis": "x",
+            "pos": 300,
+            "processing_width_px": 20.0,
+            "processing_single_step_fraction": 0.4992319643497467,
+            "hard": []
+          },
+          {
+            "axis": "x",
+            "pos": 314,
+            "processing_width_px": 18.0,
+            "processing_single_step_fraction": 0.9103221893310547,
+            "hard": [
+              "processing_magnitude"
+            ]
+          }
+        ]
+      },
+      "no_hard_seam": true,
+      "naive_has_hard_seam": true,
+      "text_retention": {
+        "coordinated_edge_slope": 0.6592177459847224,
+        "screened_input_edge_slope": 0.6630689166010308,
+        "naive_edge_slope": 0.6590415563740596,
+        "coordinated_acutance": 0.6718770481118582,
+        "screened_input_acutance": 0.6752626044225153,
+        "naive_acutance": 0.6717505056104844,
+        "psnr_vs_clean_db": 16.483322992481845,
+        "naive_psnr_vs_clean_db": 16.480745330717028
+      },
+      "seam_band_retention": {
+        "half_width_px": 40,
+        "edge_pixels": 12012,
+        "coordinated_edge_slope": 0.6612161886876059,
+        "naive_edge_slope": 0.6604454297945486,
+        "screened_input_edge_slope": 0.6658528606626727,
+        "coordinated_acutance": 0.6673320569906188,
+        "naive_acutance": 0.6670776730641446,
+        "screened_input_acutance": 0.6706850367473063,
+        "note": "Detail retention restricted to +-40 px of the region edges. Both implementations preserve text here; they differ in boundary continuity, not in local detail loss."
+      },
+      "regions": [
+        {
+          "id": "left",
+          "mean_weight": 0.9898926615715027,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 6.0,
+              "angle_deg": 33.0
+            }
+          ],
+          "worst_detail_retention": 0.9844566893311745,
+          "suppression_db": 39.233275867947725
+        },
+        {
+          "id": "narrow",
+          "mean_weight": 0.46615177392959595,
+          "strength": 0.35,
+          "peaks_applied": [
+            {
+              "period_px": 6.0,
+              "angle_deg": 33.0
+            }
+          ],
+          "worst_detail_retention": 0.9912693617768689,
+          "suppression_db": 9.041418584549021
+        },
+        {
+          "id": "right",
+          "mean_weight": 0.9946680068969727,
+          "strength": 1.0,
+          "peaks_applied": [
+            {
+              "period_px": 9.5,
+              "angle_deg": 12.0
+            }
+          ],
+          "worst_detail_retention": 0.9796635559699128,
+          "suppression_db": 57.052421119385244
+        }
+      ],
+      "weight_sum_range": [
+        1.0,
+        1.0
+      ],
+      "base_fraction": 5.527778790259674e-10,
+      "export_fidelity": {
+        "matches": true,
+        "max_abs_weight_delta": 0.0,
+        "grid_omitted": true,
+        "rule_exported": "w_raw = smooth rect * opacity; k = 1/max(1, sum raw); region = raw*k; base = 1 - sum(raw)*k",
+        "regions_rebuilt": 3,
+        "note": "Weights were rebuilt from the exported JSON alone and compared with the run's weight grid; a small delta means the export reproduces the previewed transition."
+      },
+      "ok": true
+    }
+  ],
+  "source_size_mapping": {
+    "source_shape": [
+      900,
+      1200
+    ],
+    "target_shape": [
+      450,
+      600
+    ],
+    "regions": [
+      {
+        "id": "left",
+        "expected_rect": [
+          0.0,
+          0.0,
+          330.0,
+          450.0
+        ],
+        "mapped_rect": [
+          0.0,
+          0.0,
+          330.0,
+          450.0
+        ],
+        "max_abs_delta_px": 0.0,
+        "feather_expected": 14.0,
+        "feather_mapped": 14.0
+      },
+      {
+        "id": "right",
+        "expected_rect": [
+          330.0,
+          0.0,
+          270.0,
+          450.0
+        ],
+        "mapped_rect": [
+          330.0,
+          0.0,
+          270.0,
+          450.0
+        ],
+        "max_abs_delta_px": 0.0,
+        "feather_expected": 14.0,
+        "feather_mapped": 14.0
+      }
+    ],
+    "max_abs_delta_px": 0.0,
+    "feather_scaled_correctly": true,
+    "weight_sum_range_after_mapping": [
+      1.0,
+      1.0
+    ],
+    "roi_rebind": [
+      {
+        "id": "left",
+        "rect_page": [
+          0.0,
+          0.0,
+          330.0,
+          450.0
+        ],
+        "rect_in_crop": [
+          -150.0,
+          -90.0,
+          330.0,
+          450.0
+        ],
+        "expected_rect_in_crop": [
+          -150.0,
+          -90.0,
+          330.0,
+          450.0
+        ]
+      },
+      {
+        "id": "right",
+        "rect_page": [
+          330.0,
+          0.0,
+          270.0,
+          450.0
+        ],
+        "rect_in_crop": [
+          180.0,
+          -90.0,
+          270.0,
+          450.0
+        ],
+        "expected_rect_in_crop": [
+          180.0,
+          -90.0,
+          270.0,
+          450.0
+        ]
+      }
+    ],
+    "roi_rebind_ok": true,
+    "ok": true,
+    "note": "Zone rectangles are multiplied by the size ratio and feathers by sqrt(sx*sy); the mapped zones must land on the same content. Running through a cropped ROI subtracts the ROI origin without moving the content a zone owns.",
+    "all_ok": true
+  }
+}
